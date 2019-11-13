@@ -97,8 +97,8 @@
             <table id="example3" class="display" style="width:100%">
                 <thead>
                 <tr>
-                    <th>Mentor</th>
                     <th>Project</th>
+                    <th>Mentor</th>
                     <th>From Date</th>
                     <th>To Date</th>
                     <th>Hours</th>
@@ -106,7 +106,6 @@
                 </tr>
                 </thead>
                 <tbody>
-
                 </tbody>
 
             </table>
@@ -410,8 +409,9 @@
     <script>
 
         function timesheet(id,external_mentors) {
+
             // Get the modal
-            if(external_mentor){
+            if(external_mentors){
                 var external_mentor = JSON.parse(external_mentors);
                 console.log(external_mentor);
             }

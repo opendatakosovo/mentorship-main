@@ -10,7 +10,8 @@ function get_mentor_name($id)
 {
     $mentor = \App\Client::find($id);
 
-    if ($mentor) {
+    if ($mentor != '') {
+
         return $mentor->name . ' ' . $mentor->lastname;
     }
 
@@ -46,16 +47,16 @@ function convert_to_json_mentors($data)
 {
 
     $data_converted = unserialize($data);
+    $data = [];
 
 
     foreach ($data_converted as $d) {
         $mentor = \App\Client::find($d);
         if ($mentor) {
-            $data = array(
-                $d => $mentor->name
-            );
+            $data[] = $mentor->name;
         }
     }
+
     return json_encode($data);
 }
 
