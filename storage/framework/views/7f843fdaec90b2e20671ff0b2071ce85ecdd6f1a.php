@@ -1,0 +1,1 @@
+<?php /**PATH C:\xampp\htdocs\lavalite\website\resources\views/vendor/filer/editor.blade.php ENDPATH**/ ?>
