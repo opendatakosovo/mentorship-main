@@ -6,8 +6,13 @@
         $total_projects = get_projects_count('total');
         $timesheets = get_timesheets_all();
         $total_working_hours = get_working_hours_all();
-        }else{
-            $active_projects = get_active_projects_all();
+
+        }elseif(is_admin(user()->email) == 'true'){
+            $active_projects = get_projects_count_own(user()->email,'active');
+             $finnished_projects = get_projects_count_own(user()->email,'finnished');
+            $total_projects = get_projects_count_own(user()->email,'total');
+            $timesheets = get_timesheets_all_own(user()->email);
+            $total_working_hours = get_working_hours_all_own(user()->email);
         }
 @endphp
 <link media="all" type="text/css" rel="stylesheet" href="/themes/client/assets/css/app.css">
@@ -94,6 +99,7 @@
                                         <th>From Date</th>
                                         <th>To date</th>
                                         <th>Working Hours</th>
+                                        <th>Created By</th>
                                         <th>Created at</th>
                                     </tr>
                                     </thead>
@@ -105,6 +111,7 @@
                                         <td>{{$timesheet->from_date}}</td>
                                         <td>{{$timesheet->to_date}}</td>
                                         <td>{{$timesheet->hours}}</td>
+                                        <td>{{get_local_mentor_name($timesheet->created_by)}}</td>
                                         <td>{{$timesheet->created_at}}</td>
                                     </tr>
                                     @endforeach

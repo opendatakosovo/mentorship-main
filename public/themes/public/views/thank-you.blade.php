@@ -12,20 +12,20 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
     <!-- Bootstrap CSS File -->
-    <link href="themes/public/assets/custom/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/themes/public/assets/custom/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Libraries CSS Files -->
-    <link rel="stylesheet" href="themes/public/assets/maintheme/assets/vendors/liquid-icon/liquid-icon.min.css" />
-    <link rel="stylesheet" href="themes/public/assets/maintheme/assets/vendors/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="themes/public/assets/maintheme/assets/css/theme-vendors.min.css" />
-    <link rel="stylesheet" href="themes/public/assets/maintheme/assets/css/theme.min.css" />
-    <link rel="stylesheet" href="themes/public/assets/maintheme/assets/css/themes/creative.css" />
+    <link rel="stylesheet" href="/themes/public/assets/maintheme/assets/vendors/liquid-icon/liquid-icon.min.css" />
+    <link rel="stylesheet" href="/themes/public/assets/maintheme/assets/vendors/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/themes/public/assets/maintheme/assets/css/theme-vendors.min.css" />
+    <link rel="stylesheet" href="/themes/public/assets/maintheme/assets/css/theme.min.css" />
+    <link rel="stylesheet" href="/themes/public/assets/maintheme/assets/css/themes/creative.css" />
 
     <!-- Main Stylesheet File -->
     {{--        <link href="themes/public/assets/custom/css/style.css" rel="stylesheet">--}}
     {{--{!! Theme::asset()->styles() !!}--}}
     {{--{!! Theme::asset()->scripts() !!}--}}
-    <script async src="themes/public/assets/maintheme/assets/vendors/modernizr.min.js"></script>
+    <script async src="/themes/public/assets/maintheme/assets/vendors/modernizr.min.js"></script>
 
 </head>
 
@@ -139,9 +139,9 @@
 {!!Block::display('thankyou')!!}
 
 <!-- JavaScript Libraries -->
-<script src="themes/public/assets/maintheme/assets/vendors/jquery.min.js"></script>
-<script src="themes/public/assets/maintheme/assets/js/theme-vendors.js"></script>
-<script src="themes/public/assets/maintheme/assets/js/theme.min.js"></script>
+<script src="/themes/public/assets/maintheme/assets/vendors/jquery.min.js"></script>
+<script src="/themes/public/assets/maintheme/assets/js/theme-vendors.js"></script>
+<script src="/themes/public/assets/maintheme/assets/js/theme.min.js"></script>
 <!-- Contact Form JavaScript File -->
 
 </body>

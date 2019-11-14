@@ -16,6 +16,6 @@ class Timesheet extends Model
     protected $table = 'timesheets';
 
     protected $fillable = [
-        'project_id','mentor_id','from_date','to_date','hours','local_mentor'
+        'project_id','mentor_id','from_date','to_date','hours','created_by'
     ];
 }

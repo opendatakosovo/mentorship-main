@@ -56,7 +56,7 @@ class ApplicationsController extends Controller
                 'filename' => $filename
             ]);
         }
-        return 'Upload successful!';
+        return view('thank-you');
     }
 
     public function getDownload($id,$name)

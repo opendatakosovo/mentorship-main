@@ -17,11 +17,11 @@ class SendEmail extends Mailable
      * @return void
      */
 
-    public $sub;
+    public $email;
     public $mes;
-    public function __construct()
+    public function __construct($email)
     {
-      $this->sub = 'Welcome To Mentorship';
+      $this->email = $email;
       $this->mes = 'Please Verify your Account';
     }
 
@@ -32,6 +32,11 @@ class SendEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('custom.mails.welcome_email');
+        $e_email = $this->email;
+        $user_id = get_user_id($e_email);
+        $data = array(
+            'email'=> $user_id
+        );
+        return $this->view('custom.mails.welcome_email')->with('data',$data);
     }
 }

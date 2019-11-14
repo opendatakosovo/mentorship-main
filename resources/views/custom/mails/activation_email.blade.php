@@ -279,7 +279,7 @@
                                             <td align="center" style="padding: 25px 0 0 0;" class="padding-copy">
                                                 <table border="0" cellspacing="0" cellpadding="0" class="responsive-table">
                                                     <tr>
-                                                        <td align="center"><a href="http://localhost:8000/client/password/reset" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #ffffff; text-decoration: none; background-color: #48CFAD; border-top: 15px solid #48CFAD; border-bottom: 15px solid #48CFAD; border-left: 25px solid #48CFAD; border-right: 25px solid #48CFAD; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; display: inline-block;" class="mobile-button">Setup Your Account &rarr;</a></td>
+                                                        <td align="center"><a href="{{get_host()}}/client/password/reset" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #ffffff; text-decoration: none; background-color: #48CFAD; border-top: 15px solid #48CFAD; border-bottom: 15px solid #48CFAD; border-left: 25px solid #48CFAD; border-right: 25px solid #48CFAD; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; display: inline-block;" class="mobile-button">Setup Your Account &rarr;</a></td>
                                                     </tr>
                                                 </table>
                                             </td>

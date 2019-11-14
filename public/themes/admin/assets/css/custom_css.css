@@ -32,3 +32,11 @@ background-color: #f9fafc !important;
 .main-footer{
     background-color: #f9fafc !important;
 }
+
+.skin-red .sidebar-menu>li>.treeview-menu {
+    background: #cfd3d5 !important;
+}
+
+.skin-red .sidebar-menu>li.active>a, .skin-red .sidebar-menu>li.menu-open>a, .skin-red .sidebar-menu>li:hover>a {
+    background: #b3c0c5 !important;
+}

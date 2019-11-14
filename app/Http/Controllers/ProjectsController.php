@@ -10,17 +10,33 @@ namespace App\Http\Controllers;
 use App\Client;
 use App\Projects;
 use App\Timesheet;
+use Barryvdh\Debugbar\Controllers\BaseController;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Litepie\Support\Facades\Theme;
 use Illuminate\Support\Facades\DB;
-class ProjectsController extends Controller
+use Litepie\User\Traits\RoutesAndGuards;
+use Litepie\Theme\ThemeAndViews;
+use Litepie\User\Traits\UserPages;
+class ProjectsController extends BaseController
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin.web');
+    }
 
     public function index(){
 
-        $projects  = Projects::all();
+
+
+        if(is_superuser(user()->email) == 'true'){
+            $projects  = Projects::all();
+        }
+        else{
+            $projects  = Projects::where('local_mentor',user()->id)->get();
+        }
+
 
 
         $skills = array(
@@ -178,6 +194,7 @@ class ProjectsController extends Controller
             $from_date = ($d->from_date != '') ? $d->from_date : 0;
             $to_date = ($d->to_date != '') ? $d->to_date : 0;
             $hours = ($d->hours != '') ? $d->hours : 0;
+
             $data_result[] = array(
                 'project_id' => get_project_name($project_id),
                 'mentor_id' => get_mentor_name($mentor_id),

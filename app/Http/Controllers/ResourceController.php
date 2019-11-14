@@ -36,9 +36,15 @@ class ResourceController extends BaseController
     public function home(Request $request)
     {
         $user = $request->user()->toArray();
-        return $this->response->setMetaTitle(__('app.dashboard'))
-            ->view('home')
-            ->data(compact('user'))
-            ->output();
+
+        if(is_superuser($user['email']) == 'true'){
+            return redirect('/admin/reports');
+        }else{
+            return $this->response->setMetaTitle(__('app.dashboard'))
+                ->view('home')
+                ->data(compact('user'))
+                ->output();
+        }
+
     }
 }

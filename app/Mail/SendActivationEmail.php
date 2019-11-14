@@ -16,9 +16,10 @@ class SendActivationEmail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $email;
+    public function __construct($email)
     {
-        //
+        $this->email = $email;
     }
 
     /**
@@ -28,6 +29,11 @@ class SendActivationEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('custom.mails.activation_email');
+        $e_email = $this->email;
+        $user_id = get_user_id($e_email);
+        $data = array(
+          'email' => $user_id
+        );
+        return $this->view('custom.mails.activation_email')->with('data',$data);
     }
 }

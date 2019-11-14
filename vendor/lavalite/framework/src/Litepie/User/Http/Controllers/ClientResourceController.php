@@ -159,10 +159,10 @@ class ClientResourceController extends BaseController
             $attributes = $request->all();
 
             if($attributes['status'] == 'Pending'){
-                Mail::to($attributes['email'])->send(new SendEmail());
+                Mail::to($attributes['email'])->send(new SendEmail($attributes['email']));
             }
             if($attributes['status'] == 'Active'){
-                Mail::to($attributes['email'])->send(new SendActivationEmail());
+                Mail::to($attributes['email'])->send(new SendActivationEmail($attributes['email']));
             }
             $client->update($attributes);
 
