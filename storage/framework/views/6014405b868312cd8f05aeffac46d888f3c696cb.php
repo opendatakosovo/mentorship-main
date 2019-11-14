@@ -9,7 +9,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?php echo e(url('/')); ?>"><img src="<?php echo e(theme_asset('img/logo/logo.svg')); ?>" title="<?php echo e(__('app.name')); ?>" alt="<?php echo e(__('app.name')); ?>"></a>
+                    <a class="navbar-brand" href="<?php echo e(url('/')); ?>"><img src="<?php echo e(theme_asset('img/logo/logo-olddd.svg')); ?>" title="<?php echo e(__('app.name')); ?>" alt="<?php echo e(__('app.name')); ?>"></a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

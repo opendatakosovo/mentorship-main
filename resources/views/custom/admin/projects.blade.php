@@ -1,7 +1,7 @@
 @extends('custom/layouts/main')
 @section('content')
     {{--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">--}}
-
+    <link rel="stylesheet" href="/themes/admin/assets/css/custom_css.css">
     <style>
         .select2-selection__choice {
             color: #676767 !important;
@@ -48,6 +48,9 @@
             color: #000;
             text-decoration: none;
             cursor: pointer;
+        }
+        .wrapper{
+            background-color: #f9fafc !important;
         }
     </style>
 

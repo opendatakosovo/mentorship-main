@@ -22,7 +22,7 @@
                            -> placeholder(trans('settings::setting.placeholder.theme.admin.logo.logo')); ?>
 
                            <?php echo Form::hidden('upload[theme_admin_logo_logo][path]')
-                           -> value(public_path('themes/admin/assets/img/logo/logo.svg')); ?>
+                           -> value(public_path('themes/admin/assets/img/logo/logo-olddd.svg')); ?>
 
                           </div>
                          <div class="col-md-4"> 
@@ -53,7 +53,7 @@
                            -> placeholder(trans('settings::setting.placeholder.theme.user.logo.logo')); ?>
 
                            <?php echo Form::hidden('upload[theme_user_logo_logo][path]')
-                           -> value(public_path('themes/user/assets/img/logo/logo.svg')); ?>
+                           -> value(public_path('themes/user/assets/img/logo/logo-olddd.svg')); ?>
 
                           </div>
                          <div class="col-md-4"> 
@@ -84,7 +84,7 @@
                            -> placeholder(trans('settings::setting.placeholder.theme.public.logo.logo')); ?>
 
                            <?php echo Form::hidden('upload[theme_public_logo_logo][path]')
-                           -> value(public_path('themes/public/assets/img/logo/logo.svg')); ?>
+                           -> value(public_path('themes/public/assets/img/logo/logo-olddd.svg')); ?>
 
                           </div>
                          <div class="col-md-4"> 

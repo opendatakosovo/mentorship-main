@@ -1,7 +1,7 @@
 <?php echo $__env->make('notifications', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <div class="box">
             <div class="logo">
-                <a href="<?php echo e(guard_url('/')); ?>"><img src="<?php echo e(theme_asset('img/logo/logo.svg')); ?>" class="img-responsive center-block" alt="logo" title="Lavalite"></a>
+                <a href="<?php echo e(guard_url('/')); ?>"><img src="<?php echo e(theme_asset('img/logo/logo-olddd.svg')); ?>" class="img-responsive center-block" alt="logo" title="Lavalite"></a>
             </div>
             <div class="body">
                 <h2>Reset Password</h2>

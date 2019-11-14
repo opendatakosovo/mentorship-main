@@ -3,7 +3,7 @@
         <div class="login-box">
             {{--<div class="logo">--}}
                 {{--<a href="{!! guard_url('/') !!}">--}}
-                    {{--<img src="{!!theme_asset('img/logo/logo.svg')!!}" class="img-responsive center-block" alt="logo" title="Lavalite">--}}
+                    {{--<img src="{!!theme_asset('img/logo/logo-olddd.svg')!!}" class="img-responsive center-block" alt="logo" title="Lavalite">--}}
                 {{--</a>--}}
             {{--</div>--}}
             <div class="body">

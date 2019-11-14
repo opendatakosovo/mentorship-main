@@ -25,8 +25,12 @@ class ApplicationsController extends Controller
 
         Client::create($request->all());
 
-        return redirect('/');
+        return view('thank-you');
 
+    }
+
+    public function thanks(){
+        return view('thank-you');
     }
 
     public function store_certificates($id){

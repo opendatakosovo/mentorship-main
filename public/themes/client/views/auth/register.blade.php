@@ -1,7 +1,7 @@
 @include('notifications')
 <div class="box">
     <div class="logo">
-        <a href="{{guard_url('/')}}"><img src="{{theme_asset('img/logo/logo.svg')}}" class="img-responsive center-block" alt="logo" title="Lavalite"></a>
+        <a href="{{guard_url('/')}}"><img src="{{theme_asset('logo-olddd.svg')}}" class="img-responsive center-block" alt="logo" title="Lavalite"></a>
     </div>
     <div class="body">
         <h2>Sign Up</h2>

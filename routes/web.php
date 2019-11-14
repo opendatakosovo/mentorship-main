@@ -21,7 +21,7 @@ Route::prefix('{guard}')->name('guard.')->group(function () {
 
 
 });
-
+Route::get('thank-you', 'ApplicationsController@thanks');
 
 Route::post('user/application/store', 'ApplicationsController@application_store');
 Route::get('user/application/store_certificates/{id}', 'ApplicationsController@store_certificates');

@@ -26,6 +26,7 @@
         {{--{!! Theme::asset()->styles() !!}--}}
         {{--{!! Theme::asset()->scripts() !!}--}}
         <script async src="themes/public/assets/maintheme/assets/vendors/modernizr.min.js"></script>
+
     </head>
 
 
@@ -43,7 +44,7 @@
         <!-- JavaScript Libraries -->
         <script src="themes/public/assets/maintheme/assets/vendors/jquery.min.js"></script>
         <script src="themes/public/assets/maintheme/assets/js/theme-vendors.js"></script>
-        <script src="themes/public/assets/maintheme/assets/js/theme.min.js"></script>cript>
+        <script src="themes/public/assets/maintheme/assets/js/theme.min.js"></script>
         <!-- Contact Form JavaScript File -->
 
     </body>

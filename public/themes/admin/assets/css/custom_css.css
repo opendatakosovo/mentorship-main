@@ -1,0 +1,34 @@
+.navbar-static-top{
+  background-color: #3c8dbc  !important;
+}
+.logo{
+    background: #3c8dbc !important;
+}
+.main-sidebar{
+background-color: #f9fafc !important;
+}
+.skin-red .sidebar-menu>li.header{
+    background-color: #f9fafc  !important;
+}
+.box-footer .btn{
+    background-color: #4f81ee!important;
+    border: 1px solid #4f81ee!important;
+}
+.box.box-info{
+    border-top-color: #4f81ee!important;
+}
+
+.info-box-icon.bg-red {
+    background-color: cadetblue !important;
+}
+.info-box-icon.bg-yellow{
+    background-color: #1d58a5 !important;
+}
+
+.pull-left.info p, a{
+    color: black !important;
+}
+
+.main-footer{
+    background-color: #f9fafc !important;
+}
