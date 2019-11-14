@@ -63,6 +63,7 @@
                 @CSRF
                 <div class="col-md-3">
                     <input type="hidden" name="project_id" id="project_id">
+                    <input type="hidden" name="local_mentor" id="local_mentor" value="">
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Mentor:</label>
                         <select class="select2 form-control" id="timesheet_user" name="mentor_id" required>
@@ -228,7 +229,6 @@
                 </div>
             </form>
         </div>
-
     </div>
 
 

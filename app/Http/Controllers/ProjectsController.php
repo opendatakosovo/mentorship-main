@@ -12,6 +12,7 @@ use App\Projects;
 use App\Timesheet;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Litepie\Support\Facades\Theme;
 use Illuminate\Support\Facades\DB;
 class ProjectsController extends Controller
@@ -38,7 +39,6 @@ class ProjectsController extends Controller
             "critical_thinking_skill" => "Critical Thinking",
             "coding_skill" => "Coding",
             "networking_skill" => "Networking"
-
         );
 
         $teams = DB::table('teams')->whereNull('deleted_at')->get();

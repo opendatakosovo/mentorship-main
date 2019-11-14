@@ -8,11 +8,13 @@
 
 function get_mentor_name($id)
 {
-    $mentor = \App\Client::find($id);
+    $mentor =  DB::table('clients')
+        ->select(DB::raw('name, lastname'))
+        ->where('id', $id)
+        ->first();
 
-    if ($mentor != '') {
-
-        return $mentor->name . ' ' . $mentor->lastname;
+    if($mentor){
+        return $mentor->name. ' '. $mentor->lastname;
     }
 
 }
@@ -82,10 +84,138 @@ function get_file_uploads($id)
             $files[] = $file['filename'];
         }
 
-
-
         return $files;
     }
 
+
+}
+
+
+
+function is_superuser($email){
+
+    $user =  DB::table('users')
+        ->select(DB::raw('id'))
+        ->where('email', $email)
+        ->first();
+
+    $user_id = $user->id;
+
+    $user_role =
+        DB::table('role_user')
+        ->select(DB::raw('role_id'))
+        ->where('user_id', $user_id)
+        ->first();
+
+
+    if($user_role->role_id == 1){
+        return 'true';
+    }
+    else{
+        return 'false';
+    }
+
+}
+
+function get_projects_count($type){
+
+    if($type == 'active'){
+        $count =  DB::table('projects')
+            ->select(DB::raw('count(*) as count'))
+            ->where('project_status', 'Active')
+            ->first();
+
+        return $count->count;
+    }
+    elseif($type == 'finnished'){
+        $count =  DB::table('projects')
+            ->select(DB::raw('count(*) as count'))
+            ->where('project_status', 'Finnished')
+            ->first();
+
+        return $count->count;
+    }
+    elseif($type == 'total'){
+        $count =  DB::table('projects')
+            ->select(DB::raw('count(*) as count'))
+            ->first();
+
+        return $count->count;
+    }
+
+}
+
+function get_timesheets_all(){
+    $timeshets =  DB::table('timesheets')
+        ->select(DB::raw('*'))
+        ->get();
+
+   return $timeshets;
+}
+function get_working_hours_all(){
+    $count =  DB::table('timesheets')
+        ->select(DB::raw('sum(hours) as count'))
+        ->first();
+
+    return $count->count;
+}
+
+function total_personal_projects($email,$type){
+
+    $user = DB::table('clients')
+        ->select(DB::raw('id'))
+        ->where('email', $email)
+        ->first();
+
+
+    $user_id = $user->id;
+
+    $count = 0;
+    if($type == 'Active'){
+        $projects =  DB::table('projects')
+            ->select(DB::raw('*'))
+            ->where('external_mentor','like',"%$user_id%")
+            ->where('project_status',"Active")
+            ->get();
+    }else{
+        $projects =  DB::table('projects')
+            ->select(DB::raw('*'))
+            ->where('external_mentor','like',"%$user_id%")
+            ->get();
+    }
+
+    foreach($projects as $project){
+        $projects_converted[] = array(
+            "project" => $project->id,
+            "mentors" => unserialize($project->external_mentor)
+        );
+    }
+
+    foreach($projects_converted as $projecti){
+        if(in_array($user_id,$projecti['mentors'])){
+            $count = $count +1;
+        }
+    }
+
+    return $count;
+}
+
+
+function personal_timesheets($email){
+
+    $user = DB::table('clients')
+        ->select(DB::raw('id'))
+        ->where('email', $email)
+        ->first();
+
+
+    $user_id = $user->id;
+
+    $timeshets =  DB::table('timesheets')
+        ->select(DB::raw('*'))
+        ->where('mentor_id',$user_id)
+        ->get();
+
+    return $timeshets;
 
 }
