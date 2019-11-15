@@ -56,7 +56,7 @@
                                             <span class="link-icon"></span>
                                             <span class="link-txt">
 													<span class="link-ext"></span>
-													<span class="txt">Platform</span>
+													<span class="txt">Why become a mentor?</span>
 												</span>
                                         </a>
                                     </li>
