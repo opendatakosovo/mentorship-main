@@ -13,12 +13,12 @@
                     <div class="modal-body">
                         <div class="box">
                              <div class="content">
-                                <div class="social">
-																	<a class="circle facebook" href="{!!guard_url('login/facebook')!!}"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
-											            <a class="circle twitter" href="{!!guard_url('login/twitter')!!}"><i class="fab fa-twitter-square" aria-hidden="true"></i></a>
-											            <a class="circle google" href="{!!guard_url('login/google')!!}"><i class="fab fa-google-plus-square" aria-hidden="true"></i></a>
-											            <a class="circle linkedin" href="{!!guard_url('login/linkedin')!!}"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                                </div>
+{{--                                <div class="social">--}}
+{{--														<a class="circle facebook" href="{!!guard_url('login/facebook')!!}"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>--}}
+{{--											            <a class="circle twitter" href="{!!guard_url('login/twitter')!!}"><i class="fab fa-twitter-square" aria-hidden="true"></i></a>--}}
+{{--											            <a class="circle google" href="{!!guard_url('login/google')!!}"><i class="fab fa-google-plus-square" aria-hidden="true"></i></a>--}}
+{{--											            <a class="circle linkedin" href="{!!guard_url('login/linkedin')!!}"><i class="fab fa-linkedin" aria-hidden="true"></i></a>--}}
+{{--                                </div>--}}
                                 <div class="division">
                                     <div class="line l"></div>
                                       <span>or</span>

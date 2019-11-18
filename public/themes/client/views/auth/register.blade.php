@@ -1,7 +1,7 @@
 @include('notifications')
 <div class="box">
     <div class="logo">
-        <a href="{{guard_url('/')}}"><img src="{{theme_asset('logo-olddd.svg')}}" class="img-responsive center-block" alt="logo" title="Lavalite"></a>
+        <a href="{{guard_url('/')}}"><img src="{{theme_asset('logo-olddd.png')}}" class="img-responsive center-block" alt="logo" title="Lavalite"></a>
     </div>
     <div class="body">
         <h2>Sign Up</h2>
@@ -45,13 +45,13 @@
 
         {!! Form::close() !!}
     </div>
-    <div class="text-center social-links">
-        <h3><span class="login">Social Login</span></h3>
-        <a href="{!!guard_url('login/facebook')!!}"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
-        <a href="{!!guard_url('login/twitter')!!}"><i class="fab fa-twitter-square" aria-hidden="true"></i></a>
-        <a href="{!!guard_url('login/google')!!}"><i class="fab fa-google-plus-square" aria-hidden="true"></i></a>
-        <a href="{!!guard_url('login/linkedin')!!}"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-    </div>
+{{--    <div class="text-center social-links">--}}
+{{--        <h3><span class="login">Social Login</span></h3>--}}
+{{--        <a href="{!!guard_url('login/facebook')!!}"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>--}}
+{{--        <a href="{!!guard_url('login/twitter')!!}"><i class="fab fa-twitter-square" aria-hidden="true"></i></a>--}}
+{{--        <a href="{!!guard_url('login/google')!!}"><i class="fab fa-google-plus-square" aria-hidden="true"></i></a>--}}
+{{--        <a href="{!!guard_url('login/linkedin')!!}"><i class="fab fa-linkedin" aria-hidden="true"></i></a>--}}
+{{--    </div>--}}
 </div>
 <div class="stripes-wraper">
     <div id="stripes">

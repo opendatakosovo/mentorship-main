@@ -2,7 +2,7 @@
 
         <div class="login-box">
             <div class="logo">
-                <a href="{!! guard_url('/') !!}"><img src="{!!theme_asset('logo-olddd.svg')!!}" class="img-responsive center-block" alt="logo" title="Lavalite"></a>
+                <a href="{!! guard_url('/') !!}"><img src="{!!theme_asset('logo-olddd.png')!!}" class="img-responsive center-block" alt="logo" title="Lavalite"></a>
             </div>
             <div class="body">
                 <h2>Reset Password</h2>

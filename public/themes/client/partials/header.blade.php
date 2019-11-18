@@ -1,4 +1,3 @@
-
         <header class="main-header header-desktop">
           <nav class="navbar navbar-default">
             <div class="container">
@@ -9,7 +8,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{url('/')}}"><img src="{{theme_asset('logo-olddd.svg')}}" title="{{__('app.name')}}" alt="{{__('app.name')}}"></a>
+                    <a class="navbar-brand" href="{{url('/')}}"><img src="{{theme_asset('logo-olddd.png')}}" title="{{__('app.name')}}" alt="{{__('app.name')}}"></a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
