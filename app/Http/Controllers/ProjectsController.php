@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 use App\Client;
+use App\Mail\ProjectCreatedEmail;
 use App\Projects;
 use App\Timesheet;
 use Barryvdh\Debugbar\Controllers\BaseController;
@@ -19,6 +20,7 @@ use Illuminate\Support\Facades\DB;
 use Litepie\User\Traits\RoutesAndGuards;
 use Litepie\Theme\ThemeAndViews;
 use Litepie\User\Traits\UserPages;
+use Illuminate\Support\Facades\Mail;
 class ProjectsController extends BaseController
 {
     public function __construct()
@@ -88,6 +90,25 @@ class ProjectsController extends BaseController
                 'next_activity' =>  $request->next_activity,
             ]
         );
+
+        $project_name = $request->project_name;
+        $project_desc = $request->project_description;
+
+
+
+        foreach($request->external_mentors as $mentor_id){
+
+            $mentor_emails[] =  DB::table('clients')
+                ->select(DB::raw('email'))
+                ->where('id','=',$mentor_id)
+                ->first();
+        }
+
+        foreach($mentor_emails as $mentor_email){
+            Mail::to($mentor_email->email)->send(new ProjectCreatedEmail($mentor_email->email,$project_name,$project_desc));
+        }
+
+//
 
 
         return redirect('admin/projects');
