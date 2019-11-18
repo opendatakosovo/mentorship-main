@@ -10,6 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="{{asset('apple-touch-icon.png')}}">
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="/themes/client/assets/css/custom_css.css">
         <style type="text/css">
         html {
             display: table;

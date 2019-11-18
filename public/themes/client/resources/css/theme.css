@@ -1635,7 +1635,7 @@ body.auth .box .body .has-feedback .form-control:focus {
     border-color: #ef4153;
 }
 body.auth .logo img {
-    height: 60px;
+    height: 140px !important;
 }
 body.auth .box .body .btn {
     padding: 6px 18px;
