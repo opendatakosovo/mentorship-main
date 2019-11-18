@@ -40,3 +40,7 @@ background-color: #f9fafc !important;
 .skin-red .sidebar-menu>li.active>a, .skin-red .sidebar-menu>li.menu-open>a, .skin-red .sidebar-menu>li:hover>a {
     background: #b3c0c5 !important;
 }
+.logo-lg img{
+    width: 80% !important;
+    margin-top: -10px ! important;
+}
