@@ -388,6 +388,7 @@
         </div>
     </div>
 </div>
+@if(isset($files))
 <div class="row">
     @if(get_file_uploads($client['id']) != null)
         @foreach(get_file_uploads($client['id']) as $upload)
@@ -397,6 +398,7 @@
         @endforeach
     @endif
 </div>
+@endif
 
 <script>
     $(document).ready(function () {
