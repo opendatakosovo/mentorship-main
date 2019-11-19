@@ -32,7 +32,7 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-theme btn-round btn-block mt-10 mb-20">Sign In</button>
-            <p class="text-center mb-0">Don't have an account yet? <a href="{{guard_url("register")}}" class="mr-10">Sign Up</a></p>
+{{--            <p class="text-center mb-0">Don't have an account yet? <a href="{{guard_url("register")}}" class="mr-10">Sign Up</a></p>--}}
 
             {!! Form::close() !!}
     </div>
