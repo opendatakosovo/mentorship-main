@@ -3,9 +3,11 @@
 namespace Litepie\User\Http\Controllers;
 
 use App\Http\Controllers\ResourceController as BaseController;
+use App\Mail\NewUserEmail;
 use App\Mail\SendActivationEmail;
 use App\Mail\SendEmail;
 use Form;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Litepie\User\Http\Requests\ClientRequest;
 use Litepie\User\Interfaces\ClientRepositoryInterface;
@@ -110,10 +112,22 @@ class ClientResourceController extends BaseController
     {
         try {
             $attributes = $request->all();
+//            var_dump($attributes);
+//            die();
             $attributes['user_id'] = user_id();
             $attributes['user_type'] = user_type();
             $attributes['api_token'] = str_random(60);
             $client = $this->repository->create($attributes);
+
+            $superadmins = DB::table('users')
+                ->select(DB::raw('email'))
+                ->join('role_user', 'role_user.user_id', '=', 'users.id')
+                ->where('role_id', 1)
+                ->get();
+
+            foreach($superadmins as $supers){
+                Mail::to($supers->email)->send(new NewUserEmail($attributes['email'], $attributes['name'], $attributes['lastname'], $attributes['city'],$attributes['background_field_of_study']));
+            }
 
             return $this->response->message(trans('messages.success.created', ['Module' => trans('user::client.name', ['client' => $type])]))
                 ->code(204)
