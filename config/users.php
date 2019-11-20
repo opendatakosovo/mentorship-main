@@ -124,7 +124,7 @@ return [
             'slugs' => ['slug' => 'name'],
             'dates' => ['deleted_at', 'createdat', 'updated_at'],
             'appends' => [],
-            'fillable' => ['name'],
+            'fillable' => ['name','team_logo'],
             'translatables' => [],
             'upload_folder' => 'user/team',
             'uploads' => [

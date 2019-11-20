@@ -104,6 +104,7 @@ class TeamResourceController extends BaseController
     {
         try {
             $attributes = $request->all();
+
             $attributes['user_id'] = user_id();
             $attributes['user_type'] = user_type();
             $team = $this->repository->create($attributes);

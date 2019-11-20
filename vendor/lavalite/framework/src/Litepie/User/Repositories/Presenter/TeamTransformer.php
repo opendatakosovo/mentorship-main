@@ -16,6 +16,7 @@ class TeamTransformer extends TransformerAbstract
                 'route'     => $team->getRouteKey(),
             ], 
             'name'              => $team->name,
+            'team_logo'              => $team->team_logo,
             'url'               => [
                 'public'    => trans_url('teams/'.$team->getPublicKey()),
                 'user'      => guard_url('user/team/'.$team->getRouteKey()),

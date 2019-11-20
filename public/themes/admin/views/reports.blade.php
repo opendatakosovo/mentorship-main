@@ -105,6 +105,7 @@
                                     </thead>
                                     <tbody>
                                     @foreach($timesheets as $timesheet)
+
                                     <tr>
                                         <td>{{get_project_name($timesheet->project_id)}}</td>
                                         <td>{{get_mentor_name($timesheet->mentor_id)}}</td>

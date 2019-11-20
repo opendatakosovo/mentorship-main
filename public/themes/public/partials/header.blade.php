@@ -34,7 +34,7 @@
                                 <ul id="primary-nav" class="main-nav nav align-items-lg-stretch justify-content-lg-start" data-submenu-options='{ "toggleType":"fade", "handler":"mouse-in-out" }' data-localscroll="true">
 
                                     <li>
-                                        <a href="#content">
+                                        <a href="#head">
                                             <span class="link-icon"></span>
                                             <span class="link-txt">
 													<span class="link-ext"></span>
@@ -43,7 +43,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#works">
+                                        <a href="#workshops">
                                             <span class="link-icon"></span>
                                             <span class="link-txt">
 													<span class="link-ext"></span>

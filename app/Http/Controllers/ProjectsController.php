@@ -257,4 +257,22 @@ class ProjectsController extends BaseController
         $timesheet->destroy($id);
 
     }
+
+    public function upload_team_image(Request $request){
+
+            $photo = $request->team_logo;
+            $team_id = $request->team_id;
+            $filename = $photo->store('public/assets/img/team_covers/'.$team_id);
+
+        DB::table('teams')
+            ->where('id','=',$team_id)
+            ->update([
+                'team_logo' => $filename
+            ]);
+
+        return redirect('/admin/user/team');
+    }
+
+
+
 }

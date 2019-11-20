@@ -1,0 +1,28 @@
+@media only screen and (max-width: 600px) {
+   .visibility-mobile{
+       display: block !important;
+   }
+    .visibility{
+        display: none;
+    }
+    .navbar-header .nav-trigger {
+        justify-content: center !important;
+    }
+    .main-header .main-nav {
+        background: white ;
+    }
+    .main-header .mainbar-row {
+        background: white;
+    }
+    .main-footer img{
+        width: 40%;
+    }
+    .lqd-unit-animation-done{
+        padding-bottom: 7% !important;
+    }
+
+}
+.visibility-mobile{
+    display: none;
+}
+

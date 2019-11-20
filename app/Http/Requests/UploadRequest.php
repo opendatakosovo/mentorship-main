@@ -23,14 +23,13 @@ class UploadRequest extends FormRequest
      */
     public function rules()
     {
-        var_dump($this->input('files'));
-        die();
+
 //        $rules = [
 //            'file' => 'txt|size:5000'
 //        ];
 
         $photos = count($this->input('files'));
-        var_dump($photos);
+//        var_dump($photos);
 
         foreach(range(0, $photos) as $index) {
             $rules['files.' . $index] = 'txt|max:3000';

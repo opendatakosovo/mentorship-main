@@ -14,7 +14,9 @@
             ->method('POST')
             ->files('true')
             ->action(guard_url('user/team'))!!}
+            <form accept-charset="utf-8" class="form-vertical" id="teams-team-create" method="POST" action="http://localhost:8000/admin/user/team" novalidate="novalidate">
             <div class="tab-pane active" id="details">
+
                 <div class="tab-pan-title">  {{ trans('app.new') }}  [{!! trans('user::team.name') !!}] </div>
                 @include('user::admin.team.partial.entry', ['mode' => 'create'])
             </div>

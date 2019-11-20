@@ -1,7 +1,10 @@
-
 {!!Block::display('head')!!}
 {!!Block::display('becomementor')!!}
 {!!Block::display('workshops')!!}
+
+@php
+$partners = get_partners();
+@endphp
 <div class="col-sm-12 content-center text-center">
     <section class="vc_row pt-75 pb-75">
 
@@ -24,60 +27,20 @@
 
                     <div class="carousel-container carousel-shadow-all carousel-nav-left carousel-nav-md carousel-dots-style4 carousel-items-4-5">
 
-                        <div class="carousel-items row" data-lqd-flickity='{"imagesLoaded": true ,"cellAlign":"center","prevNextButtons":false,"buttonsAppendTo":"self","pageDots":true,"groupCells":true,"wrapAround":true,"pauseAutoPlayOnHover":false}'>
-
+                        <div class="carousel-items row" data-lqd-flickity='{"imagesLoaded": false ,"cellAlign":"center","prevNextButtons":false,"buttonsAppendTo":"self","pageDots":true,"groupCells":true,"contain": true,"pauseAutoPlayOnHover":false}'>
+                            @foreach($partners as $partner)
+                                @php
+                                    $image_rep = str_replace('public','/storage',$partner->team_logo);
+                                @endphp
                             <div class="carousel-item col-xs-12" >
-                                <a href="#modal-1" data-lity="#modal-1">
+                                <a href="#modal-1" onclick="get_projects({{$partner->id}})" data-lity="#modal-1">
                                     <figure>
-                                        <img src="http://kosovoinnovations.org/wp-content/uploads/2017/06/1kyr.jpg" alt="Carousel">
+                                        <img src="{{$image_rep}}" alt="Carousel">
                                     </figure>
                                 </a>
                             </div>
                             <!-- /.carousel-item -->
-
-
-                            <div class="carousel-item col-xs-12" >
-                                <a href="#modal-1" data-lity="#modal-1">
-                                    <figure>
-                                        <img src="http://kosovoinnovations.org/wp-content/uploads/2017/06/1kyr.jpg" alt="Carousel">
-                                    </figure>
-                                </a>
-                            </div>
-                            <!-- /.carousel-item -->
-
-                            <div class="carousel-item col-xs-12" >
-                                <a href="#modal-1" data-lity="#modal-1">
-                                    <figure>
-                                        <img src="http://kosovoinnovations.org/wp-content/uploads/2017/06/1kyr.jpg" alt="Carousel">
-                                    </figure>
-                                </a>
-                            </div>
-
-                            <div class="carousel-item col-xs-12" >
-                                <a href="#modal-1" data-lity="#modal-1">
-                                    <figure>
-                                        <img src="http://kosovoinnovations.org/wp-content/uploads/2017/06/1kyr.jpg" alt="Carousel">
-                                    </figure>
-                                </a>
-                            </div>
-
-                            <div class="carousel-item col-xs-12" >
-                                <a href="#modal-1" data-lity="#modal-1">
-                                    <figure>
-                                        <img src="http://kosovoinnovations.org/wp-content/uploads/2017/06/1kyr.jpg" alt="Carousel">
-                                    </figure>
-                                </a>
-                            </div>
-
-                            <div class="carousel-item col-xs-12" >
-                                <a href="#modal-1" data-lity="#modal-1">
-                                    <figure>
-                                        <img src="http://kosovoinnovations.org/wp-content/uploads/2017/06/1kyr.jpg" alt="Carousel">
-                                    </figure>
-                                </a>
-                            </div>
-
-
+                            @endforeach
 
                         </div><!-- /.carousel-items row -->
 
@@ -101,7 +64,7 @@
                 <div class="col-md-12 text">
 
                     <figure class="mb-3">
-                        <img src="http://kosovoinnovations.org/wp-content/uploads/2017/06/1tech.png" alt="Modal Image">
+                        <img id="cover_image" src="" alt="Modal Image">
                     </figure>
 
                     <div class="row">
@@ -110,94 +73,6 @@
                                 <div class="lqd-column col-md-8 col-md-offset-2">
 
                                     <div class="accordion accordion-lg accordion-title" id="accordion-1" role="tablist">
-
-                                        <div class="accordion-item panel active">
-
-                                            <div class="accordion-heading" role="tab" id="heading_accordion-collapse-1">
-                                                <h4 class="accordion-title font-size-16 font-weight-semibold">
-                                                    <a data-toggle="collapse" data-parent="#accordion-1" href="#accordion-collapse-1"
-                                                       aria-expanded="true" aria-controls="accordion-collapse-1">
-                                                        Section 1
-                                                    </a>
-                                                </h4>
-                                            </div><!-- /.accordion-heading -->
-                                            <div id="accordion-collapse-1" class="accordion-collapse collapse in" role="tabpanel"
-                                                 aria-labelledby="heading_accordion-collapse-1">
-                                                <div class="accordion-content">
-                                                    <p>It’s good to yell at people and tell people that you’re from Tennesee, so that
-                                                        way you’ll be safe.Listen to the silence. And when the silence is deafening,
-                                                        you’re in the center of your own universe.When you get lost in your imaginatory
-                                                        vagueness, your foresight will become a nimble vagrant.</p>
-                                                </div><!-- /.accordion-content -->
-                                            </div><!-- /.accordion-collapse -->
-
-                                        </div><!-- /.accordion-item -->
-
-                                        <div class="accordion-item panel">
-
-                                            <div class="accordion-heading" role="tab" id="heading_accordion-collapse-2">
-                                                <h4 class="accordion-title font-size-16 font-weight-semibold">
-                                                    <a data-toggle="collapse" data-parent="#accordion-1" href="#accordion-collapse-2"
-                                                       aria-expanded="true" aria-controls="accordion-collapse-2">
-                                                        Section 2
-                                                    </a>
-                                                </h4>
-                                            </div><!-- /.accordion-heading -->
-                                            <div id="accordion-collapse-2" class="accordion-collapse collapse" role="tabpanel"
-                                                 aria-labelledby="heading_accordion-collapse-2">
-                                                <div class="accordion-content">
-                                                    <p>It’s good to yell at people and tell people that you’re from Tennesee, so that
-                                                        way you’ll be safe.Listen to the silence. And when the silence is deafening,
-                                                        you’re in the center of your own universe.When you get lost in your imaginatory
-                                                        vagueness, your foresight will become a nimble vagrant.</p>
-                                                </div><!-- /.accordion-content -->
-                                            </div><!-- /.accordion-collapse -->
-
-                                        </div><!-- /.accordion-item -->
-
-                                        <div class="accordion-item panel">
-
-                                            <div class="accordion-heading" role="tab" id="heading_accordion-collapse-3">
-                                                <h4 class="accordion-title font-size-16 font-weight-semibold">
-                                                    <a data-toggle="collapse" data-parent="#accordion-1" href="#accordion-collapse-3"
-                                                       aria-expanded="true" aria-controls="accordion-collapse-3">
-                                                        Section 3
-                                                    </a>
-                                                </h4>
-                                            </div><!-- /.accordion-heading -->
-                                            <div id="accordion-collapse-3" class="accordion-collapse collapse" role="tabpanel"
-                                                 aria-labelledby="heading_accordion-collapse-3">
-                                                <div class="accordion-content">
-                                                    <p>It’s good to yell at people and tell people that you’re from Tennesee, so that
-                                                        way you’ll be safe.Listen to the silence. And when the silence is deafening,
-                                                        you’re in the center of your own universe.When you get lost in your imaginatory
-                                                        vagueness, your foresight will become a nimble vagrant.</p>
-                                                </div><!-- /.accordion-content -->
-                                            </div><!-- /.accordion-collapse -->
-
-                                        </div><!-- /.accordion-item -->
-
-                                        <div class="accordion-item panel">
-
-                                            <div class="accordion-heading" role="tab" id="heading_accordion-collapse-4">
-                                                <h4 class="accordion-title font-size-16 font-weight-semibold">
-                                                    <a data-toggle="collapse" data-parent="#accordion-1" href="#accordion-collapse-4"
-                                                       aria-expanded="true" aria-controls="accordion-collapse-4">
-                                                        Section 4
-                                                    </a>
-                                                </h4>
-                                            </div><!-- /.accordion-heading -->
-                                            <div id="accordion-collapse-4" class="accordion-collapse collapse" role="tabpanel"
-                                                 aria-labelledby="heading_accordion-collapse-4">
-                                                <div class="accordion-content">
-                                                    <p>It’s good to yell at people and tell people that you’re from Tennesee, so that
-                                                        way you’ll be safe.Listen to the silence. And when the silence is deafening,
-                                                        you’re in the center of your own universe.When you get lost in your imaginatory
-                                                        vagueness, your foresight will become a nimble vagrant.</p>
-                                                </div><!-- /.accordion-content -->
-                                            </div><!-- /.accordion-collapse -->
-
-                                        </div><!-- /.accordion-item -->
 
                                     </div><!-- /.accordion -->
                                 </div>
@@ -214,10 +89,57 @@
 
     </div><!-- /.lqd-modal-inner -->
 </div><!-- /.lqd-modal -->
+<script>
+    function get_projects(id) {
+        if(id){
+            jQuery(".accordion").empty();
+            jQuery("#cover_image").hide();
+            jQuery(".accordion").append('<p class="loading">Loading</p>');
+            jQuery.ajax({
+                url: "/admin/projects/get_team_projects",
+                type: "GET",
+                data: {"id": id, "_token": "{{ csrf_token() }}"},
+                success: function (result, textStatus, jqXHR) {
+                    if(result != ''){
+                        jQuery("#accordion").empty();
+                    }
 
+                    var results = JSON.parse(result)
+                    jQuery.each(results, function( index, value ) {
+                        jQuery("#cover_image").show();
+                        jQuery(".loading").hide();
+                        jQuery("#cover_image").attr("src", value.team_image);
+                        jQuery(".accordion").append("<div class='accordion-item panel'>\n" +
+                            "                                            <div class='accordion-heading' role='tab' style='border-bottom: 1px solid #00000033;' id='heading_accordion-collapse-"+value.id+"'>\n" +
+                            "                                                <h4 class='accordion-title font-size-16 font-weight-semibold'>\n" +
+                            "                                                    <a class='collapsed' data-toggle='collapse' data-parent='#accordion-"+value.id+"' href='#accordion-collapse-"+value.id+"'\n" +
+                            "                                                       aria-expanded='false' id='project_name' aria-controls='accordion-collapse-"+value.id+"'>\n" +
+                            "                                                       "+value.project_name+"\n" +
+                            "                                                    </a>\n" +
+                            "                                                </h4>\n" +
+                            "                                            </div><!-- /.accordion-heading -->\n" +
+                            "                                            <div id='accordion-collapse-"+value.id+"' class='accordion-collapse collapse ' role='tabpanel'\n" +
+                            "                                                 aria-labelledby='heading_accordion-collapse-"+value.id+"'>\n" +
+                            "                                                <div class='accordion-content'>\n" +
+                            "                                                    <p id='project_desc'>"+value.project_description+"</p>\n" +
+                            "                                                </div><!-- /.accordion-content -->\n" +
+                            "                                            </div><!-- /.accordion-collapse -->\n" +
+                            "\n" +
+                            "                                        </div>");
+
+                       console.log(index,value);
+                    });
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+
+                }
+            });
+        }
+    }
+</script>
 {!!Block::display('why')!!}
 {!!Block::display('about')!!}
 {!!Block::display('testimonials')!!}
 {!!Block::display('apply')!!}
 {!!Block::display('footer')!!}
-

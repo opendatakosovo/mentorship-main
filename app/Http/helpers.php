@@ -23,11 +23,15 @@ function get_mentor_name($id)
 function get_local_mentor_name($id)
 {
 
-    $mentor = \App\User::find($id);
+    if($id){
+        $mentor = \App\User::find($id);
 
-    if ($mentor) {
-        return $mentor->name;
+        if ($mentor) {
+            return $mentor->name;
+        }
     }
+
+
 }
 
 function get_team_name($id)
@@ -109,6 +113,19 @@ function get_file_uploads($id)
 
 }
 
+function get_team_image_uploads($id)
+{
+
+    if($id){
+    $image_name = DB::table('teams')
+        ->select(DB::raw('team_logo'))
+        ->where('id', $id)
+        ->first();
+
+        return $image_name->team_logo;
+    }
+
+}
 
 function get_user_id($email){
 
@@ -248,6 +265,8 @@ function get_timesheets_all(){
         ->select(DB::raw('*'))
         ->get();
 
+//    var_dump($timeshets);
+//    die();
    return $timeshets;
 }
 function get_timesheets_all_own($partner_member){
@@ -363,4 +382,18 @@ function personal_timesheets($email){
 
 function get_host(){
     return 'http://localhost:8000';
+}
+
+
+function get_partners(){
+
+
+
+    $partners = DB::table('teams')
+        ->select(DB::raw('teams.id , team_logo'))
+        ->join('projects', 'projects.team_id', '=', 'teams.id')
+        ->groupBy('name')
+        ->get();
+
+    return $partners;
 }

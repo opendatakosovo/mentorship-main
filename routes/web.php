@@ -35,7 +35,11 @@ Route::group(['middleware' => 'auth.basic'], function()
     Route::post('admin/projects/destroy', 'ProjectsController@destroy');
     Route::post('admin/projects/match', 'ProjectsController@match');
     Route::post('admin/projects/match_local_mentor', 'ProjectsController@match_local_mentor');
+    Route::post('admin/teams/upload_team_image', 'ProjectsController@upload_team_image');
+
 });
+
+Route::get('admin/projects/get_team_projects', 'TeamsController@get_team_projects');
 Route::get('thank-you', 'ApplicationsController@thanks');
 
 Route::post('user/application/store', 'ApplicationsController@application_store');

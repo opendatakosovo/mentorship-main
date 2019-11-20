@@ -1,4 +1,9 @@
+@php
+    $image_name = get_team_image_uploads($team->id);
+    $image_rep = str_replace('public','/storage',$image_name);
+@endphp
 <div class='row'>
+
     <div class='col-md-4 col-sm-6'>
             {!! Form::text('name')
             -> label(trans('user::team.label.name'))
@@ -40,7 +45,15 @@
             </div>
             @endforeach
         </div>
+
     </div>
+
+</div>
+<div class='col-md-4 col-sm-6'>
+    <label>Cover Image</label>
+    <span>
+         <img style="max-width: 40%;" src="{{$image_rep}}">
+     </span>
 </div>
 <style>
 .item {

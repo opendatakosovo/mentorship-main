@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="themes/public/assets/maintheme/assets/css/theme-vendors.min.css" />
         <link rel="stylesheet" href="themes/public/assets/maintheme/assets/css/theme.min.css" />
         <link rel="stylesheet" href="themes/public/assets/maintheme/assets/css/themes/creative.css" />
+        <link rel="stylesheet" href="themes/public/assets/maintheme/assets/css/custom_css.css" />
 
         <!-- Main Stylesheet File -->
 {{--        <link href="themes/public/assets/custom/css/style.css" rel="stylesheet">--}}
