@@ -397,3 +397,52 @@ function get_partners(){
 
     return $partners;
 }
+
+function get_cities (){
+  $cities = array(
+      "Prishtine",
+      "Peje",
+      "Prizren",
+      "Gjakove",
+      "Decan",
+      "Mitrovice",
+      "Ferizaj",
+      "Gjilan",
+      "Skenderaj",
+      "Kline",
+      "Podujeve",
+      "Lipjan",
+      "Drenas",
+      "Suhareke",
+      "Vushtrri",
+      "Malisheve",
+      "Istog",
+      "Dragash",
+      "Shtime",
+      "Obiliq",
+      "Leposaviq",
+      "Kamenice",
+      "Viti",
+      "Rahovec",
+      "Gracanice",
+      "Zvecan",
+      "Zubin Potok",
+      "Junik",
+      "Fushe Kosove",
+      "Mitrovice Veriore",
+      "Hani i Elezit",
+      "Novoberde",
+      "Shterpce",
+        ) ;
+  return $cities;
+}
+
+function get_languages(){
+   $languages = array(
+       "Albanian",
+       "English",
+       "Serbian",
+       "Turkish"
+   );
+       return $languages;
+}

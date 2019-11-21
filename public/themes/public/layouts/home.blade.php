@@ -21,6 +21,9 @@
         <link rel="stylesheet" href="themes/public/assets/maintheme/assets/css/theme.min.css" />
         <link rel="stylesheet" href="themes/public/assets/maintheme/assets/css/themes/creative.css" />
         <link rel="stylesheet" href="themes/public/assets/maintheme/assets/css/custom_css.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.css" />
+
+
 
         <!-- Main Stylesheet File -->
 {{--        <link href="themes/public/assets/custom/css/style.css" rel="stylesheet">--}}
@@ -47,6 +50,7 @@
         <script src="themes/public/assets/maintheme/assets/js/theme-vendors.js"></script>
         <script src="themes/public/assets/maintheme/assets/js/theme.min.js"></script>
         <!-- Contact Form JavaScript File -->
+
 
     </body>
 </html>
