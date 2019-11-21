@@ -91,79 +91,24 @@ $languages = get_languages();
 
     </div><!-- /.lqd-modal-inner -->
 </div><!-- /.lqd-modal -->
-<script>
-    function get_projects(id) {
-        if(id){
-            jQuery(".accordion-partners").empty();
-            jQuery("#cover_image").hide();
-            jQuery(".accordion-partners").append('<p class="loading">Loading</p>');
-            jQuery.ajax({
-                url: "/admin/projects/get_team_projects",
-                type: "GET",
-                data: {"id": id, "_token": "{{ csrf_token() }}"},
-                success: function (result, textStatus, jqXHR) {
-                    if(result != ''){
-                        jQuery("#accordion-partners").empty();
-                    }
 
-                    var results = JSON.parse(result)
-                    jQuery.each(results, function( index, value ) {
-                        jQuery("#cover_image").show();
-                        jQuery(".loading").hide();
-                        jQuery("#cover_image").attr("src", value.team_image);
-                        jQuery(".accordion-partners").append("<div class='accordion-item panel'>\n" +
-                            "                                            <div class='accordion-heading' role='tab' style='border-bottom: 1px solid #00000033;' id='heading_accordion-collapse-"+value.id+"'>\n" +
-                            "                                                <h4 class='accordion-title font-size-16 font-weight-semibold'>\n" +
-                            "                                                    <a class='collapsed' data-toggle='collapse' data-parent='#accordion-"+value.id+"' href='#accordion-collapse-"+value.id+"'\n" +
-                            "                                                       aria-expanded='false' id='project_name' aria-controls='accordion-collapse-"+value.id+"'>\n" +
-                            "                                                       "+value.project_name+"\n" +
-                            "                                                    </a>\n" +
-                            "                                                </h4>\n" +
-                            "                                            </div><!-- /.accordion-heading -->\n" +
-                            "                                            <div id='accordion-collapse-"+value.id+"' class='accordion-collapse collapse ' role='tabpanel'\n" +
-                            "                                                 aria-labelledby='heading_accordion-collapse-"+value.id+"'>\n" +
-                            "                                                <div class='accordion-content'>\n" +
-                            "                                                    <p id='project_desc'>"+value.project_description+"</p>\n" +
-                            "                                                </div><!-- /.accordion-content -->\n" +
-                            "                                            </div><!-- /.accordion-collapse -->\n" +
-                            "\n" +
-                            "                                        </div>");
-
-                       console.log(index,value);
-                    });
-
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-
-                }
-            });
-        }
-    }
-</script>
 
 {!!Block::display('why')!!}
 {!!Block::display('about')!!}
 {!!Block::display('testimonials')!!}
 {!!Block::display('faq')!!}
 
-<section class="vc_row pt-50 pb-60" id="apply">
+<section id="apply">
     <div class="container">
         <div class="row">
-
             <div class="lqd-column col-md-10 col-md-offset-1 text-center" data-custom-animations="true" data-ca-options="{&quot;triggerHandler&quot;:&quot;inview&quot;,&quot;animationTarget&quot;:&quot;all-childs&quot;,&quot;duration&quot;:1200,&quot;delay&quot;:100,&quot;initValues&quot;:{&quot;translateY&quot;:80,&quot;opacity&quot;:0},&quot;animations&quot;:{&quot;translateY&quot;:0,&quot;opacity&quot;:1}}">
-
                 <header class="fancy-title fancy-title-big mb-6">
                     <h2 data-split-text="true" data-split-options="{&quot;type&quot;:&quot;lines&quot;}">
                         Apply For Mentorship!
                         <br>
                     </h2>
                 </header><!-- /.fancy-title -->
-
-
                 <div class="form">
-
-
-
                     <div class="form-group">
                         <label>Identification</label>
                         <input type="text" name="name" class="form-control valid" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" aria-invalid="false">
@@ -405,4 +350,54 @@ $languages = get_languages();
         });
 
     });
+</script>
+
+<script>
+    function get_projects(id) {
+        if(id){
+            jQuery(".accordion-partners").empty();
+            jQuery("#cover_image").hide();
+            jQuery(".accordion-partners").append('<p class="loading">Loading</p>');
+            jQuery.ajax({
+                url: "/admin/projects/get_team_projects",
+                type: "GET",
+                data: {"id": id, "_token": "{{ csrf_token() }}"},
+                success: function (result, textStatus, jqXHR) {
+                    if(result != ''){
+                        jQuery("#accordion-partners").empty();
+                    }
+
+                    var results = JSON.parse(result)
+                    jQuery.each(results, function( index, value ) {
+                        jQuery("#cover_image").show();
+                        jQuery(".loading").hide();
+                        jQuery("#cover_image").attr("src", value.team_image);
+                        jQuery(".accordion-partners").append("<div class='accordion-item panel'>\n" +
+                            "                                            <div class='accordion-heading' role='tab' style='border-bottom: 1px solid #00000033;' id='heading_accordion-collapse-"+value.id+"'>\n" +
+                            "                                                <h4 class='accordion-title font-size-16 font-weight-semibold'>\n" +
+                            "                                                    <a class='collapsed' data-toggle='collapse' data-parent='#accordion-"+value.id+"' href='#accordion-collapse-"+value.id+"'\n" +
+                            "                                                       aria-expanded='false' id='project_name' aria-controls='accordion-collapse-"+value.id+"'>\n" +
+                            "                                                       "+value.project_name+"\n" +
+                            "                                                    </a>\n" +
+                            "                                                </h4>\n" +
+                            "                                            </div><!-- /.accordion-heading -->\n" +
+                            "                                            <div id='accordion-collapse-"+value.id+"' class='accordion-collapse collapse ' role='tabpanel'\n" +
+                            "                                                 aria-labelledby='heading_accordion-collapse-"+value.id+"'>\n" +
+                            "                                                <div class='accordion-content'>\n" +
+                            "                                                    <p id='project_desc'>"+value.project_description+"</p>\n" +
+                            "                                                </div><!-- /.accordion-content -->\n" +
+                            "                                            </div><!-- /.accordion-collapse -->\n" +
+                            "\n" +
+                            "                                        </div>");
+
+                        console.log(index,value);
+                    });
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+
+                }
+            });
+        }
+    }
 </script>

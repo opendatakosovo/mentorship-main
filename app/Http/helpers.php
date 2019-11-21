@@ -442,7 +442,19 @@ function get_languages(){
        "Albanian",
        "English",
        "Serbian",
-       "Turkish"
+       "Turkish",
+       "Croatian",
+       "Bulgarian",
+       "German",
+       "Spanish",
+       "Portuguese",
+       "Chinese",
+       "Arabic",
+       "Hindi",
+       "Russian",
+       "Japanese",
+       "French",
+
    );
        return $languages;
 }
