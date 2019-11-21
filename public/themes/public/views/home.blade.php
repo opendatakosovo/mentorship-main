@@ -138,9 +138,10 @@ $partners = get_partners();
         }
     }
 </script>
+
 {!!Block::display('why')!!}
 {!!Block::display('about')!!}
 {!!Block::display('testimonials')!!}
-{!!Block::display('faq')!!}
+
 {!!Block::display('apply')!!}
 {!!Block::display('footer')!!}
