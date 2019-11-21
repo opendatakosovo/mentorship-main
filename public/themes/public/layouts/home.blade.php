@@ -8,6 +8,13 @@
         <meta name="description" content="{{ Theme::getMetaDesctiption() }}">
         <meta name="keyword" content="{{ Theme::getMetaKeyword() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description"
+              content="The Mentorship Youth platform provides the ultimate and easy experience for professionals aiming to empower the youth to become mentors and apply their skills in projects that benefit the society.">
+        <meta name="keywords" content="Mentorship,Workshops,Partners,Why Become a Mentor">
+        <meta name="author" content="Managed By: CSR and Developed By: Open Data Kosovo">
+
+        <meta property="og:image" content="themes/public/assets/maintheme/assets/img/mentorship/meta-photo.png" />
+        <meta property="og:url"content="https://mentorship4youth.net" />
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
