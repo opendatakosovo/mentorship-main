@@ -52,6 +52,15 @@
                                         </a>
                                     </li>
                                     <li>
+                                        <a href="#partners">
+                                            <span class="link-icon"></span>
+                                            <span class="link-txt">
+													<span class="link-ext"></span>
+													<span class="txt">Partners</span>
+												</span>
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="#services">
                                             <span class="link-icon"></span>
                                             <span class="link-txt">
@@ -75,6 +84,15 @@
                                             <span class="link-txt">
 													<span class="link-ext"></span>
 													<span class="txt">Testimonials</span>
+												</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#faq">
+                                            <span class="link-icon"></span>
+                                            <span class="link-txt">
+													<span class="link-ext"></span>
+													<span class="txt">FAQ</span>
 												</span>
                                         </a>
                                     </li>
