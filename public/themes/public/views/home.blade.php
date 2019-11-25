@@ -105,6 +105,7 @@
 {!!Block::display('about')!!}
 {!!Block::display('testimonials')!!}
 {!!Block::display('faq')!!}
+<div class="col-sm-12 content-center text-center">
 <section id="apply">
     <div class="container">
         <div class="row">
@@ -227,141 +228,26 @@
                                 </div>
                             </div>
                         @endforeach
-                        {{--<div class="col-md-4 col-sm-6 col-xs-6">--}}
-                            {{--<div class="form-group"><label for="university" class="control-label">Team Work</label>--}}
-
-                                {{--<input type="hidden" value="0" name="team_work_skill">--}}
-                                {{--<input type="checkbox" name="team_work_skill" value="1" class="error"><br>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-4 col-sm-6 col-xs-6">--}}
-                            {{--<div class="form-group"><label for="university" class="control-label">Problem--}}
-                                    {{--Solving</label>--}}
-
-                                {{--<input type="hidden" value="0" name="problem_solving_skill">--}}
-                                {{--<input type="checkbox" name="problem_solving_skill" value="1" class="error"><br>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="row">--}}
-                        {{--<div class="col-md-4 col-sm-6 col-xs-6">--}}
-                            {{--<div class="form-group"><label for="university" class="control-label">Creativity</label>--}}
-
-                                {{--<input type="hidden" value="0" name="creativity_skill">--}}
-                                {{--<input type="checkbox" name="creativity_skill" value="1" class="error"><br>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-4 col-sm-6 col-xs-6">--}}
-                            {{--<div class="form-group"><label for="university" class="control-label">Adaptability</label>--}}
-
-                                {{--<input type="hidden" value="0" name="adaptability_skill">--}}
-                                {{--<input type="checkbox" name="adaptability_skill" value="1" class="error"><br>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-4 col-sm-6 col-xs-6">--}}
-                            {{--<div class="form-group"><label for="university" class="control-label">Work Ethics</label>--}}
-
-                                {{--<input type="hidden" value="0" name="work_ethics_skill">--}}
-                                {{--<input type="checkbox" name="work_ethics_skill" value="1" class="error"><br>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="row">--}}
-                        {{--<div class="col-md-4 col-sm-6 col-xs-6">--}}
-                            {{--<div class="form-group">--}}
-                                {{--<label for="university" class="control-label">Interpersonal Skills</label>--}}
-                                {{--<input type="hidden" value="0" name="interpersonal_skills_skill">--}}
-                                {{--<input type="checkbox" name="interpersonal_skills_skill" value="1" class="error"><br>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-4 col-sm-6 col-xs-6">--}}
-                            {{--<div class="form-group"><label for="university" class="control-label">Time--}}
-                                    {{--Management</label>--}}
-
-                                {{--<input type="hidden" value="0" name="time_management_skill">--}}
-                                {{--<input type="checkbox" name="time_management_skill" value="1" class="error"><br>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-4 col-sm-6 col-xs-6">--}}
-                            {{--<div class="form-group"><label for="university" class="control-label">Leadership</label>--}}
-
-                                {{--<input type="hidden" value="0" name="leadership_skill">--}}
-                                {{--<input type="checkbox" name="leadership_skill" value="1" class="error"><br>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="row">--}}
-                        {{--<div class="col-md-4 col-sm-6 col-xs-6">--}}
-                            {{--<div class="form-group"><label for="university" class="control-label">Finance--}}
-                                    {{--Management</label>--}}
-
-                                {{--<input type="hidden" value="0" name="finance_management_skill">--}}
-                                {{--<input type="checkbox" name="finance_management_skill" value="1" class="error"><br>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-4 col-sm-6 col-xs-6">--}}
-                            {{--<div class="form-group"><label for="university" class="control-label">Capacity--}}
-                                    {{--Development</label>--}}
-
-                                {{--<input type="hidden" value="0" name="capacity_development_skill">--}}
-                                {{--<input type="checkbox" name="capacity_development_skill" value="1" class="error"><br>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-4 col-sm-6 col-xs-6">--}}
-                            {{--<div class="form-group"><label for="university" class="control-label">Advocacy</label>--}}
-
-                                {{--<input type="hidden" value="0" name="advocacy_skill">--}}
-                                {{--<input type="checkbox" name="advocacy_skill" value="1" class="error"><br>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="row">--}}
-                        {{--<div class="col-md-4 col-sm-6 col-xs-6">--}}
-                            {{--<div class="form-group"><label for="university" class="control-label">Critical--}}
-                                    {{--Thinking</label>--}}
-
-                                {{--<input type="hidden" value="0" name="critical_thinking_skill">--}}
-                                {{--<input type="checkbox" name="critical_thinking_skill" value="1" class="error"><br>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-4 col-sm-6 col-xs-6">--}}
-                            {{--<div class="form-group"><label for="university" class="control-label">Coding</label>--}}
-
-                                {{--<input type="hidden" value="0" name="coding_skill">--}}
-                                {{--<input type="checkbox" name="coding_skill" value="1" class="error"><br>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-4 col-sm-6 col-xs-6">--}}
-                            {{--<div class="form-group"><label for="university" class="control-label">Networking</label>--}}
-
-                                {{--<input type="hidden" value="0" name="networking_skill">--}}
-                                {{--<input type="checkbox" name="networking_skill" value="1" class="error"><br>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-4 col-sm-6 col-xs-6">--}}
-                            {{--<div class="form-group"><label for="university" class="control-label" href="#modal-2" data-lity="#modal-2">I Agree to the Terms and--}}
-                                    {{--Conditions</label>--}}
-
-                                {{--<input type="hidden" value="0" name="terms_conditions">--}}
-                                {{--<input type="checkbox" name="terms_conditions" value="1" class="error"><br>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
+                            <div class="offset-md-3">
+                                <div class="form-group"><label for="university" class="control-label" href="#modal-2" data-lity="#modal-2">I Agree to the Terms and
+                                        Conditions</label>
+                                    <input type="hidden" value="0" name="terms_conditions">
+                                    <input type="checkbox" name="terms_conditions" value="1" class="error"><br>
+                                </div>
+                            </div>
                     </div>
                     <button type="submit" class="btn btn-solid text-uppercase circle btn-bordered border-thin font-size-14 font-weight-semibold" data-localscroll="true" data-localscroll-options="{&quot;scrollBelowSection&quot;:true}">
 							<span>
 								<span class="btn-txt">Apply</span>
 							</span>
                     </button>
-
-
                 </div>
                 </form>
-
             </div><!-- /.col-md-10 col-md-offset-1 -->
-
         </div><!-- /.row -->
     </div><!-- /.container -->
 </section>
+</div>
 {!!Block::display('t&c')!!}
 {!!Block::display('footer')!!}
 

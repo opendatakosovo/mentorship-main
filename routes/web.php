@@ -47,6 +47,8 @@ Route::post('admin/user_files/upload_files', 'ApplicationsController@upload_user
 Route::get('admin/projects/get_team_projects', 'TeamsController@get_team_projects');
 Route::get('thank-you', 'ApplicationsController@thanks');
 
+Route::get('sign-in', 'SignInController@sign_in');
+
 Route::post('user/application/store', 'ApplicationsController@application_store');
 Route::get('user/application/store_certificates/{id}', 'ApplicationsController@store_certificates');
 Route::get('download/{id}/{name}', 'ApplicationsController@getDownload');

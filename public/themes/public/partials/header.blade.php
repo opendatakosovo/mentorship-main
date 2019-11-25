@@ -8,7 +8,7 @@
 
                         <div class="col-auto pr-5">
                             <div class="navbar-header">
-                                <a class="navbar-brand" href="index-creative.html" rel="home">
+                                <a class="navbar-brand" href="/" rel="home">
 										<span class="navbar-brand-inner">
 											<img class="logo-dark" src="themes/public/assets/maintheme/assets/img/logo/logo-1-new.png" alt="Mentorship Platform">
 											<img class="logo-sticky" src="themes/public/assets/maintheme/assets/img/logo/logo-1-new.png" alt="Mentorship Platform">
@@ -102,6 +102,15 @@
                                             <span class="link-txt">
 													<span class="link-ext"></span>
 													<span class="txt">Apply</span>
+												</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="sign-in">
+                                            <span class="link-icon"></span>
+                                            <span class="link-txt">
+													<span class="link-ext"></span>
+													<span class="txt">Sign In</span>
 												</span>
                                         </a>
                                     </li>

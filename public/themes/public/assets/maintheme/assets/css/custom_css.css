@@ -38,7 +38,11 @@
     background-color: #ffffff;
     color: darkslategray;
 }
-
-
+.visibility{
+    padding-top: 5%;
+}
+.main-nav li a{
+    color: black;
+}
 
 
