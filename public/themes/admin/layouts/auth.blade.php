@@ -5,6 +5,9 @@
         <title>{!! Theme::getMetaTitle() !!} :: {{__('app.name')}}</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="icon"
+              type="image/png"
+              href="/themes/admin/assets/img/logo/small-logo.png">
         <style>
             html {
                 display: table;

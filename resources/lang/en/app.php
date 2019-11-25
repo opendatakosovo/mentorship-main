@@ -9,9 +9,9 @@ return [
     |
      */
 
-    'name'           => 'Lavalite',
+    'name'           => 'Mentorship IV Youth',
     'name.html'      => '<b>Lava</b>lite',
-    'name.short'     => '<b>L</b>l',
+    'name.short'     => '<b>M</b>Y',
     'admin.panel'    => 'Admin Panel',
     'dashboard'      => 'Dashboard',
     'rights'     => '<a href="https://lavalite.org/" target="_blank">Mentorship Scheme</a> &copy; 2019 All Rights Reserved,

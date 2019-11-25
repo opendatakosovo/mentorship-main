@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{{ Theme::getMetaTitle() }} - {{__('app.name')}}</title>
+{{--    <title>{{ Theme::getMetaTitle() }} - {{__('app.name')}}</title>--}}
     <meta name="description" content="{{ Theme::getMetaDesctiption() }}">
     <meta name="keyword" content="{{ Theme::getMetaKeyword() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon"
+          type="image/png"
+          href="themes/public/assets/maintheme/assets/img/logo/small-logo.png">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
@@ -34,7 +37,7 @@
 
 
 <header class="main-header main-header-overlay" data-sticky-header="true" data-sticky-options='{ "stickyTrigger": "first-section" }'>
-
+<title>Sign In</title>
     <div class="mainbar-wrap">
         <div class="megamenu-hover-bg"></div><!-- /.megamenu-hover-bg -->
         <div class="container-fluid mainbar-container">

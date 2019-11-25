@@ -4,7 +4,7 @@
                 <a href="{{guard_url('/')}}"><img src="{{theme_asset('logo-olddd.svg')}}" class="img-responsive center-block" alt="logo" title="Lavalite"></a>
             </div>
             <div class="body">
-                <h2>Reset Password</h2>
+                <h2>Set Password</h2>
                     {!!Form::vertical_open()
                                         ->id('reset')
                                         ->action(guard_url('password/email'))

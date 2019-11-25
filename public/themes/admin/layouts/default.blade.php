@@ -9,6 +9,10 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300'" rel='stylesheet' type='text/css'>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="/themes/admin/assets/css/custom_css.css">
+        <link rel="icon"
+              type="image/png"
+              href="/themes/admin/assets/img/logo/small-logo.png">
+
 
         {!! Theme::asset()->styles() !!}
 

@@ -4,7 +4,7 @@
                 <a href="{{guard_url('/')}}"><img src="{{theme_asset('logo-olddd.png')}}" class="img-responsive center-block" alt="logo" title="Lavalite"></a>
             </div>
             <div class="body">
-                <h2>Reset Password</h2>
+                <h2>Set Password</h2>
                     <form method="POST" action="{{ route('guard.password.update', ['guard' => 'client']) }}">
                         @csrf
 
