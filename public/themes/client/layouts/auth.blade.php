@@ -8,6 +8,9 @@
         <meta name="description" content="{{ Theme::getMetaDesctiption() }}">
         <meta name="keyword" content="{{ Theme::getMetaKeyword() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon"
+              type="image/png"
+              href="/themes/admin/assets/img/logo/small-logo.png">
         <link rel="apple-touch-icon" href="{{asset('apple-touch-icon.png')}}">
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="/themes/client/assets/css/custom_css.css">
