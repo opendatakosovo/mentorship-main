@@ -21,6 +21,7 @@ use Litepie\User\Traits\RoutesAndGuards;
 use Litepie\Theme\ThemeAndViews;
 use Litepie\User\Traits\UserPages;
 use Illuminate\Support\Facades\Mail;
+use App\Certificates;
 class ProjectsController extends BaseController
 {
     public function __construct()
@@ -31,15 +32,12 @@ class ProjectsController extends BaseController
     public function index(){
 
 
-
         if(is_superuser(user()->email) == 'true'){
             $projects  = Projects::all();
         }
         else{
             $projects  = Projects::where('local_mentor',user()->id)->get();
         }
-
-
 
         $skills = array(
             "communication_skill" => "Communication",
@@ -64,6 +62,7 @@ class ProjectsController extends BaseController
         foreach($teams as $team){
             $team_result[] = $team;
         }
+
         $data['skills'] = $skills;
         $data['teams'] = $team_result;
         $data['projects'] = $projects;
@@ -84,6 +83,7 @@ class ProjectsController extends BaseController
                 'team_id' =>  $request->team_id,
                 'matching_skills' =>  serialize($request->matching_skills),
                 'place'  =>  $request->place,
+                'website'  =>  $request->website,
                 'local_mentor' =>  $request->local_mentor,
                 'external_mentor' =>  serialize($request->external_mentors),
                 'project_status' =>  $request->project_status,
@@ -126,6 +126,7 @@ class ProjectsController extends BaseController
             $project->team_id = $request->team_id;
             $project->matching_skills = serialize($request->matching_skills);
             $project->place = $request->place;
+            $project->website = $request->website;
             $project->local_mentor = $request->local_mentor;
             $project->external_mentor = serialize($request->external_mentors);
             $project->project_status = $request->project_status;
@@ -272,6 +273,7 @@ class ProjectsController extends BaseController
 
         return redirect('/admin/user/team');
     }
+
 
 
 

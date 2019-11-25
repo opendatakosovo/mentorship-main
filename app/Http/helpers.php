@@ -102,12 +102,15 @@ function get_file_uploads($id)
     if (\File::exists(storage_path("app/certificates/".$id))) {
         $filesInFolder = \File::files(storage_path("app/certificates/".$id));
 
-        foreach ($filesInFolder as $path) {
-            $file = pathinfo($path);
-            $files[] = $file['filename'];
+        if($filesInFolder){
+            foreach ($filesInFolder as $path) {
+                $file = pathinfo($path);
+                $files[] = $file['filename'];
+            }
+
+            return $files;
         }
 
-        return $files;
     }
 
 
@@ -381,7 +384,7 @@ function personal_timesheets($email){
 
 
 function get_host(){
-    return 'http://localhost:8000';
+    return 'http://192.168.0.33:8000';
 }
 
 
@@ -457,4 +460,11 @@ function get_languages(){
 
    );
        return $languages;
+}
+
+function get_skills(){
+
+    $skills = \App\Skills::all();
+
+    return $skills;
 }

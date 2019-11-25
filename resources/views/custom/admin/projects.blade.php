@@ -177,6 +177,10 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Website Link :</label>
+                        <input type="text" class="form-control" id="website" name="website">
+                    </div>
+                    <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Choose Team:</label>
                         <select class="select2 form-control" id="team" name="team_id" required>
                             <optgroup label="Choose Team">
@@ -199,7 +203,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Choose local Mentor:</label>
+                        <label for="recipient-name" class="col-form-label">Choose Internal Mentor:</label>
                         <select class="select2 form-control" id="local_mentor" name="local_mentor" required>
                             <optgroup label="Choose Local Mentor">
                             </optgroup>
@@ -335,15 +339,18 @@
                                             <td>{{$project->place}}</td>
                                             <td>{{get_local_mentor_name($project->local_mentor)}}</td>
                                             <td>
+
+                                                @if(unserialize($project->external_mentor) !='')
                                                 @foreach(unserialize($project->external_mentor) as $mentor)
                                                     {{get_mentor_name($mentor)}}
                                                 @endforeach
+                                                    @endif
                                             </td>
                                             <td>{{$project->project_status}}</td>
                                             <td>{{$project->next_activity}}</td>
                                             <td>
                                                 <button type="button"
-                                                        onclick="edit_project('{{$project->id}}','{{$project->project_id}}','{{$project->project_name}}','{{$project->project_description}}','{{$project->team_id}}','{{convert_to_json($project->matching_skills)}}','{{$project->place}}','{{$project->local_mentor}}','{{convert_to_json($project->external_mentor)}}','{{$project->project_status}}','{{$project->next_activity}}')"
+                                                        onclick="edit_project('{{$project->id}}','{{$project->project_id}}','{{$project->project_name}}','{{$project->project_description}}','{{$project->team_id}}','{{convert_to_json($project->matching_skills)}}','{{$project->place}}','{{$project->local_mentor}}','{{convert_to_json($project->external_mentor)}}','{{$project->project_status}}','{{$project->next_activity}}','{{$project->website}}')"
                                                         class="btn btn-primary">Edit
                                                 </button>
                                                 <button type="button" class="btn btn-danger"
@@ -527,10 +534,11 @@
             $('#hidden_delete_button').val(id)
         }
 
-        function edit_project(id, project_id, project_name, project_description, team_id, matching_skills, place, local_mentor, external_mentor, project_status, next_activity) {
+        function edit_project(id, project_id, project_name, project_description, team_id, matching_skills, place, local_mentor, external_mentor, project_status, next_activity, website) {
             var url = '/admin/projects/edit';
             $('#projects_form').attr('action', url);
             $('#hidden_project_id').val(id);
+
             var matching_skills = JSON.parse(matching_skills);
             var external_mentor = JSON.parse(external_mentor);
 
@@ -541,6 +549,7 @@
 
             $('#project_id_text').val(project_id);
             $('#project_name').val(project_name);
+            $('#website').val(website);
             $('#project_description').val(project_description);
             $('#team').val(team_id);
             $('#team').trigger('change');

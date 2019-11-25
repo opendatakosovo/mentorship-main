@@ -50,8 +50,7 @@
 {{--</body>--}}
 
 {{--</html>--}}
-
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Mentorship Scheme</title>
@@ -265,7 +264,8 @@
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
 
                                         <tr>
-                                            <td align="center" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">As part of the second phase on becoming a mentor, you are expected to complete two online courses provided below and provide the certificates on your personal profile.</td>
+                                            <td align="center" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">As part of the second phase on becoming a mentor, you are expected to complete two online courses provided below and provide the certificates on your personal profile.<br> You have to complete these courses within one week</td>
+
                                         </tr>
                                     </table>
                                 </td>

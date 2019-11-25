@@ -36,9 +36,14 @@ Route::group(['middleware' => 'auth.basic'], function()
     Route::post('admin/projects/match', 'ProjectsController@match');
     Route::post('admin/projects/match_local_mentor', 'ProjectsController@match_local_mentor');
     Route::post('admin/teams/upload_team_image', 'ProjectsController@upload_team_image');
+    Route::get('admin/skills', 'SkillsController@index');
+    Route::post('admin/skills/store', 'SkillsController@store');
+    Route::post('admin/skills/edit', 'SkillsController@edit');
+    Route::post('admin/skills/destroy', 'SkillsController@destroy');
 
 });
 
+Route::post('admin/user_files/upload_files', 'ApplicationsController@upload_user_files');
 Route::get('admin/projects/get_team_projects', 'TeamsController@get_team_projects');
 Route::get('thank-you', 'ApplicationsController@thanks');
 

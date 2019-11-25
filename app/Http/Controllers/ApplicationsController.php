@@ -22,8 +22,42 @@ class ApplicationsController extends Controller
 
     public function application_store(Request $request){
 //      $data = $request->all();
+       $requests = $request->all();
 
-        Client::create($request->all());
+       foreach($requests as $key => $req){
+           if(substr( $key, 0, 5 ) === "skill"){
+               $skills[$key] = array(
+                   'skill' => $key,
+                   'value' => $req
+               );
+           }
+       }
+
+//       var_dump($request->langs);
+//       die();
+
+        Client::create([
+            'name' => $request->name,
+            'lastname' => $request->lastname,
+            'email' => $request->email,
+            'sex' => $request->sex,
+            'mobile' => $request->mobile,
+            'phone' => $request->phone,
+            'address' => $request-> address,
+            'city' => $request->city,
+            'district' => $request->district,
+            'state' => $request->state,
+            'country' => $request->country,
+            'company_organization' => $request->company_organization,
+            'background_field_of_study' => $request->background_field_of_study,
+            'qualification' => $request->qualification,
+            'web' => $request->web,
+            'university' => $request->university,
+            'languages' => serialize($request->langs),
+            'general_info' => $request->general_info,
+            'skills' => serialize($skills)
+        ]);
+
 
         return view('thank-you');
 
@@ -62,8 +96,6 @@ class ApplicationsController extends Controller
     public function getDownload($id,$name)
     {
 
-
-
         //PDF file is stored under project/public/download/info.pdf
         $file= storage_path(). "/app/certificates/".$id."/".$name."";
 
@@ -72,6 +104,22 @@ class ApplicationsController extends Controller
         );
 
         return response()->download($file, 'Certificate.pdf', $headers);
+    }
+
+
+    public function upload_user_files(Request $request){
+
+        foreach ($request->file('files') as $photo) {
+
+            $filename = $photo->store('certificates/'.$request->mentor_id);
+
+            Certificates::create([
+                'mentor_id' => $request->mentor_id,
+                'filename' => $filename
+            ]);
+        }
+
+        return redirect('/admin/user/client');
     }
 }
 
