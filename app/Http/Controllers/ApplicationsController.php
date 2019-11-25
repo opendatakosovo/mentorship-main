@@ -14,8 +14,12 @@ namespace App\Http\Controllers;
 use App\Certificates;
 use App\Client;
 use App\Http\Requests\UploadRequest;
+use App\Mail\NewUserEmail;
+use App\Mail\Upload_certificate_email;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class ApplicationsController extends Controller
 {
@@ -85,10 +89,20 @@ class ApplicationsController extends Controller
 
         foreach ($request->file('files') as $photo) {
             $filename = $photo->store('certificates/'.$request->mentor_id);
+            $file_names[] = $photo->originalName;
             Certificates::create([
                 'mentor_id' => $request->mentor_id,
                 'filename' => $filename
             ]);
+        }
+        $mentor_name = get_mentor_name($request->mentor_id);
+
+        $superadmins = DB::table('users')
+            ->select(DB::raw('email'))
+            ->get();
+
+        foreach($superadmins as $supers){
+            Mail::to($supers->email)->send(new Upload_certificate_email($mentor_name, $file_names));
         }
         return view('thank-you');
     }

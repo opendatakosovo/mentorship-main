@@ -32,7 +32,7 @@ use Symfony\Component\Mime\MimeTypes;
 class UploadedFile extends File
 {
     private $test = false;
-    private $originalName;
+    public $originalName;
     private $mimeType;
     private $error;
 
