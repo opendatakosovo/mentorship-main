@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2019 at 01:21 PM
+-- Generation Time: Nov 26, 2019 at 01:24 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.2.22
 
@@ -290,7 +290,7 @@ CREATE TABLE `clients` (
   `general_info` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `birthday` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `paid` tinyint(4) DEFAULT NULL,
-  `skills` blob DEFAULT 'NULL',
+  `skills` blob,
   `languages` varchar(999) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
