@@ -185,44 +185,44 @@
 <hr>
 <div class="tab-pan-title"> Personal Skills</div>
 <hr>
-<div class='row'>
+{{--<div class='row'>--}}
 
-    <div class='col-md-4 col-sm-6'>
-        <div class="form-group"><label for="university" class="control-label">Communication</label>
+    {{--<div class='col-md-4 col-sm-6'>--}}
+        {{--<div class="form-group"><label for="university" class="control-label">Communication</label>--}}
             {{--<select class="select2 form-control" name="it_skill" id="languages">--}}
             {{--@for($i = 0 ; $i < 6; $i++)--}}
             {{--<option value="{{$i}}" selected="selected">{{$i}}</option>--}}
             {{--@endfor--}}
             {{--</select>--}}
 
-            <input type='hidden' value='0' name='communication_skill'>
-            <input type="checkbox" name="communication_skill" value="1"{{ $client['communication_skill'] == "1" ? "checked" : "" }}><br>
-        </div>
-    </div>
+            {{--<input type='hidden' value='0' name='communication_skill'>--}}
+            {{--<input type="checkbox" name="communication_skill" value="1"{{ $client['communication_skill'] == "1" ? "checked" : "" }}><br>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
-    <div class='col-md-4 col-sm-6'>
-        <div class="form-group"><label for="university" class="control-label">Team Work</label>
+    {{--<div class='col-md-4 col-sm-6'>--}}
+        {{--<div class="form-group"><label for="university" class="control-label">Team Work</label>--}}
             {{--<select class="select2 form-control" name="managerial_skill" id="languages">--}}
             {{--@for($i = 0 ; $i < 6; $i++)--}}
             {{--<option value="{{$i}}" selected="selected">{{$i}}</option>--}}
             {{--@endfor--}}
             {{--</select>--}}
-            <input type='hidden' value='0' name='team_work_skill'>
-            <input type="checkbox" name="team_work_skill" value="1" {{ $client['team_work_skill'] == "1" ? "checked" : "" }}><br>
-        </div>
-    </div>
-    <div class='col-md-4 col-sm-6'>
-        <div class="form-group"><label for="university" class="control-label">Problem Solving</label>
+            {{--<input type='hidden' value='0' name='team_work_skill'>--}}
+            {{--<input type="checkbox" name="team_work_skill" value="1" {{ $client['team_work_skill'] == "1" ? "checked" : "" }}><br>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+    {{--<div class='col-md-4 col-sm-6'>--}}
+        {{--<div class="form-group"><label for="university" class="control-label">Problem Solving</label>--}}
             {{--<select class="select2 form-control"name="marketing_skill" id="languages">--}}
             {{--@for($i = 0 ; $i < 6; $i++)--}}
             {{--<option value="{{$i}}" selected="selected">{{$i}}</option>--}}
             {{--@endfor--}}
             {{--</select>--}}
-            <input type='hidden' value='0' name='problem_solving_skill'>
-            <input type="checkbox" name="problem_solving_skill" value="1" {{ $client['problem_solving_skill'] == "1" ? "checked" : "" }}><br>
-        </div>
-    </div>
-</div>
+            {{--<input type='hidden' value='0' name='problem_solving_skill'>--}}
+            {{--<input type="checkbox" name="problem_solving_skill" value="1" {{ $client['problem_solving_skill'] == "1" ? "checked" : "" }}><br>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+{{--</div>--}}
 <div class="row">
     @php
     $client_skills = $client['skills'];
