@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => 'smtp.gmail.com',
+    'host' => 'mail.privateemail.com',
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'dramdrum.m@gmail.com'),
-        'name'    => env('MAIL_FROM_NAME', 'Dren'),
+        'address' => env('MAIL_FROM_ADDRESS', 'info@mentorship4youth.net'),
+        'name'    => env('MAIL_FROM_NAME', 'Mentorship'),
     ],
 
     /*
@@ -84,8 +84,8 @@ return [
     |
     */
 
-    'username' => 'dramdrum.m@gmail.com',
-    'password' =>'drenim464576',
+    'username' => 'info@mentorship4youth.net',
+    'password' =>'.Hi$j]2WAm)nu',
 
     /*
     |--------------------------------------------------------------------------
