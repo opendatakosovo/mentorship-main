@@ -77,17 +77,17 @@
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        {{--<img src="{!!user()->picture!!}" class="user-image" alt="User Image"/>--}}
-                        {{--<span class="hidden-xs">{!!user()->name!!}</span>--}}
+                        <img src="/themes/admin/assets/img/avatar/male.png" class="user-image" alt="User Image"/>
+                        <span class="hidden-xs">{!!user()->name!!}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            {{--<img src="{!!user()->picture!!}" class="img-circle" alt="User Image" />--}}
-                            {{--<p>--}}
-                                {{--{!!user()->name!!} - {!!user()->designation!!}--}}
-                                {{--<small>Member since {!!user()->joined!!}</small>--}}
-                            {{--</p>--}}
+                            <img src="/themes/admin/assets/img/avatar/male.png" class="img-circle" alt="User Image" />
+                            <p>
+                                {!!user()->name!!} - {!!user()->designation!!}
+                                <small>Member since {!!user()->joined!!}</small>
+                            </p>
                         </li>
 
                         <!-- Menu Footer-->
@@ -100,10 +100,6 @@
                             </div>
                         </li>
                     </ul>
-                </li>
-                <!-- Control Sidebar Toggle Button -->
-                <li>
-                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                 </li>
             </ul>
         </div>

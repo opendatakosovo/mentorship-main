@@ -74,6 +74,12 @@ if(is_superuser(user()->email) == 'true'){
                     <span>Roles &amp; Permissions</span>
                 </a>
             </li>
+                <li class="">
+                    <a href="user/team">
+                        <i class="fa fa-users"></i>
+                        <span>Skills</span>
+                    </a>
+                </li>
 
             {{--<li>--}}
                 {{--<a href="http://localhost:8000/admin/contact/contact">--}}
