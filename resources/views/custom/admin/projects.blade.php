@@ -295,7 +295,7 @@
                                         <tr>
                                             <td>{{$project->project_id}}</td>
                                             <td>{{$project->project_name}}</td>
-                                            <td>{{$project->project_description}}</td>
+                                            <td>{{strlen($project->project_description) > 50 ? substr($project->project_description,0,10)."..." : $project->project_description }}</td>
                                             <td>{{get_team_name($project->team_id)}}</td>
                                             <td>{{$project->place}}</td>
                                             <td>{{get_local_mentor_name($project->local_mentor)}}</td>
