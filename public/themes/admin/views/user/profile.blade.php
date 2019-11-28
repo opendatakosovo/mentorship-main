@@ -28,7 +28,7 @@
 
                 <!-- /.box -->
             </div>
-            
+
             <div id="show-profile">
                 <div class="col-md-9">
                     <div class="nav-tabs-custom">
@@ -62,15 +62,15 @@
 
                                         {!! Form::tel('mobile')
                                         -> label(trans('user::user.label.mobile'))
-                                        -> placeholder(trans('user::user.placeholder.mobile')) !!}  
-                                              
+                                        -> placeholder(trans('user::user.placeholder.mobile')) !!}
+
                                         {!! Form::tel('phone')
                                         -> label(trans('user::user.label.phone'))
-                                        -> placeholder(trans('user::user.placeholder.phone')) !!}        
+                                        -> placeholder(trans('user::user.placeholder.phone')) !!}
 
                                         </div>
 
-                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">    
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                 {!! $user->files('photo')
                                                 ->cropper($user->picture)!!}
                                         </div>

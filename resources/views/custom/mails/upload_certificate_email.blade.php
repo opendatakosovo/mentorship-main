@@ -198,13 +198,10 @@
                                 <td align="center" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
                                     <table style="width:100%">
                                         <tbody>
-
                                         <tr style="text-align:left">
                                             <th>Mentor Name</th>
                                             <th>File Name</th>
-
                                         </tr>
-
                                         <tr>
                                             <td style="width:100%"> {{$data['mentor_name']}} </td>
 
@@ -232,7 +229,7 @@
                                                 <table width="500" border="0" cellspacing="0" cellpadding="0" align="center" class="responsive-table">
                                                     <tr>
                                                         <td align="center" valign="middle" style="font-size: 12px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color:#666666;">
-                                                            <span class="appleFooter" style="color:#666666;">Best, Kosovo CSR Network</span><br>
+                                                            <span class="appleFooter" style="color:#666666;">Mentorship 4 Youth</span><br>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -242,5 +239,11 @@
                                 </td>
                             </tr>
                         </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 </body>
 </html>
