@@ -119,7 +119,7 @@ class ClientResourceController extends BaseController
             $attributes['api_token'] = str_random(60);
             $client = $this->repository->create($attributes);
 
-
+            
 
             return $this->response->message(trans('messages.success.created', ['Module' => trans('user::client.name', ['client' => $type])]))
                 ->code(204)

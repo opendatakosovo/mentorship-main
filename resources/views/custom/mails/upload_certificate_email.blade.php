@@ -206,9 +206,8 @@
                                             <td style="width:100%"> {{$data['mentor_name']}} </td>
 
                                             @foreach ($data['file_names'] as $filename)
-                                                <td style="width: 100%">{{$filename}}</td>
+                                                <td>{{$filename}}</td>
                                             @endforeach
-
                                         </tr>
                                         </tbody>
                                     </table> </td>
