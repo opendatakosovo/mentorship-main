@@ -39,23 +39,37 @@ class ProjectsController extends BaseController
             $projects  = Projects::where('local_mentor',user()->id)->get();
         }
 
-        $skills = array(
-            "communication_skill" => "Communication",
-            "team_work_skill" => "Team work",
-            "problem_solving_skill" => "Problem Solving",
-            "creativity_skill" => "Creativity",
-            "adaptability_skill" => "Adaptability",
-            "work_ethics_skill" => "Work Ethics",
-            "interpersonal_skills_skill" => "Interpersonal Skills",
-            "time_management_skill" => "Time Management",
-            "leadership_skill" => "Leadership",
-            "finance_management_skill" => "Finance Management",
-            "capacity_skill" => "Capacity",
-            "advocacy_skill" => "Advocacy",
-            "critical_thinking_skill" => "Critical Thinking",
-            "coding_skill" => "Coding",
-            "networking_skill" => "Networking"
-        );
+        $skills = get_skills();
+
+        foreach($skills as $skill){
+            $skill_res[] = $skill->skill_name;
+        }
+
+
+        $skill_fetched = [];
+        foreach($skill_res as $skill){
+            $skill_fetched[  strtolower(str_replace(' ', '_', $skill))] = $skill;
+
+        }
+
+
+//        $skills = array(
+//            "communication_skill" => "Communication",
+//            "team_work_skill" => "Team work",
+//            "problem_solving_skill" => "Problem Solving",
+//            "creativity_skill" => "Creativity",
+//            "adaptability_skill" => "Adaptability",
+//            "work_ethics_skill" => "Work Ethics",
+//            "interpersonal_skills_skill" => "Interpersonal Skills",
+//            "time_management_skill" => "Time Management",
+//            "leadership_skill" => "Leadership",
+//            "finance_management_skill" => "Finance Management",
+//            "capacity_skill" => "Capacity",
+//            "advocacy_skill" => "Advocacy",
+//            "critical_thinking_skill" => "Critical Thinking",
+//            "coding_skill" => "Coding",
+//            "networking_skill" => "Networking"
+//        );
 
         $teams = DB::table('teams')->whereNull('deleted_at')->get();
 
@@ -63,7 +77,7 @@ class ProjectsController extends BaseController
             $team_result[] = $team;
         }
 
-        $data['skills'] = $skills;
+        $data['skills'] = $skill_fetched;
         $data['teams'] = $team_result;
         $data['projects'] = $projects;
         return view('custom.admin.projects')->with('data',$data);
@@ -151,22 +165,42 @@ class ProjectsController extends BaseController
     public function match(Request $request){
 
         $selected = $request->selected;
+
         $matches = [];
 
             if($selected != ''){
                 foreach($selected as $skill){
+                    $query =  '"skill_'.$skill.'";s:5:"value";s:1:"1"';
+                    $queries[$skill] = $query;
+                    $replaced_query = str_replace("'", '',$query);
                     $mentors = DB::table('clients')
-                        ->where($skill, '1')->get();
+                        ->where('skills','like','%'.$replaced_query.'%')->get();
                 }
 
-                foreach($mentors as $mentor){
 
+                foreach($mentors as $mentor){
+//                    var_dump($mentor);
 //                    if(!in_array($mentor->id, $matches)){
                         $matches[] = $mentor;
 //                    }
                 }
             }
 
+            foreach($matches as $match){
+                $skill_string = $match->skills;
+//                echo $skill_string;
+                foreach ($queries as $key => $q){
+//                    var_dump($q);
+                    if (strpos($skill_string, $q) === false) {
+                        $match->missing[] = str_replace("_"," ",$key);
+//                        echo $key .' not there for user '. $match->id. ' ';
+                    }
+                }
+
+//                var_dump($match);
+
+            }
+//        die();
         echo json_encode($matches);
 
     }

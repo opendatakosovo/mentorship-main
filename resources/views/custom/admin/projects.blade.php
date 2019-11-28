@@ -181,7 +181,7 @@
                         <input type="text" class="form-control" id="website" name="website">
                     </div>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Choose Team:</label>
+                        <label for="recipient-name" class="col-form-label">Choose Implementing Partner:</label>
                         <select class="select2 form-control" id="team" name="team_id" required>
                             <optgroup label="Choose Team">
                                 <option value="none" disabled selected>Choose</option>
@@ -210,7 +210,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Choose External Mentor:</label>
+                        <label for="recipient-name" class="col-form-label">Choose External Mentor :     <a href="#"><span class="fa fa-info-circle" data-toggle="tooltip" title="Hover your mouse to one of the External Mentors to see the missing skills" ></span></a></label>
                         <select class="select2 form-control" id="external_mentor" multiple="multiple"
                                 name="external_mentors[]" required>
                             <optgroup label="Choose Mentors">
@@ -376,6 +376,7 @@
     <script>
         $(document).ready(function () {
             $('#example').DataTable();
+
         });
     </script>
     <script>
@@ -478,7 +479,6 @@
                 ]
 
             });
-
 
         }
 
@@ -585,9 +585,15 @@
                 success: function (result, textStatus, jqXHR) {
                     dropdown.empty();
                     data = JSON.parse(result)
-                    console.log(data);
+
                     $.each(data, function () {
-                        dropdown.append($("<option />").val(this.id).text(this.name + ' ' + this.lastname));
+                        if(this.missing){
+                            dropdown.append($("<option data-toggle='tooltip' title='Missing Skills : "+this.missing+"'/>").val(this.id).html(this.name + ' ' + this.lastname  ));
+                        }else{
+                            dropdown.append($("<option data-toggle='tooltip' title='100% Match' />").val(this.id).text(this.name + ' ' + this.lastname ));
+                        }
+
+                        // dropdown.append("<option value="+this.id+">"+this.name + ' ' + this.lastname+"</option>");
                     });
                 },
                 error: function (jqXHR, textStatus, errorThrown) {

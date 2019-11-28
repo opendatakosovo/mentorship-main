@@ -178,6 +178,19 @@ class ClientResourceController extends BaseController
             if($attributes['status'] == 'Active'){
                 Mail::to($attributes['email'])->send(new SendActivationEmail($attributes['email']));
             }
+
+
+            foreach($attributes as $key => $req){
+                if(substr( $key, 0, 5 ) === "skill"){
+                    $skills[$key] = array(
+                        'skill' => $key,
+                        'value' => $req
+                    );
+                }
+            }
+
+            $attributes['skills'] = serialize($skills);
+
             $client->update($attributes);
 
             return $this->response->message(trans('messages.success.updated', ['Module' => trans('user::client.name', ['client' => $type])]))
