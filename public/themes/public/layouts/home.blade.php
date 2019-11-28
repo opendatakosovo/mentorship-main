@@ -13,6 +13,7 @@
         <meta name="keywords" content="Mentorship,Workshops,Partners,Why Become a Mentor">
         <meta name="author" content="Managed By: CSR and Developed By: Open Data Kosovo">
 
+        <meta property="og:title"content="Mentorship IV Youth" />
         <meta property="og:image" content="themes/public/assets/maintheme/assets/img/mentorship/meta-photo.png" />
         <meta property="og:url"content="https://mentorship4youth.net" />
         <link rel="icon"
