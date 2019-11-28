@@ -8,12 +8,12 @@
 ?>
 
 {{--<form action="/user/application/store_certificates/upload" enctype="multipart/form-data" method="post">--}}
-    {{--{{ csrf_field() }}--}}
+{{--{{ csrf_field() }}--}}
 
-    {{--<input type="hidden" name="mentor_id" value="{{$data['mentor_id']}}">--}}
-    {{--<input multiple="multiple" name="files[]" type="file">--}}
-    {{--<br><br>--}}
-    {{--<input type="submit" value="Upload">--}}
+{{--<input type="hidden" name="mentor_id" value="{{$data['mentor_id']}}">--}}
+{{--<input multiple="multiple" name="files[]" type="file">--}}
+{{--<br><br>--}}
+{{--<input type="submit" value="Upload">--}}
 {{--</form>--}}
 
 
@@ -22,7 +22,7 @@
 
 
 
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -72,7 +72,7 @@
 											<img class="logo-dark" src="themes/public/assets/maintheme/assets/img/logo/logo-1.svg" alt="Mentorship Platform">
 											<img class="logo-sticky" src="themes/public/assets/maintheme/assets/img/logo/logo-1.svg" alt="Mentorship Platform">
 											<img class="mobile-logo-default" src="themes/public/assets/maintheme/assets/img/logo/logo-1.svg" alt="Mentorship Platform">
-											<img class="logo-default" src="/themes/public/assets/maintheme/assets/img/logo/logo-1.svg" alt="Mentorship Platform">
+											<img class="logo-default" src="/themes/public/assets/maintheme/assets/img/logo/logo-1-new.png" alt="Mentorship Platform">
 										</span>
                             </a>
                             <button type="button" class="navbar-toggle collapsed nav-trigger style-mobile" data-toggle="collapse" data-target="#main-header-collapse" aria-expanded="false" data-changeclassnames='{ "html": "mobile-nav-activated overflow-hidden" }'>
