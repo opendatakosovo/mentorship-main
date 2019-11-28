@@ -311,7 +311,7 @@
                                             <td>{{$project->next_activity}}</td>
                                             <td>
                                                 <button type="button"
-                                                        onclick="edit_project('{{$project->id}}','{{$project->project_id}}','{!! $project->project_name !!}','{{$project->project_description}}','{{$project->team_id}}','{{convert_to_json($project->matching_skills)}}','{{$project->place}}','{{$project->local_mentor}}','{{convert_to_json($project->external_mentor)}}','{{$project->project_status}}','{{$project->next_activity}}','{{$project->website}}')"
+                                                        onclick="edit_project('{{$project->id}}','{{$project->project_id}}','{!! $project->project_name !!}','{!! $project->project_description !!}','{{$project->team_id}}','{{convert_to_json($project->matching_skills)}}','{{$project->place}}','{{$project->local_mentor}}','{{convert_to_json($project->external_mentor)}}','{{$project->project_status}}','{{$project->next_activity}}','{{$project->website}}')"
                                                         class="btn btn-primary">Edit
                                                 </button>
                                                 <button type="button" class="btn btn-danger"
