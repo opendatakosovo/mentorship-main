@@ -234,7 +234,7 @@
                                 </div>
                             </div>
                             <div class="offset-md-3">
-                                <div class="form-group"><label for="university" class="control-label" href="#modal-2" data-lity="#modal-2">I Agree to the Terms and
+                                <div class="form-group"><label style="cursor: pointer" for="university" class="control-label" href="#modal-2" data-lity="#modal-2">I Agree to the Terms and
                                         Conditions</label>
                                     <input type="hidden" value="0" name="terms_conditions">
                                     <input type="checkbox" name="terms_conditions" value="1" required class="error"><br>
