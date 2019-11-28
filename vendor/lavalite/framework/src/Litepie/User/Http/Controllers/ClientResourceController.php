@@ -119,17 +119,7 @@ class ClientResourceController extends BaseController
             $attributes['api_token'] = str_random(60);
             $client = $this->repository->create($attributes);
 
-            $superadmins = DB::table('users')
-                ->select(DB::raw('email'))
-                ->join('role_user', 'role_user.user_id', '=', 'users.id')
-                ->where('role_id', 1)
-                ->get();
 
-            var_dump($superadmins);
-            die();
-            foreach($superadmins as $supers){
-                Mail::to($supers->email)->send(new NewUserEmail($attributes['email'], $attributes['name'], $attributes['lastname'], $attributes['city'],$attributes['background_field_of_study']));
-            }
 
             return $this->response->message(trans('messages.success.created', ['Module' => trans('user::client.name', ['client' => $type])]))
                 ->code(204)

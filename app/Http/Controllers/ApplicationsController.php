@@ -71,6 +71,18 @@ class ApplicationsController extends Controller
         ]);
 
 
+       if($id){
+           $superadmins = DB::table('users')
+               ->select(DB::raw('email'))
+               ->join('role_user', 'role_user.user_id', '=', 'users.id')
+               ->where('role_id', 1)
+               ->get();
+
+
+           foreach($superadmins as $supers){
+               Mail::to($supers->email)->send(new NewUserEmail($request['email'], $request['name'], $request['lastname'], $request['city'],$request['background_field_of_study']));
+           }
+       }
         return view('thank-you');
 
     }
