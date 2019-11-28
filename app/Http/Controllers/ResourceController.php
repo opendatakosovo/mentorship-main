@@ -37,8 +37,9 @@ class ResourceController extends BaseController
     {
         $user = $request->user()->toArray();
 
+        return redirect('/admin/reports');
         if(is_superuser($user['email']) == 'true'){
-            return redirect('/admin/reports');
+
         }else{
             return $this->response->setMetaTitle(__('app.dashboard'))
                 ->view('home')
