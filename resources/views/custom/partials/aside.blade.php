@@ -119,7 +119,7 @@ if(is_superuser(user()->email) == 'true'){
             @if($show)
             {{--<li><a href="http://localhost:8000/admin/settings"><i class="fa fa-sliders text-red"></i> <span>Settings</span></a></li>--}}
             @endif
-            <li><a href="http://localhost:8000/admin/reports"><i class="fa fa-bar-chart text-aqua"></i> <span>Reports</span></a></li>
+            <li><a href="/admin/reports"><i class="fa fa-bar-chart text-aqua"></i> <span>Reports</span></a></li>
         </ul>
     </section>
     <!-- /.sidebar -->
