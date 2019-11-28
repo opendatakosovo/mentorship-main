@@ -317,12 +317,17 @@
                             "                                                 aria-labelledby='heading_accordion-collapse-" + value.id + "'>\n" +
                             "                                                <div class='accordion-content'>\n" +
                             "                                                    <p id='project_desc'>" + value.project_description + "</p>\n" +
+                            "                                                    <a href=https://"+value.website+" id=project_web_"+value.id+">" + value.website + "</a>\n" +
                             "                                                </div><!-- /.accordion-content -->\n" +
                             "                                            </div><!-- /.accordion-collapse -->\n" +
                             "\n" +
                             "                                        </div>");
 
                         console.log(index, value);
+
+                        if(value.website == null){
+                            $("#project_web_"+value.id).hide();
+                        }
                     });
 
                 },
