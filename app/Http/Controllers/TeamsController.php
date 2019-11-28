@@ -24,7 +24,7 @@ class TeamsController extends Controller
                 "id" => $project->id,
                 "project_name" => $project->project_name,
                 "project_description" => $project->project_description,
-//                "website" => $project->website,
+                "website" => $project->website,
                 "team_image" => str_replace('public','/storage',get_team_image_uploads($project->team_id))
             );
         }
