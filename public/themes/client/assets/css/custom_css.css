@@ -5,3 +5,6 @@ body.auth .logo img {
     height: 140px !important;
 }
 
+.photo-file-cropper .btn-group{
+    display: none !important;
+}

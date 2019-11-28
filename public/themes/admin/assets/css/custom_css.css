@@ -44,3 +44,7 @@ background-color: #f9fafc !important;
     width: 80% !important;
     margin-top: -10px ! important;
 }
+
+.photo-file-cropper .btn-group{
+    display: none !important;
+}
