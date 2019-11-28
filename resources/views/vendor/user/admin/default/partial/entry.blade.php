@@ -419,11 +419,26 @@
         <div class="form-group"><label for="university" class="control-label">Did mentor get paid ?</label>
             <input type='hidden' value='0' name='paid'>
             <input type="checkbox" name="paid" value="1"  {{ $client['paid'] == "1" ? "checked" : "" }}><br>
-
         </div>
     </div>
+</div>
+<div class="tab-pan-title"> CV Uploads </div>
+<hr>
+<div class="row">
+    @if(get_cv_uploads($client['email']) != null)
+        @foreach(get_cv_uploads($client['email']) as $upload)
+            <div class='col-md-4 col-sm-6'>
+                <li class="documents"><a href="/download_cv/{{$client['email']}}/{{$upload}}.pdf"></a></li>
+            </div>
+        @endforeach
+        @else
+        <div class='col-md-4 col-sm-6'>
+            <h4>No Cv Uploaded</h4>
+        </div>
+    @endif
 
 </div>
+<hr>
 
 
 <script>

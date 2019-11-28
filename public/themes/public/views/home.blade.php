@@ -116,7 +116,7 @@
                         <br>
                     </h2>
                 </header><!-- /.fancy-title -->
-                <form action="user/application/store" method="POST">
+                <form action="user/application/store" method="POST" enctype="multipart/form-data" >
                     <div class="form">
                     <div class="form-group">
                         <label>Identification</label>
@@ -229,10 +229,15 @@
                             </div>
                         @endforeach
                             <div class="offset-md-3">
+                                <div class="form-group"><label for="university" class="control-label">Upload your CV</label>
+                                    <input type="file" class="form-control" id="cv_upload" name="cv_upload" required  accept="application/pdf"  onchange="validatePDF(this)"  class="error"><br>
+                                </div>
+                            </div>
+                            <div class="offset-md-3">
                                 <div class="form-group"><label for="university" class="control-label" href="#modal-2" data-lity="#modal-2">I Agree to the Terms and
                                         Conditions</label>
                                     <input type="hidden" value="0" name="terms_conditions">
-                                    <input type="checkbox" name="terms_conditions" value="1" class="error"><br>
+                                    <input type="checkbox" name="terms_conditions" value="1" required class="error"><br>
                                 </div>
                             </div>
                     </div>
@@ -262,7 +267,23 @@
 
     });
 </script>
+<script>
+    var formOK = false;
 
+    function validatePDF(objFileControl){
+        var file = objFileControl.value;
+        var len = file.length;
+        var ext = file.slice(len - 4, len);
+        if(ext.toUpperCase() == ".PDF"){
+            formOK = true;
+        }
+        else{
+            formOK = false;
+            $("#cv_upload").val('');
+            alert("Only PDF files allowed.");
+        }
+    }
+</script>
 <script>
     function get_projects(id) {
         if (id) {

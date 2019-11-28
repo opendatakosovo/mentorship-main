@@ -116,6 +116,26 @@ function get_file_uploads($id)
 
 }
 
+function get_cv_uploads($email)
+{
+
+
+    if (\File::exists(storage_path("app/cv/".$email))) {
+        $filesInFolder = \File::files(storage_path("app/cv/".$email));
+
+        if($filesInFolder){
+            foreach ($filesInFolder as $path) {
+                $file = pathinfo($path);
+                $files[] = $file['filename'];
+            }
+
+            return $files;
+        }
+
+    }
+
+
+}
 function get_team_image_uploads($id)
 {
 

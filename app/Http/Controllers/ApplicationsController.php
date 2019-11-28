@@ -37,10 +37,17 @@ class ApplicationsController extends Controller
            }
        }
 
+
+       if($request->file('cv_upload')){
+           $filename = $request->file('cv_upload')->store('cv/'.$request->email);
+       }
+
+
+
 //       var_dump($request->langs);
 //       die();
 
-        Client::create([
+        $id = Client::create([
             'name' => $request->name,
             'lastname' => $request->lastname,
             'email' => $request->email,
@@ -57,6 +64,7 @@ class ApplicationsController extends Controller
             'qualification' => $request->qualification,
             'web' => $request->web,
             'university' => $request->university,
+            'cv' => $filename,
             'languages' => serialize($request->langs),
             'general_info' => $request->general_info,
             'skills' => serialize($skills)
@@ -118,6 +126,17 @@ class ApplicationsController extends Controller
         );
 
         return response()->download($file, 'Certificate.pdf', $headers);
+    }
+
+    public function getDownloadCV($email,$name){
+        //PDF file is stored under project/public/download/info.pdf
+        $file= storage_path(). "/app/cv/".$email."/".$name."";
+
+        $headers = array(
+            'Content-Type: application/pdf',
+        );
+
+        return response()->download($file, 'CV-'.$email.'.pdf', $headers);
     }
 
 

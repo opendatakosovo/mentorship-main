@@ -49,8 +49,10 @@ Route::get('thank-you', 'ApplicationsController@thanks');
 
 Route::get('sign-in', 'SignInController@sign_in');
 
+
 Route::post('user/application/store', 'ApplicationsController@application_store');
 Route::get('user/application/store_certificates/{id}', 'ApplicationsController@store_certificates');
 Route::get('download/{id}/{name}', 'ApplicationsController@getDownload');
+Route::get('download_cv/{email}/{name}', 'ApplicationsController@getDownloadCV');
 Route::post('user/application/store_certificates/upload', 'ApplicationsController@upload');
 

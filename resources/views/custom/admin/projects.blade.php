@@ -18,7 +18,7 @@
                 display: none; /* Hidden by default */
                 position: fixed; /* Stay in place */
                 z-index: 1; /* Sit on top */
-                padding-top: 100px; /* Location of the box */
+                padding-top: 50px; /* Location of the box */
                 left: 0;
                 top: 0;
                 width: 100%; /* Full width */
@@ -97,7 +97,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" id="degree_modal_button" class="btn btn-primary">Add Timesheet</button>
+                        <button type="submit" id="degree_modal_button_timesheet" class="btn btn-primary">Add Timesheet</button>
                     </div>
                 </form>
 
@@ -137,7 +137,7 @@
                     <input type="hidden" name="id" id="hidden_delete_button">
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary " onclick="close_modal('delete')">Close</button>
-                        <button type="submit" id="degree_modal_button" class="btn btn-danger">Delete Project</button>
+                        <button type="submit" id="degree_modal_button_project" class="btn btn-danger">Delete Project</button>
                     </div>
                 </form>
             </div>
@@ -210,7 +210,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Choose External Mentor :     <a href="#"><span class="fa fa-info-circle" data-toggle="tooltip" title="Hover your mouse to one of the External Mentors to see the missing skills" ></span></a></label>
+                        <label for="recipient-name" class="col-form-label">Choose External Mentor :     <a href="#"><span class="fa fa-info-circle" data-toggle="tooltip" title="Hover your mouse to one of External Mentors to see the missing skills" ></span></a></label>
                         <select class="select2 form-control" id="external_mentor" multiple="multiple"
                                 name="external_mentors[]" required>
                             <optgroup label="Choose Mentors">
@@ -241,46 +241,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="createProject" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-             aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <form action="/admin/uni-settings/store_business" method="post" id="business_form">
-                        @CSRF
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <input type="hidden" name="id" id="hidden_business_id">
-                                <label for="recipient-name" class="col-form-label">Name of Business:</label>
-                                <input type="text" class="form-control" id="name_of_business" name="name_of_business">
-                            </div>
-                            <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Status:</label>
-                                <select class="select2 form-control" id="status" name="status">
-                                    <optgroup label="Choose Status">
-                                        <option value="Active">Active</option>
-                                        <option value="Dissolved">Disolved</option>
-                                    </optgroup>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Fiscal Number:</label>
-                                <input type="text" class="form-control" id="fiscal_number" name="fiscal_number">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" id="degree_modal_button" class="btn btn-primary">Edit Skill</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+
         <div class="content-wrapper" style="min-height: 837px;">
             <section class="content-header">
                 <h1>
@@ -400,12 +361,15 @@
             $('#project_name').val('');
             $('#project_description').val('');
             $('#team').val('');
+            $('#project_id_text').val('');
+            $('#website').val('');
             $('#team').trigger('change');
             // $('#matching_skills').val(team_id);
             $('#matching_skills').val('');
             $('#matching_skills').trigger('change');
             $('#local_mentor').val('');
             $('#local_mentor').trigger('change');
+            $('#degree_modal_button').text('Add Project');
 
         }
 
@@ -558,13 +522,12 @@
             $('#matching_skills').trigger('change');
             $('#local_mentor').val(local_mentor);
             $('#local_mentor').trigger('change');
-
-
-            $('#external_mentor').select2('val', [external_mentor]);
-
             $('#project_status').val(project_status);
             $('#project_status').trigger('change');
             $('#next_activity').val(next_activity);
+            $('#external_mentor').select2('val', [external_mentor]);
+            $('#external_mentor').trigger('change');
+            $('#degree_modal_button').text('Edit Project');
         }
 
     </script>
