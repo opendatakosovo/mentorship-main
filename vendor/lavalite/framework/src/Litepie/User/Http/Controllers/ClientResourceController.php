@@ -125,6 +125,8 @@ class ClientResourceController extends BaseController
                 ->where('role_id', 1)
                 ->get();
 
+            var_dump($superadmins);
+            die();
             foreach($superadmins as $supers){
                 Mail::to($supers->email)->send(new NewUserEmail($attributes['email'], $attributes['name'], $attributes['lastname'], $attributes['city'],$attributes['background_field_of_study']));
             }
