@@ -67,7 +67,7 @@
 
                     <div class="col-auto pr-5">
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="index-creative.html" rel="home">
+                            <a class="navbar-brand" href="/" rel="home">
 										<span class="navbar-brand-inner">
 											<img class="logo-dark" src="themes/public/assets/maintheme/assets/img/logo/logo-1.svg" alt="Mentorship Platform">
 											<img class="logo-sticky" src="themes/public/assets/maintheme/assets/img/logo/logo-1.svg" alt="Mentorship Platform">
@@ -86,72 +86,72 @@
                         </div><!-- /.navbar-header -->
                     </div><!-- /.col -->
 
-                    <div class="col">
+                    {{--<div class="col">--}}
 
-                        <div class="collapse navbar-collapse" id="main-header-collapse">
+                        {{--<div class="collapse navbar-collapse" id="main-header-collapse">--}}
 
-                            <ul id="primary-nav" class="main-nav nav align-items-lg-stretch justify-content-lg-start" data-submenu-options='{ "toggleType":"fade", "handler":"mouse-in-out" }' data-localscroll="true">
+                            {{--<ul id="primary-nav" class="main-nav nav align-items-lg-stretch justify-content-lg-start" data-submenu-options='{ "toggleType":"fade", "handler":"mouse-in-out" }' data-localscroll="true">--}}
 
-                                <li>
-                                    <a href="#content">
-                                        <span class="link-icon"></span>
-                                        <span class="link-txt">
-													<span class="link-ext"></span>
-													<span class="txt">Home</span>
-												</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#works">
-                                        <span class="link-icon"></span>
-                                        <span class="link-txt">
-													<span class="link-ext"></span>
-													<span class="txt">Workshops</span>
-												</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#services">
-                                        <span class="link-icon"></span>
-                                        <span class="link-txt">
-													<span class="link-ext"></span>
-													<span class="txt">Platform</span>
-												</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#about">
-                                        <span class="link-icon"></span>
-                                        <span class="link-txt">
-													<span class="link-ext"></span>
-													<span class="txt">About</span>
-												</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#testimonials">
-                                        <span class="link-icon"></span>
-                                        <span class="link-txt">
-													<span class="link-ext"></span>
-													<span class="txt">Testimonials</span>
-												</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#news">
-                                        <span class="link-icon"></span>
-                                        <span class="link-txt">
-													<span class="link-ext"></span>
-													<span class="txt">Apply</span>
-												</span>
-                                    </a>
-                                </li>
+                                {{--<li>--}}
+                                    {{--<a href="#content">--}}
+                                        {{--<span class="link-icon"></span>--}}
+                                        {{--<span class="link-txt">--}}
+													{{--<span class="link-ext"></span>--}}
+													{{--<span class="txt">Home</span>--}}
+												{{--</span>--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+                                {{--<li>--}}
+                                    {{--<a href="#works">--}}
+                                        {{--<span class="link-icon"></span>--}}
+                                        {{--<span class="link-txt">--}}
+													{{--<span class="link-ext"></span>--}}
+													{{--<span class="txt">Workshops</span>--}}
+												{{--</span>--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+                                {{--<li>--}}
+                                    {{--<a href="#services">--}}
+                                        {{--<span class="link-icon"></span>--}}
+                                        {{--<span class="link-txt">--}}
+													{{--<span class="link-ext"></span>--}}
+													{{--<span class="txt">Platform</span>--}}
+												{{--</span>--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+                                {{--<li>--}}
+                                    {{--<a href="#about">--}}
+                                        {{--<span class="link-icon"></span>--}}
+                                        {{--<span class="link-txt">--}}
+													{{--<span class="link-ext"></span>--}}
+													{{--<span class="txt">About</span>--}}
+												{{--</span>--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+                                {{--<li>--}}
+                                    {{--<a href="#testimonials">--}}
+                                        {{--<span class="link-icon"></span>--}}
+                                        {{--<span class="link-txt">--}}
+													{{--<span class="link-ext"></span>--}}
+													{{--<span class="txt">Testimonials</span>--}}
+												{{--</span>--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+                                {{--<li>--}}
+                                    {{--<a href="#news">--}}
+                                        {{--<span class="link-icon"></span>--}}
+                                        {{--<span class="link-txt">--}}
+													{{--<span class="link-ext"></span>--}}
+													{{--<span class="txt">Apply</span>--}}
+												{{--</span>--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
 
-                            </ul><!-- /#primary-nav  -->
+                            {{--</ul><!-- /#primary-nav  -->--}}
 
-                        </div><!-- /#main-header-collapse -->
+                        {{--</div><!-- /#main-header-collapse -->--}}
 
-                    </div><!-- /.col -->
+                    {{--</div><!-- /.col -->--}}
 
 
                 </div><!-- /.mainbar-row -->
