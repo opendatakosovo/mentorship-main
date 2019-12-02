@@ -33,88 +33,89 @@
 
                                 <ul id="primary-nav" class="main-nav nav align-items-lg-stretch justify-content-lg-start" data-submenu-options='{ "toggleType":"fade", "handler":"mouse-in-out" }' data-localscroll="true">
 
-                                    <li>
-                                        <a href="#head">
-                                            <span class="link-icon"></span>
-                                            <span class="link-txt">
-													<span class="link-ext"></span>
-													<span class="txt">Home</span>
-												</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#workshops">
-                                            <span class="link-icon"></span>
-                                            <span class="link-txt">
-													<span class="link-ext"></span>
-													<span class="txt">Workshops</span>
-												</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#partners">
-                                            <span class="link-icon"></span>
-                                            <span class="link-txt">
-													<span class="link-ext"></span>
-													<span class="txt">Partners</span>
-												</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#services">
-                                            <span class="link-icon"></span>
-                                            <span class="link-txt">
-													<span class="link-ext"></span>
-													<span class="txt">Why become a mentor?</span>
-												</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#about">
-                                            <span class="link-icon"></span>
-                                            <span class="link-txt">
-													<span class="link-ext"></span>
-													<span class="txt">About</span>
-												</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#testimonials">
-                                            <span class="link-icon"></span>
-                                            <span class="link-txt">
-													<span class="link-ext"></span>
-													<span class="txt">Testimonials</span>
-												</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#faq">
-                                            <span class="link-icon"></span>
-                                            <span class="link-txt">
-													<span class="link-ext"></span>
-													<span class="txt">FAQ</span>
-												</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#apply">
-                                            <span class="link-icon"></span>
-                                            <span class="link-txt">
-													<span class="link-ext"></span>
-													<span class="txt">Apply</span>
-												</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="sign-in">
-                                            <span class="link-icon"></span>
-                                            <span class="link-txt">
-													<span class="link-ext"></span>
-													<span class="txt">Sign In</span>
-												</span>
-                                        </a>
-                                    </li>
+{{--                                    <li>--}}
+{{--                                        <a href="#head">--}}
+{{--                                            <span class="link-icon"></span>--}}
+{{--                                            <span class="link-txt">--}}
+{{--													<span class="link-ext"></span>--}}
+{{--													<span class="txt">Home</span>--}}
+{{--												</span>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="#workshops">--}}
+{{--                                            <span class="link-icon"></span>--}}
+{{--                                            <span class="link-txt">--}}
+{{--													<span class="link-ext"></span>--}}
+{{--													<span class="txt">Workshops</span>--}}
+{{--												</span>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="#partners">--}}
+{{--                                            <span class="link-icon"></span>--}}
+{{--                                            <span class="link-txt">--}}
+{{--													<span class="link-ext"></span>--}}
+{{--													<span class="txt">Partners</span>--}}
+{{--												</span>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="#services">--}}
+{{--                                            <span class="link-icon"></span>--}}
+{{--                                            <span class="link-txt">--}}
+{{--													<span class="link-ext"></span>--}}
+{{--													<span class="txt">Why become a mentor?</span>--}}
+{{--												</span>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="#about">--}}
+{{--                                            <span class="link-icon"></span>--}}
+{{--                                            <span class="link-txt">--}}
+{{--													<span class="link-ext"></span>--}}
+{{--													<span class="txt">About</span>--}}
+{{--												</span>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="#testimonials">--}}
+{{--                                            <span class="link-icon"></span>--}}
+{{--                                            <span class="link-txt">--}}
+{{--													<span class="link-ext"></span>--}}
+{{--													<span class="txt">Testimonials</span>--}}
+{{--												</span>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="#faq">--}}
+{{--                                            <span class="link-icon"></span>--}}
+{{--                                            <span class="link-txt">--}}
+{{--													<span class="link-ext"></span>--}}
+{{--													<span class="txt">FAQ</span>--}}
+{{--												</span>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="#apply">--}}
+{{--                                            <span class="link-icon"></span>--}}
+{{--                                            <span class="link-txt">--}}
+{{--													<span class="link-ext"></span>--}}
+{{--													<span class="txt">Apply</span>--}}
+{{--												</span>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="sign-in">--}}
+{{--                                            <span class="link-icon"></span>--}}
+{{--                                            <span class="link-txt">--}}
+{{--													<span class="link-ext"></span>--}}
+{{--													<span class="txt">Sign In</span>--}}
+{{--												</span>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
 
+                                    {!!Menu::menu('main')!!}
                                 </ul><!-- /#primary-nav  -->
 
                             </div><!-- /#main-header-collapse -->
