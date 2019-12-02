@@ -177,8 +177,7 @@
                         {{ csrf_field() }}
                         <input type="hidden" name="mentor_id" value="{{$data['mentor_id']}}">
                         <div class="form-group">
-
-                            <input multiple="multiple" class="form-control valid" name="files[]" type="file">
+                            <input multiple="multiple" accept="application/pdf" class="form-control valid" name="files[]" type="file">
 
                         </div>
 
