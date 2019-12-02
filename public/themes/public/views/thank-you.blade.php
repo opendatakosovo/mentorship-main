@@ -46,7 +46,7 @@
 
                     <div class="col-auto pr-5">
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="index-creative.html" rel="home">
+                            <a class="navbar-brand" href="/" rel="home">
 										<span class="navbar-brand-inner">
 											<img class="logo-dark" src="themes/public/assets/maintheme/assets/img/logo/logo-1.svg" alt="Mentorship Platform">
 											<img class="logo-sticky" src="themes/public/assets/maintheme/assets/img/logo/logo-1.svg" alt="Mentorship Platform">
