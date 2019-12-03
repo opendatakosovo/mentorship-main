@@ -1,16 +1,69 @@
 {!!Block::display('head')!!}
 {!!Block::display('becomementor')!!}
 {!!Block::display('workshops')!!}
-
 @php
     $partners = get_partners();
     $cities = get_cities();
     $languages = get_languages();
     $skills = get_skills();
+    $projects = get_projects();
 @endphp
+<section class="vc_row pt-20 pb-20">
+    <div class="container">
+        <div class="row">
+            <div class="lqd-column col-md-12 text-center">
+                <h2>Youth Led Projects</h2>
+            </div>
+            @foreach($projects as $project)
+                <div class="lqd-column col-md-3 col-sm-6">
+                    <div class="liquid-counter liquid-counter-bordered liquid-counter-bold liquid-counter-lg liquid-counter-has-gradient">
+                        <div class="liquid-counter-element " data-enable-counter="false"
+                             data-counter-options='{"blurEffect":true}'>
+                            <div class="liquid-counter-element liquid-counter-element-static bg-gradient-tertiary-lr">
+                                <h4>{{$project->project_name}}</h4>
+                            </div>
+                            <span >{{$project->project_name}}</span>
+                        </div>
+                        <a href="#modal-3" data-lity="#modal-3">
+                            <span class="liquid-counter-text liquid-text-bottom " onclick="get_project({{$project->id}})">Read More</span>
+                        </a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
+<div id="modal-3" class="lqd-modal lity-hide">
+    <div class="lqd-modal-inner">
+
+        <div class="lqd-modal-head"></div><!-- /.lqd-modal-head -->
+
+        <div class="lqd-modal-content">
+
+            <div class="row">
+                <div class="col-md-12 text">
+
+                    <div class="row">
+                        <div class="lqd-column col-md-12 ">
+                            <h3 class="text-center project_name"></h3>
+                            <p class="project_description text-center"></p>
+                        </div><!-- /.col-md-8 col-md-offset-2 -->
+                    </div><!-- /.row -->
+
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+
+        </div><!-- /.lqd-modal-content -->
+
+        <div class="lqd-modal-foot"></div><!-- /.lqd-modal-foot -->
+
+    </div><!-- /.lqd-modal-inner -->
+</div><!-- /.lqd-modal -->
+
 
 <style>
-    #ui-id-1-button{
+    #ui-id-1-button {
         display: none;
     }
 </style>
@@ -19,14 +72,10 @@
 {!!Block::display('about')!!}
 <div class="col-sm-12 content-center text-center">
     <section class="vc_row pt-75 pb-75" id="partners">
-
         <div class="container">
             <div class="row">
-
                 <div class="lqd-column col-md-6 col-md-offset-3 text-center">
-
                     <h2>Implementing Partners</h2>
-
                 </div><!-- /.col-md-6 col-md-offset-3 -->
 
             </div><!-- /.row -->
@@ -107,152 +156,190 @@
 {!!Block::display('testimonials')!!}
 {!!Block::display('faq')!!}
 <div class="col-sm-12 content-center text-center">
-<section id="apply">
-    <div class="container">
-        <div class="row">
-            <div class="lqd-column col-md-10 col-md-offset-1 text-center" data-custom-animations="true" data-ca-options="{&quot;triggerHandler&quot;:&quot;inview&quot;,&quot;animationTarget&quot;:&quot;all-childs&quot;,&quot;duration&quot;:1200,&quot;delay&quot;:100,&quot;initValues&quot;:{&quot;translateY&quot;:80,&quot;opacity&quot;:0},&quot;animations&quot;:{&quot;translateY&quot;:0,&quot;opacity&quot;:1}}">
-                <header class="fancy-title fancy-title-big mb-6">
-                    <h2 data-split-text="true" data-split-options="{&quot;type&quot;:&quot;lines&quot;}">
-                        Apply For Mentorship!
-                        <br>
-                    </h2>
-                </header><!-- /.fancy-title -->
-                <form action="user/application/store" method="POST" enctype="multipart/form-data" >
-                    <div class="form">
-                    <div class="form-group">
-                        <label>Identification</label>
-                        <input type="text" name="name" class="form-control valid" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" aria-invalid="false">
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="lastname" class="form-control valid" id="lastname" placeholder="Your Last Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" aria-invalid="false">
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control valid" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control valid" id="sex" name="sex" required="">
-                            <optgroup label="Choose Gender">
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                            </optgroup>
-                        </select>
-                    </div>
+    <section id="apply">
+        <div class="container">
+            <div class="row">
+                <div class="lqd-column col-md-10 col-md-offset-1 text-center" data-custom-animations="true"
+                     data-ca-options="{&quot;triggerHandler&quot;:&quot;inview&quot;,&quot;animationTarget&quot;:&quot;all-childs&quot;,&quot;duration&quot;:1200,&quot;delay&quot;:100,&quot;initValues&quot;:{&quot;translateY&quot;:80,&quot;opacity&quot;:0},&quot;animations&quot;:{&quot;translateY&quot;:0,&quot;opacity&quot;:1}}">
+                    <header class="fancy-title fancy-title-big mb-6">
+                        <h2 data-split-text="true" data-split-options="{&quot;type&quot;:&quot;lines&quot;}">
+                            Apply For Mentorship!
+                            <br>
+                        </h2>
+                    </header><!-- /.fancy-title -->
+                    <form action="user/application/store" method="POST" enctype="multipart/form-data">
+                        <div class="form">
+                            <div class="form-group">
+                                <label>Identification</label>
+                                <input type="text" name="name" class="form-control valid" id="name"
+                                       placeholder="Your Name" data-rule="minlen:4"
+                                       data-msg="Please enter at least 4 chars" aria-invalid="false">
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="lastname" class="form-control valid" id="lastname"
+                                       placeholder="Your Last Name" data-rule="minlen:4"
+                                       data-msg="Please enter at least 4 chars" aria-invalid="false">
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control valid" name="email" id="email"
+                                       placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control valid" id="sex" name="sex" required="">
+                                    <optgroup label="Choose Gender">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </optgroup>
+                                </select>
+                            </div>
 
-                    <input type="hidden" name="dob" value="2014-05-15">
-                    <div class="form-group">
-                        <label>Contact Info</label>
-                        <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Mobile Phone" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <label>Where do you live ?</label>
-                        <input type="text" class="form-control" name="address" id="address" placeholder="Address" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="street" id="street" placeholder="Street" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control valid" id="city" name="city" required="">
-                            <optgroup label="Choose City">
-                                @foreach($cities as $city)
-                                    <option value="{{$city}}">{{$city}}</option>
+                            <input type="hidden" name="dob" value="2014-05-15">
+                            <div class="form-group">
+                                <label>Contact Info</label>
+                                <input type="text" class="form-control" name="mobile" id="mobile"
+                                       placeholder="Mobile Phone" data-rule="minlen:4"
+                                       data-msg="Please enter at least 8 chars of subject">
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone"
+                                       data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <label>Where do you live ?</label>
+                                <input type="text" class="form-control" name="address" id="address"
+                                       placeholder="Address" data-rule="minlen:4"
+                                       data-msg="Please enter at least 8 chars of subject">
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="street" id="street" placeholder="Street"
+                                       data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control valid" id="city" name="city" required="">
+                                    <optgroup label="Choose City">
+                                        @foreach($cities as $city)
+                                            <option value="{{$city}}">{{$city}}</option>
+                                        @endforeach
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="district" id="district"
+                                       placeholder="District" data-rule="minlen:4"
+                                       data-msg="Please enter at least 8 chars of subject">
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="state" id="state" placeholder="State"
+                                       data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="country" id="country"
+                                       placeholder="Country" data-rule="minlen:4"
+                                       data-msg="Please enter at least 8 chars of subject">
+                                <div class="validation"></div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>Background</label>
+                                <input type="text" class="form-control" name="company_organization"
+                                       id="company_organization" placeholder="Company/Organization" data-rule="minlen:4"
+                                       data-msg="Please enter at least 8 chars of subject">
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="background_field_of_study"
+                                       id="background_field_of_study" placeholder="Background Field of Study"
+                                       data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="qualification" id="qualification"
+                                       placeholder="Qualification" data-rule="minlen:4"
+                                       data-msg="Please enter at least 8 chars of subject">
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="web" id="web" placeholder="Web"
+                                       data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
+                                <div class="validation"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="university" id="university"
+                                       placeholder="University" data-rule="minlen:4"
+                                       data-msg="Please enter at least 8 chars of subject">
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="general_info" class="form-control"
+                                          placeholder="Tell us about yourself"></textarea>
+                                <div class="validation"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Choose Your Skills</label>
+                                <select class="form-control valid select2" name="langs[]" required multiple>
+                                    <optgroup label="Choose Language">
+                                        @foreach($languages as $language)
+                                            <option value="{{$language}}">{{$language}}</option>
+                                        @endforeach
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div class="row">
+                                @foreach($skills as $key=>$skill)
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="form-group"><label for="university"
+                                                                       class="control-label">{{$skill->skill_name}}</label>
+                                            <input type="hidden" value="0"
+                                                   name="skill_{{strtolower(str_replace(' ', '_', $skill->skill_name))}}">
+                                            <input type="checkbox"
+                                                   name="skill_{{strtolower(str_replace(' ', '_', $skill->skill_name))}}"
+                                                   value="1" class="error"><br>
+                                        </div>
+                                    </div>
                                 @endforeach
-                            </optgroup>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="district" id="district" placeholder="District" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="state" id="state" placeholder="State" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="country" id="country" placeholder="Country" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
-                        <div class="validation"></div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label>Background</label>
-                        <input type="text" class="form-control" name="company_organization" id="company_organization" placeholder="Company/Organization" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="background_field_of_study" id="background_field_of_study" placeholder="Background Field of Study" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="qualification" id="qualification" placeholder="Qualification" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="web" id="web" placeholder="Web" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
-                        <div class="validation"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="university" id="university" placeholder="University" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="general_info" class="form-control" placeholder="Tell us about yourself"></textarea>
-                        <div class="validation"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Choose Your Skills</label>
-                        <select class="form-control valid select2"  name="langs[]" required multiple>
-                            <optgroup label="Choose Language">
-                                @foreach($languages as $language)
-                                    <option value="{{$language}}">{{$language}}</option>
-                                @endforeach
-                            </optgroup>
-                        </select>
-                    </div>
-                    <div class="row">
-                        @foreach($skills as $key=>$skill)
-                            <div class="col-md-4 col-sm-6">
-                                <div class="form-group"><label for="university" class="control-label">{{$skill->skill_name}}</label>
-                                    <input type="hidden" value="0" name="skill_{{strtolower(str_replace(' ', '_', $skill->skill_name))}}">
-                                    <input type="checkbox" name="skill_{{strtolower(str_replace(' ', '_', $skill->skill_name))}}" value="1" class="error"><br>
+                                <div class="offset-md-3">
+                                    <div class="form-group"><label for="university" class="control-label">Upload your
+                                            CV</label>
+                                        <input type="file" class="form-control" id="cv_upload" name="cv_upload" required
+                                               accept="application/pdf" onchange="validatePDF(this)" class="error"><br>
+                                    </div>
+                                </div>
+                                <div class="offset-md-3">
+                                    <div class="form-group"><label style="cursor: pointer" for="university"
+                                                                   class="control-label" href="#modal-2"
+                                                                   data-lity="#modal-2">I Agree to the Terms and
+                                            Conditions</label>
+                                        <input type="hidden" value="0" name="terms_conditions">
+                                        <input type="checkbox" name="terms_conditions" value="1" required class="error"><br>
+                                    </div>
                                 </div>
                             </div>
-                        @endforeach
-                            <div class="offset-md-3">
-                                <div class="form-group"><label for="university" class="control-label">Upload your CV</label>
-                                    <input type="file" class="form-control" id="cv_upload" name="cv_upload" required  accept="application/pdf"  onchange="validatePDF(this)"  class="error"><br>
-                                </div>
-                            </div>
-                            <div class="offset-md-3">
-                                <div class="form-group"><label style="cursor: pointer" for="university" class="control-label" href="#modal-2" data-lity="#modal-2">I Agree to the Terms and
-                                        Conditions</label>
-                                    <input type="hidden" value="0" name="terms_conditions">
-                                    <input type="checkbox" name="terms_conditions" value="1" required class="error"><br>
-                                </div>
-                            </div>
-                    </div>
-                    <button type="submit" class="btn btn-solid text-uppercase circle btn-bordered border-thin font-size-14 font-weight-semibold" data-localscroll="true" data-localscroll-options="{&quot;scrollBelowSection&quot;:true}">
+                            <button type="submit"
+                                    class="btn btn-solid text-uppercase circle btn-bordered border-thin font-size-14 font-weight-semibold"
+                                    data-localscroll="true"
+                                    data-localscroll-options="{&quot;scrollBelowSection&quot;:true}">
 							<span>
 								<span class="btn-txt">Apply</span>
 							</span>
-                    </button>
-                </div>
-                </form>
-            </div><!-- /.col-md-10 col-md-offset-1 -->
-        </div><!-- /.row -->
-    </div><!-- /.container -->
-</section>
+                            </button>
+                        </div>
+                    </form>
+                </div><!-- /.col-md-10 col-md-offset-1 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section>
 </div>
 {!!Block::display('t&c')!!}
 {!!Block::display('footer')!!}
@@ -274,14 +361,13 @@
 <script>
     var formOK = false;
 
-    function validatePDF(objFileControl){
+    function validatePDF(objFileControl) {
         var file = objFileControl.value;
         var len = file.length;
         var ext = file.slice(len - 4, len);
-        if(ext.toUpperCase() == ".PDF"){
+        if (ext.toUpperCase() == ".PDF") {
             formOK = true;
-        }
-        else{
+        } else {
             formOK = false;
             $("#cv_upload").val('');
             alert("Only PDF files allowed.");
@@ -321,7 +407,7 @@
                             "                                                 aria-labelledby='heading_accordion-collapse-" + value.id + "'>\n" +
                             "                                                <div class='accordion-content'>\n" +
                             "                                                    <p id='project_desc'>" + value.project_description + "</p>\n" +
-                            "                                                    <a href=https://"+value.website+" id=project_web_"+value.id+">" + value.website + "</a>\n" +
+                            "                                                    <a href=https://" + value.website + " id=project_web_" + value.id + ">" + value.website + "</a>\n" +
                             "                                                </div><!-- /.accordion-content -->\n" +
                             "                                            </div><!-- /.accordion-collapse -->\n" +
                             "\n" +
@@ -329,10 +415,40 @@
 
                         console.log(index, value);
 
-                        if(value.website == null){
-                            $("#project_web_"+value.id).hide();
+                        if (value.website == null) {
+                            $("#project_web_" + value.id).hide();
                         }
                     });
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+
+                }
+            });
+        }
+    }
+
+    function get_project(id) {
+        if (id) {
+            jQuery(".accordion-partners").empty();
+            jQuery("#cover_image").hide();
+            jQuery(".accordion-partners").append('<p class="loading">Loading</p>');
+            jQuery.ajax({
+                url: "/admin/projects/get_project",
+                type: "GET",
+                data: {"id": id, "_token": "{{ csrf_token() }}"},
+                success: function (result, textStatus, jqXHR) {
+                    console.log(result)
+
+                    var results = JSON.parse(result)
+                    console.log(results.project_name);
+                    jQuery(".project_name").text(results.project_name);
+                    jQuery(".project_description").text(results.project_description);
+                    // jQuery.each(results, function (index, value) {
+                    //     jQuery(".loading").hide();
+                    //
+                    //
+                    // });
 
                 },
                 error: function (jqXHR, textStatus, errorThrown) {

@@ -31,6 +31,7 @@
         <link rel="stylesheet" href="themes/public/assets/maintheme/assets/css/theme-vendors.min.css" />
         <link rel="stylesheet" href="themes/public/assets/maintheme/assets/css/theme.min.css" />
         <link rel="stylesheet" href="themes/public/assets/maintheme/assets/css/themes/creative.css" />
+        <link rel="stylesheet" href="themes/public/assets/maintheme/assets/css/themes/original.css" />
         <link rel="stylesheet" href="themes/public/assets/maintheme/assets/css/custom_css.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.css" />
 

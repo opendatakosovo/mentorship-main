@@ -16,6 +16,7 @@ use App\Client;
 use App\Http\Requests\UploadRequest;
 use App\Mail\NewUserEmail;
 use App\Mail\Upload_certificate_email;
+use App\Projects;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -165,6 +166,23 @@ class ApplicationsController extends Controller
         }
 
         return redirect('/admin/user/client');
+    }
+
+
+    public function get_project(Request $request){
+        $project_id = $request->id;
+
+        $project_data =  DB::table('projects')
+            ->select(DB::raw('*'))
+            ->where('id',$project_id)
+            ->get();
+
+        foreach($project_data as $project){
+            $project_result = $project;
+        }
+
+
+        return json_encode($project_result);
     }
 }
 

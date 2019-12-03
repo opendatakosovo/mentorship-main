@@ -1,3 +1,6 @@
+body{
+    font-size: 15px !important;
+}
 @media only screen and (max-width: 600px) {
    .visibility-mobile{
        display: block !important;
@@ -44,5 +47,11 @@
 .main-nav li a{
     color: black;
 }
+.ld-fancy-heading{
+    margin-top: 30% !important;
+}
+
+
+
 
 

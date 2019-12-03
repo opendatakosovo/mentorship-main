@@ -488,3 +488,11 @@ function get_skills(){
 
     return $skills;
 }
+
+
+function get_projects(){
+    $projects  =  \App\Projects::where('project_status','active')->get();
+
+
+    return $projects;
+}

@@ -1,9 +1,9 @@
-@font-face {
-  font-family: 'Cerebri Sans';
-  src: url("../../fonts/cerebri-sans.woff2") format("woff2"), url("../../fonts/cerebri-sans.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
+/*@font-face {*/
+/*  font-family: 'Cerebri Sans';*/
+/*  src: url("../../fonts/cerebri-sans.woff2") format("woff2"), url("../../fonts/cerebri-sans.woff") format("woff");*/
+/*  font-weight: 400;*/
+/*  font-style: normal;*/
+/*}*/
 
 :root {
   --color-primary: #4762ff;
@@ -18,7 +18,7 @@
 }
 
 body {
-  font-family: 'Cerebri Sans', sans-serif;
+  /*font-family: 'Cerebri Sans', sans-serif;*/
   font-size: 16px;
   line-height: 1.9em;
   color: #828282;
@@ -30,7 +30,7 @@ h3, .h3,
 h4, .h4,
 h5, .h5,
 h6 .h6 {
-  font-family: 'neuzeit-grotesk', 'sans-serif';
+  /*font-family: 'neuzeit-grotesk', 'sans-serif';*/
   color: #060221;
 }
 

@@ -50,6 +50,8 @@ Route::get('thank-you', 'ApplicationsController@thanks');
 Route::get('sign-in', 'SignInController@sign_in');
 
 
+Route::get('admin/projects/get_project', 'ApplicationsController@get_project');
+
 Route::post('user/application/store', 'ApplicationsController@application_store');
 Route::get('user/application/store_certificates/{id}', 'ApplicationsController@store_certificates');
 Route::get('download/{id}/{name}', 'ApplicationsController@getDownload');
