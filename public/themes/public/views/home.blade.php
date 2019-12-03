@@ -11,7 +11,7 @@
 <section class="vc_row pt-20 pb-20">
     <div class="container">
         <div class="row">
-            <div class="lqd-column col-md-12 text-center">
+            <div class="lqd-column col-md-12 text-center" id="projects">
                 <h2>Youth Led Projects</h2>
             </div>
             @foreach($projects as $project)
