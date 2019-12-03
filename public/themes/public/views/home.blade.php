@@ -16,7 +16,7 @@
                 <h2>Youth Led Projects</h2>
             </div>
             @foreach($projects as $project)
-                <div class="lqd-column col-md-3 col-sm-6">
+                <div class="lqd-column col-md-4 col-sm-6">
                     <div class="liquid-counter liquid-counter-bordered liquid-counter-bold liquid-counter-lg liquid-counter-has-gradient">
                         <div class="liquid-counter-element " data-enable-counter="false"
                              data-counter-options='{"blurEffect":true}'>
