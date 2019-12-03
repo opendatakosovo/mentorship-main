@@ -8,6 +8,7 @@
     $skills = get_skills();
     $projects = get_projects();
 @endphp
+<div class="col-md-12">
 <section class="vc_row pt-20 pb-20">
     <div class="container">
         <div class="row">
@@ -20,7 +21,7 @@
                         <div class="liquid-counter-element " data-enable-counter="false"
                              data-counter-options='{"blurEffect":true}'>
                             <div class="liquid-counter-element liquid-counter-element-static bg-gradient-tertiary-lr">
-                                <h4>{{$project->project_name}}</h4>
+                                <h5>{{$project->project_name}}</h5>
                             </div>
                             <span >{{$project->project_name}}</span>
                         </div>
@@ -33,7 +34,7 @@
         </div>
     </div>
 </section>
-
+</div>
 <div id="modal-3" class="lqd-modal lity-hide">
     <div class="lqd-modal-inner">
 
@@ -413,7 +414,6 @@
                             "\n" +
                             "                                        </div>");
 
-                        console.log(index, value);
 
                         if (value.website == null) {
                             $("#project_web_" + value.id).hide();
