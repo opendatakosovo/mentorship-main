@@ -72,7 +72,7 @@
 {!!Block::display('why')!!}
 {!!Block::display('about')!!}
 <div class="col-sm-12 content-center text-center">
-    <section class="vc_row pt-75 pb-75" id="partners">
+    <section class="vc_row" id="partners">
         <div class="container">
             <div class="row">
                 <div class="lqd-column col-md-6 col-md-offset-3 text-center">
