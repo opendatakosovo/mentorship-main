@@ -14,6 +14,9 @@
         display: none;
     }
 </style>
+
+{!!Block::display('why')!!}
+{!!Block::display('about')!!}
 <div class="col-sm-12 content-center text-center">
     <section class="vc_row pt-75 pb-75" id="partners">
 
@@ -101,8 +104,6 @@
     </div><!-- /.lqd-modal-inner -->
 </div><!-- /.lqd-modal -->
 
-{!!Block::display('why')!!}
-{!!Block::display('about')!!}
 {!!Block::display('testimonials')!!}
 {!!Block::display('faq')!!}
 <div class="col-sm-12 content-center text-center">
