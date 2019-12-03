@@ -25,7 +25,7 @@
 
                 <div class="lqd-column col-md-6 col-md-offset-3 text-center">
 
-                    <h2>Youth Led Projects</h2>
+                    <h2>Implementing Partners</h2>
 
                 </div><!-- /.col-md-6 col-md-offset-3 -->
 
