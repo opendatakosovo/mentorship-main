@@ -62,6 +62,8 @@ $data = [];
         $mentor = \App\Client::find($d);
 
         if ($mentor) {
+            echo json_encode('here');
+
             $data = array(
                 $d => $mentor->name
             );
@@ -69,7 +71,7 @@ $data = [];
         }
     }
 
-    echo json_encode($data);
+
     return json_encode($data);
 }
 
