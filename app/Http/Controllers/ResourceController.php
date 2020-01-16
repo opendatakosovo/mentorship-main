@@ -39,7 +39,11 @@ class ResourceController extends BaseController
 
         if(is_superuser($user['email']) == 'true'){
             return redirect('/admin/reports');
-        }else{
+        }
+        elseif(is_admin($user['email']) == 'true'){
+            return redirect('/admin/reports');
+        }
+        else{
             return $this->response->setMetaTitle(__('app.dashboard'))
                 ->view('home')
                 ->data(compact('user'))
