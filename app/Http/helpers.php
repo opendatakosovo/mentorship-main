@@ -61,8 +61,7 @@ $data = [];
     foreach ($data_converted as $d) {
         $mentor = \App\Client::find($d);
 
-        if ($mentor) {
-            echo json_encode('here');
+        if ($mentor != '') {
 
             $data = array(
                 $d => $mentor->name
