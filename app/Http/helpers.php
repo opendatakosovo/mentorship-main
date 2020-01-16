@@ -54,11 +54,13 @@ function convert_to_json_mentors($data)
 {
 
     $data_converted = unserialize($data);
+    var_dump($data_converted);
 $data = [];
 
 
     foreach ($data_converted as $d) {
         $mentor = \App\Client::find($d);
+
         if ($mentor) {
             $data = array(
                 $d => $mentor->name
@@ -340,7 +342,7 @@ function get_working_hours_all_own($partner_member){
         ->select(DB::raw('team_id'))
         ->where('user_id', $user_id)
         ->first();
-    
+
     $count =  DB::table('timesheets')
         ->select(DB::raw('sum(hours) as count'))
         ->join('projects', 'projects.id', '=', 'timesheets.project_id')
