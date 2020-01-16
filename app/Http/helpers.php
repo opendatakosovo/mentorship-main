@@ -55,19 +55,23 @@ function convert_to_json_mentors($data)
 
     $data_converted = unserialize($data);
 
-    $data = [];
+$data = [];
 
 
     foreach ($data_converted as $d) {
-        $mentor = \App\Client::find($d);
 
+        $mentor =  DB::table('clients')
+            ->select(DB::raw('name'))
+            ->where('id', $d)
+            ->first();
 
+        if ($mentor ) {
 
             $data = array(
                 $d => $mentor->name
             );
 
-
+        }
     }
 
 
