@@ -54,7 +54,7 @@ function convert_to_json_mentors($data)
 {
 
     $data_converted = unserialize($data);
-    var_dump($data_converted);
+
 $data = [];
 
 
@@ -69,6 +69,7 @@ $data = [];
         }
     }
 
+    echo $data;
     return json_encode($data);
 }
 
