@@ -36,7 +36,13 @@ class ProjectsController extends BaseController
             $projects  = Projects::all();
         }
         else{
-            $projects  = Projects::where('local_mentor',user()->id)->get();
+            $team_id = DB::table('team_user')
+                ->select(DB::raw('team_id'))
+                ->where('user_id', user()->id)
+                ->first();
+
+
+            $projects  = Projects::where('team_id',$team_id->team_id)->get();
         }
 
         $skills = get_skills();

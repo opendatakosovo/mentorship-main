@@ -252,11 +252,16 @@ function get_projects_count_own($partner_member, $type){
 
     $user_id = $user->id;
 
+    $team_id = DB::table('team_user')
+        ->select(DB::raw('team_id'))
+        ->where('user_id', $user_id)
+        ->first();
+
     if($type == 'active'){
         $count =  DB::table('projects')
             ->select(DB::raw('count(*) as count'))
             ->where('project_status', 'Active')
-            ->where('local_mentor', $user_id)
+            ->where('team_id', $team_id->team_id)
             ->first();
 
         return  $count->count;
@@ -266,7 +271,7 @@ function get_projects_count_own($partner_member, $type){
         $count =  DB::table('projects')
             ->select(DB::raw('count(*) as count'))
             ->where('project_status', 'Finnished')
-            ->where('local_mentor', $user_id)
+            ->where('team_id', $team_id->team_id)
             ->first();
 
         return $count->count;
@@ -274,7 +279,7 @@ function get_projects_count_own($partner_member, $type){
     elseif($type == 'total'){
         $count =  DB::table('projects')
             ->select(DB::raw('count(*) as count'))
-            ->where('local_mentor', $user_id)
+            ->where('team_id', $team_id->team_id)
             ->first();
 
         return $count->count;
@@ -294,6 +299,11 @@ function get_timesheets_all(){
 }
 function get_timesheets_all_own($partner_member){
 
+    $team_id = DB::table('team_user')
+        ->select(DB::raw('team_id'))
+        ->where('user_id', user()->id)
+        ->first();
+
     $user =  DB::table('users')
         ->select(DB::raw('id'))
         ->where('email', $partner_member)
@@ -304,7 +314,7 @@ function get_timesheets_all_own($partner_member){
     $timeshets =  DB::table('timesheets')
         ->select(DB::raw('*,projects.id as project_id'))
         ->join('projects', 'projects.id', '=', 'timesheets.project_id')
-        ->where('projects.local_mentor', $user_id)
+        ->where('projects.team_id', $team_id->team_id)
         ->get();
 
 
@@ -326,10 +336,15 @@ function get_working_hours_all_own($partner_member){
 
     $user_id = $user->id;
 
+    $team_id = DB::table('team_user')
+        ->select(DB::raw('team_id'))
+        ->where('user_id', $user_id)
+        ->first();
+    
     $count =  DB::table('timesheets')
         ->select(DB::raw('sum(hours) as count'))
         ->join('projects', 'projects.id', '=', 'timesheets.project_id')
-        ->where('projects.local_mentor', $user_id)
+        ->where('projects.team_id', $team_id->team_id)
         ->first();
 
 

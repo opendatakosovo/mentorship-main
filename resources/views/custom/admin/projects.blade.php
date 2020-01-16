@@ -92,7 +92,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">To Date:</label>
+                            <label for="recipient-name" class="col-form-label">Hours:</label>
                             <input type="number" placeholder="n/a" class="form-control" id="hours" name="hours">
                         </div>
                     </div>
