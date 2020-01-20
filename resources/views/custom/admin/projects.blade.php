@@ -157,6 +157,7 @@
                         <label for="recipient-name" class="col-form-label">ID:</label>
                         <input type="text" class="form-control" id="project_id_text" name="project_id">
                     </div>
+
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Project Name:</label>
                         <input type="text" class="form-control" id="project_name" name="project_name" required>
@@ -166,6 +167,14 @@
                         {{--<input type="text" class="form-control" id="group_name" name="group_name" required>--}}
                         <textarea class="form-control" id="project_description" name="project_description"
                                   required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">From Date: </label>
+                        <input type="date" class="form-control" id="from_date" name="from_date">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">To Date: </label>
+                        <input type="date" class="form-control" id="to_date" name="to_date">
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Place:</label>
@@ -217,6 +226,7 @@
                             </optgroup>
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Choose Status:</label>
                         <select class="select2 form-control" id="project_status" name="project_status" required>
@@ -233,6 +243,12 @@
                         <input type="text" placeholder="n/a" class="form-control" id="next_activity"
                                name="next_activity">
                     </div>
+
+                    <div class="form-group">
+                        <!--label for="recipient-name" class="col-form-label">: </label-->
+                        <input type="checkbox" name="send_email" value="send_email"> Send Email<br>
+                    </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" onclick="close_modal('crud')">Close</button>
                         <button type="submit" id="degree_modal_button" class="btn btn-primary">Add Project</button>
@@ -310,6 +326,10 @@
                                             <td>{{$project->project_status}}</td>
                                             <td>{{$project->next_activity}}</td>
                                             <td>
+                                                <button type="button"
+                                                        onclick=""
+                                                        class="btn btn-success">View
+                                                </button>
                                                 <button type="button"
                                                         onclick="edit_project('{{$project->id}}','{{$project->project_id}}','{!! $project->project_name !!}','{{ json_encode($project->project_description)}}','{{$project->team_id}}','{{convert_to_json($project->matching_skills)}}','{{$project->place}}','{{$project->local_mentor}}','{{convert_to_json($project->external_mentor)}}','{{$project->project_status}}','{{$project->next_activity}}','{{$project->website}}')"
                                                         class="btn btn-primary">Edit
