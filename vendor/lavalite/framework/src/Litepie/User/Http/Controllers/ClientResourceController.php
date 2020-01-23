@@ -206,8 +206,9 @@ class ClientResourceController extends BaseController
      */
     public function destroy(ClientRequest $request, String $type, Client $client)
     {
+
         try {
-            $client->delete();
+            $client->forceDelete();
 
             return $this->response->message(trans('messages.success.deleted', ['Module' => trans('user::client.name', ['client' => $type])]))
                 ->code(202)
@@ -237,6 +238,7 @@ class ClientResourceController extends BaseController
 
             if ($type == 'purge') {
                 $this->repository->purge($ids);
+
             } else {
                 $this->repository->delete($ids);
             }
