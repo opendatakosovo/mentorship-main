@@ -172,11 +172,11 @@
                 </div>
                 <div class="form-group">
                     <label for="recipient-name" class="col-form-label">From Date: </label>
-                    <input type="date" class="form-control" id="from_date_project" name="from_date">
+                    <input type="date" class="form-control" id="from_date_project" name="from_date" required>
                 </div>
                 <div class="form-group">
                     <label for="recipient-name" class="col-form-label">To Date: </label>
-                    <input type="date" class="form-control" id="to_date_project" name="to_date">
+                    <input type="date" class="form-control" id="to_date_project" name="to_date" required>
                 </div>
                 <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Place:</label>
