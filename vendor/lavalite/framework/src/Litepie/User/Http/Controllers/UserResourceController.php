@@ -52,6 +52,7 @@ class UserResourceController extends BaseController
      */
     public function index(UserRequest $request)
     {
+
         if ($this->response->typeIs('json')) {
             $pageLimit = $request->input('pageLimit');
             $data = $this->repository
@@ -205,23 +206,32 @@ class UserResourceController extends BaseController
      *
      * @return Response
      */
-    public function destroy(UserRequest $request, User $user)
+    public function destroy(User $user)
     {
-        try {
-            $user->delete();
+        $user->delete();
 
-            return $this->response->message(trans('messages.success.deleted', ['Module' => trans('user::user.name')]))
-                ->code(202)
-                ->status('success')
-                ->url(guard_url('user/user'))
-                ->redirect();
-        } catch (Exception $e) {
-            return $this->response->message($e->getMessage())
-                ->code(400)
-                ->status('error')
-                ->url(guard_url('user/user/' . $user->getRouteKey()))
-                ->redirect();
-        }
+        return $this->response->message(trans('messages.success.deleted', ['Module' => trans('user::user.name')]))
+            ->code(202)
+            ->status('success')
+            ->url(guard_url('user/user'))
+            ->redirect();
+
+//        try {
+//            $user->delete();
+//
+//            return $this->response->message(trans('messages.success.deleted', ['Module' => trans('user::user.name')]))
+//                ->code(202)
+//                ->status('success')
+//                ->url(guard_url('user/user'))
+//                ->redirect();
+//        } catch (Exception $e) {
+//
+//            return $this->response->message($e->getMessage())
+//                ->code(400)
+//                ->status('error')
+//                ->url(guard_url('user/user/' . $user->getRouteKey()))
+//                ->redirect();
+//        }
     }
 
     /**
