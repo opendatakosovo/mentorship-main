@@ -39,18 +39,16 @@ class VerifyRole
     public function handle($request, Closure $next, $role)
     {
 
-
-
-        if ($this->auth->check() && $this->auth->user()->hasRole($role)) {
-            return $next($request);
-        }
-
         if($role != 'client'){
             foreach ($this->auth->user()->roles()->get() as $roli)
             {
                 $user_roles[] = $roli->slug;
             }
             if($this->auth->check() && in_array('superuser',$user_roles)){
+                return $next($request);
+            }
+        }else{
+            if ($this->auth->check() && $this->auth->user()->hasRole($role)) {
                 return $next($request);
             }
         }
