@@ -268,7 +268,9 @@ class ProjectsController extends BaseController
                     $queries[$skill] = $query;
                     $replaced_query = str_replace("'", '',$query);
                     $mentors = DB::table('clients')
-                        ->where('skills','like','%'.$replaced_query.'%')->get();
+                        ->where('skills','like','%'.$replaced_query.'%')
+                        ->where('status','=','Active')
+                        ->get();
                 }
 
 
