@@ -41,6 +41,8 @@ Route::group(['middleware' => 'auth.basic'], function()
     Route::post('admin/skills/edit', 'SkillsController@edit');
     Route::post('admin/skills/destroy', 'SkillsController@destroy');
 
+    Route::post('client/assignment/update', 'AssignmentsController@update');
+
 });
 
 Route::post('admin/user_files/upload_files', 'ApplicationsController@upload_user_files');

@@ -20,11 +20,13 @@ class ProjectCreatedEmail extends Mailable
     public $project_name;
     public $project_desc;
 
-    public function __construct($email,$project_name,$project_desc)
+    public function __construct($email,$project_name,$project_desc,$from_date,$to_date)
     {
         $this->email = $email;
         $this->project_name = $project_name;
         $this->project_desc = $project_desc;
+        $this->from_date = $from_date;
+        $this->to_date = $to_date;
     }
 
     /**
@@ -37,12 +39,17 @@ class ProjectCreatedEmail extends Mailable
         $e_email = $this->email;
         $project_name = $this->project_name;
         $project_desc = $this->project_desc;
+        $from_date = $this->from_date;
+        $to_date = $this->to_date;
 
         $data = array(
             "email" => $e_email,
             "project_name" => $project_name,
-            "project_desc" => $project_desc
+            "project_desc" => $project_desc,
+            "from_date" => $from_date,
+            "to_date" => $to_date
         );
+
 
         return $this->view('custom.mails.project_created_email')->with('data',$data);
     }

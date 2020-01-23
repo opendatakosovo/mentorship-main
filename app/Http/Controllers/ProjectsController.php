@@ -22,6 +22,7 @@ use Litepie\Theme\ThemeAndViews;
 use Litepie\User\Traits\UserPages;
 use Illuminate\Support\Facades\Mail;
 use App\Certificates;
+use App\Assignments;
 class ProjectsController extends BaseController
 {
     public function __construct()
@@ -95,7 +96,7 @@ class ProjectsController extends BaseController
 //        Projects::create($request->all());
 
 
-        Projects::firstOrCreate(
+       $project =  Projects::firstOrCreate(
             [
                 'project_id' => $request->project_id,
                 'project_name' =>  $request->project_name,
@@ -103,6 +104,8 @@ class ProjectsController extends BaseController
                 'team_id' =>  $request->team_id,
                 'matching_skills' =>  serialize($request->matching_skills),
                 'place'  =>  $request->place,
+                'from_date'  =>  $request->from_date,
+                'to_date'  =>  $request->to_date,
                 'website'  =>  $request->website,
                 'local_mentor' =>  $request->local_mentor,
                 'external_mentor' =>  serialize($request->external_mentors),
@@ -111,10 +114,20 @@ class ProjectsController extends BaseController
             ]
         );
 
+        foreach($request->external_mentors as $mentor){
+
+            Assignments::firstOrCreate(
+                [
+                    'mentor_id' => $mentor,
+                    'project_id' =>  $project->id,
+                    'status' =>  "Pending",
+                ]
+            );
+        }
         $project_name = $request->project_name;
         $project_desc = $request->project_description;
-
-
+        $project_from_date = $request->from_date;
+        $project_to_date = $request->to_date;
 
         foreach($request->external_mentors as $mentor_id){
 
@@ -124,8 +137,10 @@ class ProjectsController extends BaseController
                 ->first();
         }
 
+
+//        FIX THIS
         foreach($mentor_emails as $mentor_email){
-            Mail::to($mentor_email->email)->send(new ProjectCreatedEmail($mentor_email->email,$project_name,$project_desc));
+            Mail::to($mentor_email->email)->send(new ProjectCreatedEmail($mentor_email->email,$project_name,$project_desc,$project_from_date,$project_to_date));
         }
 
 //
@@ -137,8 +152,21 @@ class ProjectsController extends BaseController
     public function edit(Request $request){
         $id = $request->id;
 
+
+
         if ($id != null) {
             $project = Projects::find($id);
+
+//            $existing_external_mentors = unserialize($project->external_mentor);
+
+                    $first_array = DB::table('assignments')
+                        ->select(DB::raw('mentor_id,project_id,status'))
+                        ->where('project_id','=',$id)
+                        ->get();
+
+
+
+
 
             $project->project_id = $request->project_id;
             $project->project_name = $request->project_name;
@@ -150,9 +178,66 @@ class ProjectsController extends BaseController
             $project->local_mentor = $request->local_mentor;
             $project->external_mentor = serialize($request->external_mentors);
             $project->project_status = $request->project_status;
+            $project->from_date = $request->from_date;
+            $project->to_date = $request->to_date;
             $project->next_activity = $request->next_activity;
+
+
+
+            $project_name = $request->project_name;
+            $project_desc = $request->project_description;
+            $project_from_date = $request->from_date;
+            $project_to_date = $request->to_date;
+
+
+            foreach($first_array as $first){
+                $old_assignments[$first->mentor_id] = array(
+                  'mentor_id' => $first->mentor_id ,
+                  'status' => $first->status
+                );
+            }
+
+
+            foreach($request->external_mentors as $second){
+                $status = 'Pending';
+                if(isset($old_assignments[$second]['status']) && $old_assignments[$second]['status'] != 'Pending'){
+                    $status = $old_assignments[$second]['status'];
+                }
+
+                $new_assignments[$second] = array(
+                    'mentor_id' => $second,
+                    'status' => $status
+                );
+            }
+
+
             $project->save();
 
+            foreach($request->external_mentors as $mentor_id){
+
+                $mentor_emails[] =  DB::table('clients')
+                    ->select(DB::raw('email'))
+                    ->where('id','=',$mentor_id)
+                    ->first();
+            }
+
+            foreach($mentor_emails as $mentor_email){
+                Mail::to($mentor_email->email)->send(new ProjectCreatedEmail($mentor_email->email,$project_name,$project_desc,$project_from_date,$project_to_date));
+            }
+
+        }
+
+        Assignments::where('project_id', $id)->delete();
+
+        foreach($new_assignments as $mentor){
+
+            Assignments::firstOrCreate(
+                [
+                    'mentor_id' => $mentor['mentor_id'],
+                    'project_id' =>  $id,
+                    'status' =>  $mentor['status'],
+                ]
+            );
         }
 
         return redirect('admin/projects');
@@ -163,6 +248,9 @@ class ProjectsController extends BaseController
 
         $project = new Projects();
         $project->destroy($project_id);
+
+        Assignments::where('project_id', $project_id)->delete();
+
 
         return redirect('admin/projects');
     }

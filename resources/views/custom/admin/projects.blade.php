@@ -2,357 +2,377 @@
 @section('content')
 
 
-        {{--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">--}}
-        <link rel="stylesheet" href="/themes/admin/assets/css/custom_css.css">
-        <style>
-            .select2-selection__choice {
-                color: #676767 !important;
-            }
+    {{--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">--}}
+    <link rel="stylesheet" href="/themes/admin/assets/css/custom_css.css">
+    <style>
+        .select2-selection__choice {
+            color: #676767 !important;
+        }
 
-            .select2-container {
-                width: 100% !important;
-            }
+        .select2-container {
+            width: 100% !important;
+        }
 
-            /* The Modal (background) */
-            .modal {
-                display: none; /* Hidden by default */
-                position: fixed; /* Stay in place */
-                z-index: 1; /* Sit on top */
-                padding-top: 50px; /* Location of the box */
-                left: 0;
-                top: 0;
-                width: 100%; /* Full width */
-                height: 100%; /* Full height */
-                overflow: auto; /* Enable scroll if needed */
-                background-color: rgb(0, 0, 0); /* Fallback color */
-                background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-            }
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 50px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        }
 
-            /* Modal Content */
-            .modal-content {
-                background-color: #fefefe;
-                padding: 20px;
-                border: 1px solid #888;
-                width: 50%;
-                margin: 0 auto;
-            }
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+            margin: 0 auto;
+        }
 
-            /* The Close Button */
-            .close {
-                color: #aaaaaa;
-                float: right;
-                font-size: 28px;
-                font-weight: bold;
-            }
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
 
-            .close:hover,
-            .close:focus {
-                color: #000;
-                text-decoration: none;
-                cursor: pointer;
-            }
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
-            .wrapper {
-                background-color: #f9fafc !important;
-            }
-        </style>
+        .wrapper {
+            background-color: #f9fafc !important;
+        }
+    </style>
 
 
-        <!-- DELETE -->
-        <div id="TimesheetModal" class="modal">
+    <!-- DELETE -->
+    <div id="TimesheetModal" class="modal">
 
-            <!-- Modal content -->
-            <div class="modal-content">
-                <span class="close" onclick="close_modal('timesheet')">&times;</span>
-                <h4 id="modal_title">Timesheet Manage </h4>
-                <form action="/admin/projects/timesheet_store" method="post">
-                    @CSRF
-                    <div class="col-md-3">
-                        <input type="hidden" name="project_id" id="project_id">
-                        <input type="hidden" name="created_by" id="local_mentor_timesheet" value="{{user()->id}}">
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Mentor:</label>
-                            <select class="select2 form-control" id="timesheet_user" name="mentor_id" required>
-                                <optgroup label="Choose Mentor">
-                                </optgroup>
-                            </select>
-                        </div>
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close" onclick="close_modal('timesheet')">&times;</span>
+            <h4 id="modal_title">Timesheet Manage </h4>
+            <form action="/admin/projects/timesheet_store" method="post">
+                @CSRF
+                <div class="col-md-3">
+                    <input type="hidden" name="project_id" id="project_id">
+                    <input type="hidden" name="created_by" id="local_mentor_timesheet" value="{{user()->id}}">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Mentor:</label>
+                        <select class="select2 form-control" id="timesheet_user" name="mentor_id" required>
+                            <optgroup label="Choose Mentor">
+                            </optgroup>
+                        </select>
                     </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">From Date:</label>
-                            <input type="date" placeholder="n/a" class="form-control" id="from_date" name="from_date">
-                        </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">From Date:</label>
+                        <input type="date" placeholder="n/a" class="form-control" id="from_date" name="from_date">
                     </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">To Date:</label>
-                            <input type="date" placeholder="n/a" class="form-control" id="to_date" name="to_date">
-                        </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">To Date:</label>
+                        <input type="date" placeholder="n/a" class="form-control" id="to_date" name="to_date">
                     </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Hours:</label>
-                            <input type="number" placeholder="n/a" class="form-control" id="hours" name="hours">
-                        </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Hours:</label>
+                        <input type="number" placeholder="n/a" class="form-control" id="hours" name="hours">
                     </div>
-                    <div class="modal-footer">
-                        <button type="submit" id="degree_modal_button_timesheet" class="btn btn-primary">Add Timesheet</button>
-                    </div>
-                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" id="degree_modal_button_timesheet" class="btn btn-primary">Add Timesheet
+                    </button>
+                </div>
+            </form>
 
-                <table id="example3" class="display" style="width:100%">
-                    <thead>
-                    <tr>
-                        <th>Project</th>
-                        <th>Mentor</th>
-                        <th>From Date</th>
-                        <th>To Date</th>
-                        <th>Hours</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
+            <table id="example3" class="display" style="width:100%">
+                <thead>
+                <tr>
+                    <th>Project</th>
+                    <th>Mentor</th>
+                    <th>From Date</th>
+                    <th>To Date</th>
+                    <th>Hours</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
 
-                </table>
+            </table>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary " onclick="close_modal('timesheet')">Close</button>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- DELETE -->
+    <div id="DeleteModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close" onclick="close_modal('delete')">&times;</span>
+            <h4 id="modal_title">Delete Project ? </h4>
+            <h6 id="modal_title">Are you sure you want to delete project ? , there is no turning back !</h6>
+            <form action="/admin/projects/destroy" method="post">
+                @CSRF
+                <input type="hidden" name="id" id="hidden_delete_button">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary " onclick="close_modal('delete')">Close</button>
+                    <button type="submit" id="degree_modal_button_project" class="btn btn-danger">Delete Project
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close" onclick="close_modal('crud')">&times;</span>
+            <h4 id="modal_title">Add a New Project</h4>
+            <form id="projects_form" action="/admin/projects/store" method="post">
+                @CSRF
+                <div class="form-group">
+                    <input type="hidden" name="id" id="hidden_project_id">
+                    <label for="recipient-name" class="col-form-label">ID:</label>
+                    <input type="text" class="form-control" id="project_id_text" name="project_id">
+                </div>
+
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Project Name:</label>
+                    <input type="text" class="form-control" id="project_name" name="project_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Project Description:</label>
+                    {{--<input type="text" class="form-control" id="group_name" name="group_name" required>--}}
+                    <textarea class="form-control" id="project_description" name="project_description"
+                              required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">From Date: </label>
+                    <input type="date" class="form-control" id="from_date_project" name="from_date">
+                </div>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">To Date: </label>
+                    <input type="date" class="form-control" id="to_date_project" name="to_date">
+                </div>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Place:</label>
+                    <select class="select2 form-control" id="place" name="place" required>
+                        <optgroup label="Choose place">
+                            <option value="Prishtina">Prishtina</option>
+                            <option value="Prizren">Prizren</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Website Link :</label>
+                    <input type="text" class="form-control" id="website" name="website">
+                </div>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Choose Implementing Partner:</label>
+                    <select class="select2 form-control" id="team" name="team_id" required>
+                        <optgroup label="Choose Team">
+                            <option value="none" disabled selected>Choose</option>
+                            @foreach($data['teams'] as $team)
+                                <option value="{{$team->id}}">{{$team->name}}</option>
+                            @endforeach
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Matching Skills :</label>
+                    <select class="select3 form-control" id="matching_skills" name="matching_skills[]"
+                            multiple="multiple">
+                        <optgroup label="Choose Skills">
+                            @foreach($data['skills'] as $key =>$skill)
+                                <option value="{{$key}}">{{$skill}}</option>
+                            @endforeach
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Choose Internal Mentor:</label>
+                    <select class="select2 form-control" id="local_mentor" name="local_mentor" required>
+                        <optgroup label="Choose Local Mentor">
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Choose External Mentor : <a href="#"><span
+                                    class="fa fa-info-circle" data-toggle="tooltip"
+                                    title="Hover your mouse to one of External Mentors to see the missing skills"></span></a></label>
+                    <select class="select2 form-control" id="external_mentor" multiple="multiple"
+                            name="external_mentors[]" required>
+                        <optgroup label="Choose Mentors">
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Choose Status:</label>
+                    <select class="select2 form-control" id="project_status" name="project_status" required>
+                        <optgroup label="Choose status">
+                            <option value="Active">Active</option>
+                            <option value="Ongoing">Ongoing</option>
+                            <option value="Inactive">Inactive</option>
+                            <option value="Completed">Completed</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Next Activity:</label>
+                    <input type="text" placeholder="n/a" class="form-control" id="next_activity"
+                           name="next_activity">
+                </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary " onclick="close_modal('timesheet')">Close</button>
-
+                    <button type="button" class="btn btn-secondary" onclick="close_modal('crud')">Close</button>
+                    <button type="submit" id="degree_modal_button" class="btn btn-primary">Add Project</button>
                 </div>
-            </div>
-
+            </form>
         </div>
-
-        <!-- DELETE -->
-        <div id="DeleteModal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-                <span class="close" onclick="close_modal('delete')">&times;</span>
-                <h4 id="modal_title">Delete Project ? </h4>
-                <h6 id="modal_title">Are you sure you want to delete project ? , there is no turning back !</h6>
-                <form action="/admin/projects/destroy" method="post">
-                    @CSRF
-                    <input type="hidden" name="id" id="hidden_delete_button">
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary " onclick="close_modal('delete')">Close</button>
-                        <button type="submit" id="degree_modal_button_project" class="btn btn-danger">Delete Project</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+    </div>
 
 
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-                <span class="close" onclick="close_modal('crud')">&times;</span>
-                <h4 id="modal_title">Add a New Project</h4>
-                <form id="projects_form" action="/admin/projects/store" method="post">
-                    @CSRF
-                    <div class="form-group">
-                        <input type="hidden" name="id" id="hidden_project_id">
-                        <label for="recipient-name" class="col-form-label">ID:</label>
-                        <input type="text" class="form-control" id="project_id_text" name="project_id">
-                    </div>
+    <div class="content-wrapper" style="min-height: 837px;">
+        <section class="content-header">
+            <h1>
+                <i class="fa fa-tasks"></i>
+                Projects
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="http://localhost:8000/admin"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Projects</li>
+            </ol>
+        </section>
+        <section class="content">
 
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Project Name:</label>
-                        <input type="text" class="form-control" id="project_name" name="project_name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Project Description:</label>
-                        {{--<input type="text" class="form-control" id="group_name" name="group_name" required>--}}
-                        <textarea class="form-control" id="project_description" name="project_description"
-                                  required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">From Date: </label>
-                        <input type="date" class="form-control" id="from_date" name="from_date">
-                    </div>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">To Date: </label>
-                        <input type="date" class="form-control" id="to_date" name="to_date">
-                    </div>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Place:</label>
-                        <select class="select2 form-control" id="place" name="place" required>
-                            <optgroup label="Choose place">
-                                <option value="Prishtina">Prishtina</option>
-                                <option value="Prizren">Prizren</option>
-                            </optgroup>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Website Link :</label>
-                        <input type="text" class="form-control" id="website" name="website">
-                    </div>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Choose Implementing Partner:</label>
-                        <select class="select2 form-control" id="team" name="team_id" required>
-                            <optgroup label="Choose Team">
-                                <option value="none" disabled selected>Choose</option>
-                                @foreach($data['teams'] as $team)
-                                    <option value="{{$team->id}}">{{$team->name}}</option>
-                                @endforeach
-                            </optgroup>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Matching Skills :</label>
-                        <select class="select3 form-control" id="matching_skills" name="matching_skills[]"
-                                multiple="multiple">
-                            <optgroup label="Choose Skills">
-                                @foreach($data['skills'] as $key =>$skill)
-                                    <option value="{{$key}}">{{$skill}}</option>
-                                @endforeach
-                            </optgroup>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Choose Internal Mentor:</label>
-                        <select class="select2 form-control" id="local_mentor" name="local_mentor" required>
-                            <optgroup label="Choose Local Mentor">
-                            </optgroup>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Choose External Mentor :     <a href="#"><span class="fa fa-info-circle" data-toggle="tooltip" title="Hover your mouse to one of External Mentors to see the missing skills" ></span></a></label>
-                        <select class="select2 form-control" id="external_mentor" multiple="multiple"
-                                name="external_mentors[]" required>
-                            <optgroup label="Choose Mentors">
-                            </optgroup>
-                        </select>
-                    </div>
+            <div class="row">
+                <!-- Modal -->
 
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Choose Status:</label>
-                        <select class="select2 form-control" id="project_status" name="project_status" required>
-                            <optgroup label="Choose status">
-                                <option value="Active">Active</option>
-                                <option value="Ongoing">Ongoing</option>
-                                <option value="Inactive">Inactive</option>
-                                <option value="Completed">Completed</option>
-                            </optgroup>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Next Activity:</label>
-                        <input type="text" placeholder="n/a" class="form-control" id="next_activity"
-                               name="next_activity">
-                    </div>
-
-                    <div class="form-group">
-                        <!--label for="recipient-name" class="col-form-label">: </label-->
-                        <input type="checkbox" name="send_email" value="send_email"> Send Email<br>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" onclick="close_modal('crud')">Close</button>
-                        <button type="submit" id="degree_modal_button" class="btn btn-primary">Add Project</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-
-        <div class="content-wrapper" style="min-height: 837px;">
-            <section class="content-header">
-                <h1>
-                    <i class="fa fa-tasks"></i>
-                    Projects
-                </h1>
-                <ol class="breadcrumb">
-                    <li><a href="http://localhost:8000/admin"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Projects</li>
-                </ol>
-            </section>
-            <section class="content">
-
-                <div class="row">
-                    <!-- Modal -->
-
-                    <div class="col-md-12">
-                        <div class="box box-info">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">Project Management</h3>
-                                <div class="box-tools pull-right">
-                                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                                    </button>
-                                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="box-body with-border" style="min-height: 300px; overflow-y: auto;">
-                                <button type="button" class="btn btn-primary pull-right" id="myBtn"
-                                        onclick="add_project()"
-                                        style="margin: 10px;">Add Project
+                <div class="col-md-12">
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Project Management</h3>
+                            <div class="box-tools pull-right">
+                                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                                 </button>
-                                <table id="example" class="display" style="width:100%">
-                                    <thead>
+                                <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="box-body with-border" style="min-height: 300px; overflow-y: auto;">
+                            <small>
+                                <p>Note:</p>
+                                <p>- Response Statuses with <span class="label label-info">blue</span> label indicate that Mentor's Assignment is pending</p>
+                                <p>- Response Statuses with <span class="label label-danger">red</span> label indicate that Mentor Refused the assignment</p>
+                            </small>
+                            <button type="button" class="btn btn-primary pull-right" id="myBtn"
+                                    onclick="add_project()"
+                                    style="margin: 10px;">Add Project
+                            </button>
+                            <table id="example" class="display" style="width:100%">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Project Name</th>
+                                    <th>Project Description</th>
+                                    <th>Team</th>
+                                    <th>Place</th>
+                                    <th>Local Mentor</th>
+                                    <th>External Mentor</th>
+                                    <th>Project Status</th>
+                                    <th>Next Activity</th>
+                                    <th>Response Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($data['projects'] as $project)
+
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Project Name</th>
-                                        <th>Project Description</th>
-                                        <th>Team</th>
-                                        <th>Place</th>
-                                        <th>Local Mentor</th>
-                                        <th>External Mentor</th>
-                                        <th>Project Status</th>
-                                        <th>Next Activity</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($data['projects'] as $project)
-
-                                        <tr>
-                                            <td>{{$project->project_id}}</td>
-                                            <td>{{$project->project_name}}</td>
-                                            <td>{{strlen($project->project_description) > 50 ? substr($project->project_description,0,10)."..." : $project->project_description }}</td>
-                                            <td>{{get_team_name($project->team_id)}}</td>
-                                            <td>{{$project->place}}</td>
-                                            <td>{{get_local_mentor_name($project->local_mentor)}}</td>
-                                            <td>
-
-                                                @if(unserialize($project->external_mentor) !='')
+                                        <td>{{$project->project_id}}</td>
+                                        <td>{{$project->project_name}}</td>
+                                        <td>{{strlen($project->project_description) > 50 ? substr($project->project_description,0,10)."..." : $project->project_description }}</td>
+                                        <td>{{get_team_name($project->team_id)}}</td>
+                                        <td>{{$project->place}}</td>
+                                        <td>{{get_local_mentor_name($project->local_mentor)}}</td>
+                                        <td>
+                                            @if(unserialize($project->external_mentor) !='')
                                                 @foreach(unserialize($project->external_mentor) as $mentor)
                                                     {{get_mentor_name($mentor)}}
                                                 @endforeach
-                                                    @endif
-                                            </td>
-                                            <td>{{$project->project_status}}</td>
-                                            <td>{{$project->next_activity}}</td>
-                                            <td>
-                                                <button type="button"
-                                                        onclick=""
-                                                        class="btn btn-success">View
-                                                </button>
-                                                <button type="button"
-                                                        onclick="edit_project('{{$project->id}}','{{$project->project_id}}','{!! $project->project_name !!}','{{ json_encode($project->project_description)}}','{{$project->team_id}}','{{convert_to_json($project->matching_skills)}}','{{$project->place}}','{{$project->local_mentor}}','{{convert_to_json($project->external_mentor)}}','{{$project->project_status}}','{{$project->next_activity}}','{{$project->website}}')"
-                                                        class="btn btn-primary">Edit
-                                                </button>
-                                                <button type="button" class="btn btn-danger"
-                                                        onclick="deleteProject({{$project->id}})">Delete
-                                                </button>
-                                                <button type="button" class="btn btn-warning"
-                                                        onclick="timesheet('{{$project->id}}','{{convert_to_json_mentors($project->external_mentor)}}')">
-                                                    Timesheet
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
+                                            @endif
+                                        </td>
+                                        <td>{{$project->project_status}}</td>
+                                        <td>{{$project->next_activity}}</td>
+                                        <td>
+                                            <?php
+                                            $assignments = get_assignment_statuses($project->id);
+                                            ?>
+                                            @if($assignments != null)
+                                                @foreach($assignments as $assignment)
+                                                    {{--<button type="button"--}}
+                                                            {{--class="btn btn-danger">{{get_mentor_name($assignment->mentor_id)}}--}}
+                                                        {{--<span class="badge">Refused</span></button>--}}
+                                                        <span @if($assignment->status == 'Pending')class="label label-info" @else class="label label-danger" @endif>{{get_mentor_name($assignment->mentor_id)}}</span>
+                                                    <br/>
+                                                @endforeach
+                                                @else
+                                                    <span class="label label-success" >Accepted by all</span>
 
-                                </table>
-                            </div>
+                                                @endif
+                                        </td>
+                                        <td>
+
+
+                                            <button type="button"
+                                                    onclick="edit_project('{{$project->id}}','{{$project->project_id}}','{!! $project->project_name !!}','{{ json_encode($project->project_description)}}','{{$project->team_id}}','{{convert_to_json($project->matching_skills)}}','{{$project->place}}','{{$project->local_mentor}}','{{convert_to_json($project->external_mentor)}}','{{$project->project_status}}','{{$project->next_activity}}','{{$project->website}}','{{$project->from_date}}','{{$project->to_date}}')"
+                                                    class="btn btn-primary">Edit
+                                            </button>
+                                            <button type="button" class="btn btn-danger"
+                                                    onclick="deleteProject({{$project->id}})">Delete
+                                            </button>
+
+                                            <button type="button" class="btn btn-warning"
+                                                    onclick="timesheet('{{$project->id}}','{{convert_to_json_mentors($project->external_mentor)}}')">
+                                                Timesheet
+                                            </button>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+
+                            </table>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
+    </div>
 
     <script>
         $(document).ready(function () {
@@ -419,8 +439,11 @@
             var dropdown = $("#timesheet_user");
             dropdown.empty();
             $.each(external_mentor, function (key, value) {
-                dropdown.append($("<option selected disabled />").val('').text('Choose'));
-                dropdown.append($("<option />").val(key).text(value));
+                $.each(external_mentor[key], function (i, m) {
+                    dropdown.append($("<option />").val(i).text(m));
+                });
+
+                // dropdown.append($("<option />").val(key).text(value));
             });
 
             var modal = document.getElementById("TimesheetModal");
@@ -495,7 +518,6 @@
                         location.reload();
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
-
                     }
                 });
             }
@@ -518,7 +540,7 @@
             $('#hidden_delete_button').val(id)
         }
 
-        function edit_project(id, project_id, project_name, project_description, team_id, matching_skills, place, local_mentor, external_mentor, project_status, next_activity, website) {
+        function edit_project(id, project_id, project_name, project_description, team_id, matching_skills, place, local_mentor, external_mentor, project_status, next_activity, website, from_date, to_date) {
             var url = '/admin/projects/edit';
             $('#projects_form').attr('action', url);
             $('#hidden_project_id').val(id);
@@ -526,10 +548,12 @@
             var matching_skills = JSON.parse(matching_skills);
             var external_mentor = JSON.parse(external_mentor);
 
-
             var modal = document.getElementById("myModal");
 
             modal.style.display = "block";
+
+            $('#external_mentor').select2('val', [external_mentor]);
+            $('#external_mentor').trigger('change');
 
             $('#project_id_text').val(project_id);
             $('#project_name').val(project_name);
@@ -543,10 +567,12 @@
             $('#local_mentor').val(local_mentor);
             $('#local_mentor').trigger('change');
             $('#project_status').val(project_status);
+            $('#from_date_project').val(from_date);
+            $('#to_date_project').val(to_date);
+            $('#project_status').val(project_status);
             $('#project_status').trigger('change');
             $('#next_activity').val(next_activity);
-            $('#external_mentor').select2('val', [external_mentor]);
-            $('#external_mentor').trigger('change');
+
             $('#degree_modal_button').text('Edit Project');
         }
 
@@ -570,10 +596,10 @@
                     data = JSON.parse(result)
 
                     $.each(data, function () {
-                        if(this.missing){
-                            dropdown.append($("<option data-toggle='tooltip' title='Missing Skills : "+this.missing+"'/>").val(this.id).html(this.name + ' ' + this.lastname  ));
-                        }else{
-                            dropdown.append($("<option data-toggle='tooltip' title='100% Match' />").val(this.id).text(this.name + ' ' + this.lastname ));
+                        if (this.missing) {
+                            dropdown.append($("<option data-toggle='tooltip' title='Missing Skills : " + this.missing + "'/>").val(this.id).html(this.name + ' ' + this.lastname));
+                        } else {
+                            dropdown.append($("<option data-toggle='tooltip' title='100% Match' />").val(this.id).text(this.name + ' ' + this.lastname));
                         }
 
                         // dropdown.append("<option value="+this.id+">"+this.name + ' ' + this.lastname+"</option>");
@@ -590,9 +616,7 @@
 
         $('#team').change(function (e) {
             var selected = $(e.target).val();
-
             var dropdown = $("#local_mentor");
-
             data = [];
             $.ajax({
                 url: "/admin/projects/match_local_mentor",

@@ -8,6 +8,8 @@
     $skills = get_skills();
     $projects = get_projects();
 @endphp
+
+@if($projects)
 <div class="col-md-12">
 <section class="vc_row pt-20 pb-20">
     <div class="container">
@@ -15,7 +17,7 @@
             <div class="lqd-column col-md-12 text-center" id="projects">
                 <h2>Youth Led Projects</h2>
             </div>
-            @if($projects)
+
             @foreach($projects as $project)
                 <div class="lqd-column col-md-4 col-sm-6">
                     <div class="liquid-counter liquid-counter-bordered liquid-counter-bold liquid-counter-lg liquid-counter-has-gradient">
@@ -32,7 +34,7 @@
                     </div>
                 </div>
             @endforeach
-            @endif
+
         </div>
     </div>
 </section>
@@ -64,7 +66,7 @@
     </div><!-- /.lqd-modal-inner -->
 </div><!-- /.lqd-modal -->
 
-
+@endif
 <style>
     #ui-id-1-button {
         display: none;

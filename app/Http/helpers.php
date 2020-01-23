@@ -55,7 +55,7 @@ function convert_to_json_mentors($data)
 
     $data_converted = unserialize($data);
 
-$data = [];
+    $data = [];
 
 
     foreach ($data_converted as $d) {
@@ -67,7 +67,7 @@ $data = [];
 
         if ($mentor ) {
 
-            $data = array(
+            $data[] = array(
                 $d => $mentor->name
             );
 
@@ -204,21 +204,26 @@ function is_admin($email){
         ->where('email', $email)
         ->first();
 
-    $user_id = $user->id;
+    if($user){
+        $user_id = $user->id;
 
-    $user_role =
-        DB::table('role_user')
-            ->select(DB::raw('role_id'))
-            ->where('user_id', $user_id)
-            ->first();
+        $user_role =
+            DB::table('role_user')
+                ->select(DB::raw('role_id'))
+                ->where('user_id', $user_id)
+                ->first();
 
 
-    if($user_role->role_id == 2){
-        return 'true';
-    }
-    else{
+        if($user_role->role_id == 2){
+            return 'true';
+        }
+        else{
+            return 'false';
+        }
+    }else{
         return 'false';
     }
+
 }
 
 function get_projects_count($type){
@@ -518,4 +523,88 @@ function get_projects(){
 
 
     return $projects;
+}
+
+
+function get_assignment_statuses($project_id){
+
+    $result = null ;
+    $assignments = DB::table('assignments')
+        ->select(DB::raw('*'))
+        ->where('project_id', $project_id)
+        ->get();
+
+
+        foreach($assignments as $assignment){
+            if($assignment->status == 'Pending' || $assignment->status == 'Refused'){
+                $result[] = $assignment;
+            }
+        }
+
+    return $result;
+}
+
+
+function my_pending_requests($email){
+    $user = DB::table('clients')
+        ->select(DB::raw('id'))
+        ->where('email', $email)
+        ->first();
+
+
+    $user_id = $user->id;
+
+    $assignments = DB::table('assignments')
+        ->select(DB::raw('*'))
+        ->where('mentor_id', $user_id)
+        ->get();
+
+    return $assignments;
+
+}
+function my_accepted_requests($email){
+    $user = DB::table('clients')
+        ->select(DB::raw('id'))
+        ->where('email', $email)
+        ->first();
+
+
+    $user_id = $user->id;
+
+    $assignments = DB::table('assignments')
+        ->select(DB::raw('*'))
+        ->where('mentor_id', $user_id)
+        ->where('status', 'Accepted')
+        ->get();
+
+    return $assignments;
+
+}
+function my_refused_requests($email){
+    $user = DB::table('clients')
+        ->select(DB::raw('id'))
+        ->where('email', $email)
+        ->first();
+
+
+    $user_id = $user->id;
+
+    $assignments = DB::table('assignments')
+        ->select(DB::raw('*'))
+        ->where('mentor_id', $user_id)
+        ->where('status', 'Refused')
+        ->get();
+
+    return $assignments;
+
+}
+
+function get_project_detailed_info($project_id){
+    $project = DB::table('projects')
+        ->select(DB::raw('*'))
+        ->where('id', $project_id)
+        ->first();
+
+    return $project;
+
 }
