@@ -449,7 +449,7 @@ function get_partners(){
     return $partners;
 }
 
-function get_cities (){
+function get_cities(){
   $cities = array(
       "Prishtine",
       "Peje",

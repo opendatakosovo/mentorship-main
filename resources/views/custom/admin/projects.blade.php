@@ -182,8 +182,9 @@
                     <label for="recipient-name" class="col-form-label">Place:</label>
                     <select class="select2 form-control" id="place" name="place" required>
                         <optgroup label="Choose place">
-                            <option value="Prishtina">Prishtina</option>
-                            <option value="Prizren">Prizren</option>
+                            @foreach(get_cities() as $city)
+                                <option value="{{$city}}">{{$city}}</option>
+                            @endforeach
                         </optgroup>
                     </select>
                 </div>
