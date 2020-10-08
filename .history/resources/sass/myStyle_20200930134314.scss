@@ -1,0 +1,8 @@
+@media screen and (max-width: 1199px) {
+	.navbar-header button.nav-trigger,
+	.navbar-header button.nav-toggle {
+		-webkit-box-pack: end !important; 
+		-ms-flex-pack: end !important;
+		justify-content: flex-end !important;
+	}
+}
