@@ -16,6 +16,11 @@ class Client extends BaseClient implements ContractMustVerifyEmail
   */
  protected $config = 'users.client.model';
 
+//  protected $table = 'clients';
+
+//  protected $fillable = [
+//   'cv',
+//  ];
  /**
   * Roles for the user type.
   *

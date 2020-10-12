@@ -25,7 +25,7 @@ class ApplicationsController extends Controller
  {
   //      $data = $request->all();
   $requests = $request->all();
-//   dd($request);
+  //   dd($request);
   foreach ($requests as $key => $req) {
    if (substr($key, 0, 5) === "skill") {
     $skills[$key] = array(
@@ -207,11 +207,14 @@ class ApplicationsController extends Controller
   //   dd($filename);
   //   Client::whereId('id', $id)
   //    ->update(['cv' => $filename]);
-   DB::table('clients')
-   ->where('id', $id)
+  // DB::table('clients')
+  //  ->where('id', $id)
+  //  ->update(['cv' => $filename]);
+
+  // dd($request);
+  Client::where('id', $id)
    ->update(['cv' => $filename]);
-  dd($request);
-  return redirect('/admin/user/client');
+  return redirect('/admin/user/client/');
 
  }
 }

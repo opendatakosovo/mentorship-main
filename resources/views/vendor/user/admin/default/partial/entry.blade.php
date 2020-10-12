@@ -517,7 +517,7 @@
 <div id="myModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <form action="/admin_update_cv" method="POST" novalidate="novalidate" name="cv" enctype="multipart/form-data">
+        <form action="/admin_update_cv" method="POST" novalidate="novalidate" enctype="multipart/form-data">
             @CSRF
             {{-- @method('PUT') --}}
             <input type="hidden" name="client_id" value={{$client->id}}>
