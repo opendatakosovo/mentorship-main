@@ -521,8 +521,9 @@
             @CSRF
             {{-- @method('PUT') --}}
             <input type="hidden" name="client_id" value={{$client->id}}>
+            <input type="hidden" name="email" value={{$client->email}}>
             <p>Upload CV</p>
-            <input type="file" accept="application/pdf" onchange="validatePDF(this)"  class="form-control valid" name="cv" id="cv" >
+            <input type="file" accept="application/pdf" onchange="validatePDF(this)"  class="form-control valid" name="cv" id="cv" required>
             <button class="btn btn-danger" type="submit">Submit</button>
         </form>
     </div>

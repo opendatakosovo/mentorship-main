@@ -126,8 +126,6 @@ function get_file_uploads($id)
 
 function get_cv_uploads($email)
 {
-
-
     if (\File::exists(storage_path("app/cv/".$email))) {
         $filesInFolder = \File::files(storage_path("app/cv/".$email));
 

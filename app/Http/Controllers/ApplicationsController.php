@@ -204,12 +204,7 @@ class ApplicationsController extends Controller
    $filename = $request->file('cv')->store('cv/' . $request->email);
    //    foreach ($request->file('files') as $cv) {
   }
-  //   dd($filename);
-  //   Client::whereId('id', $id)
-  //    ->update(['cv' => $filename]);
-  // DB::table('clients')
-  //  ->where('id', $id)
-  //  ->update(['cv' => $filename]);
+  // dd($filename);
 
   // dd($request);
   Client::where('id', $id)
