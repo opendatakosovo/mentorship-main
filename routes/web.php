@@ -51,7 +51,7 @@ Route::get('sign-in', 'SignInController@sign_in');
 Route::get('admin/projects/get_project', 'ApplicationsController@get_project');
 
 Route::post('admin_update_cv', 'ApplicationsController@admin_update_cv');
-Route::get('update_client_file/{id}','ApplicationsController@update_client_file');
+Route::get('update_client_file/{id}', 'ApplicationsController@update_client_file');
 
 Route::post('user/application/store', 'ApplicationsController@application_store');
 Route::get('user/application/store_certificates/{id}', 'ApplicationsController@store_certificates');

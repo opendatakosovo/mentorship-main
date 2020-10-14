@@ -520,7 +520,7 @@
         <form action="/admin_update_cv" method="POST" novalidate="novalidate" enctype="multipart/form-data">
             @CSRF
             {{-- @method('PUT') --}}
-            <input type="hidden" name="client_id" value={{$client->id}}>
+            {{-- <input type="hidden" name="client_id" value={{$client->id}}> --}}
             <input type="hidden" name="email" value={{$client->email}}>
             <p>Upload CV</p>
             <input type="file" accept="application/pdf" onchange="validatePDF(this)"  class="form-control valid" name="cv" id="cv" required>

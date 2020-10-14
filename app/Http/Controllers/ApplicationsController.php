@@ -139,12 +139,12 @@ class ApplicationsController extends Controller
  {
   //PDF file is stored under project/public/download/info.pdf
   $file = storage_path() . "/app/cv/" . $email . "/" . $name . "";
-
+//   dd($file);
   $headers = array(
    'Content-Type: application/pdf',
   );
 
-  return response()->download($file, 'CV-' . $email . '.pdf', $headers);
+  return response()->download($file, 'cv-' . $email . '.pdf', $headers);
  }
 // <=================================================================>
 
@@ -154,7 +154,7 @@ class ApplicationsController extends Controller
   foreach ($request->file('files') as $photo) {
 
    $filename = $photo->store('certificates/' . $request->mentor_id);
-   dd($filename);
+   //  dd($filename);
 
    Certificates::create([
     'mentor_id' => $request->mentor_id,
