@@ -21,7 +21,8 @@
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
-     {{--{!! Theme::asset()->styles() !!}--}}
+    {{-- <link href="{{ asset('css/myStyle.css') }}" type="text/css" rel="stylesheet" >  --}}
+    {{--{!! Theme::asset()->styles() !!}--}}
     {{--{!! Theme::asset()->scripts() !!}--}}
 </head>
 

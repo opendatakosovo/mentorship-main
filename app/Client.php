@@ -8,18 +8,23 @@ use Litepie\User\Traits\Auth\MustVerifyEmail;
 
 class Client extends BaseClient implements ContractMustVerifyEmail
 {
-    use MustVerifyEmail;
-    /**
-     * Configuartion for the model.
-     *
-     * @var array
-     */
-    protected $config = 'users.client.model';
+ use MustVerifyEmail;
+ /**
+  * Configuartion for the model.
+  *
+  * @var array
+  */
+ protected $config = 'users.client.model';
 
-    /**
-     * Roles for the user type.
-     *
-     * @var array
-     */
-    protected $role = 'client';
+//  protected $table = 'clients';
+
+//  protected $fillable = [
+//   'cv',
+//  ];
+ /**
+  * Roles for the user type.
+  *
+  * @var array
+  */
+ protected $role = 'client';
 }

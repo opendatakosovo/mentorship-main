@@ -14,6 +14,11 @@
         width: 100%;
         margin-top: -75px;
     }
+    @media screen and (max-width: 1199px){
+       .nav-trigger {
+            justify-content: flex-end !important;
+        }
+}
 </style>
 <header class="main-header">
     <!-- Logo -->
