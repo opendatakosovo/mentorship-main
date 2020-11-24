@@ -507,7 +507,7 @@
             <label for="university" class="control-label">Upload your CV</label>
             <input type="hidden" name="mentor_id" value="{{ $client->id }}">
             <input type="file" class="form-control" id="cv_upload_update" name="cv_upload_update" required
-                accept="application/pdf" onchange="validatePDF(this)" class="error"><br>
+                accept="application/pdf,application/msword,text/plain" onchange="validatePDF(this)" class="error"><br>
             <button class="btn btn-danger btn-sm pull-right" type="submit">Submit</button> --}}
         </form>
     </div>
