@@ -12,7 +12,7 @@
   "devDependencies": {},
   "dependencies": {
     "admin-lte": "^2.4",
-    "axios": "^0.18",
+    "axios": "^0.21",
     "babel-loader": "^7.1.2",
     "bootstrap": "^4.5.2",
     "bootstrap-daterangepicker": "^2.1",
