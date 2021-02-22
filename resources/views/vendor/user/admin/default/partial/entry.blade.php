@@ -524,7 +524,7 @@
             <input type="hidden" name="client_id" id="client_id-hidden" value={{$client->id}}>
             <input type="hidden" name="email" id="email-hidden" value={{$client->email}}>
             <p>Upload CV</p>
-            <input type="file" accept="application/pdf,application/msword,text/plain" onchange="validatePDF(this)" class="form-control valid"
+            <input type="file" accept="application/pdf" onchange="validatePDF(this)" class="form-control valid"
                 name="cv" id="cv" required>
             <button class="btn btn-danger" type="submit">Submit</button>
         </form>
