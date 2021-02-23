@@ -517,15 +517,13 @@
 <div id="myModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <form action="/admin_update_cv" method="POST" novalidate="novalidate" enctype="multipart/form-data"
-            id="cv_form">
+        <form action="/admin_update_cv" method="POST" novalidate="novalidate" enctype="multipart/form-data">
             @CSRF
             {{-- @method('PUT') --}}
-            <input type="hidden" name="client_id" id="client_id-hidden" value={{$client->id}}>
-            <input type="hidden" name="email" id="email-hidden" value={{$client->email}}>
+            {{-- <input type="hidden" name="client_id" value={{$client->id}}> --}}
+            <input type="hidden" name="email" value={{$client->email}}>
             <p>Upload CV</p>
-            <input type="file" accept="application/pdf" onchange="validatePDF(this)" class="form-control valid"
-                name="cv" id="cv" required>
+            <input type="file" accept="application/pdf" onchange="validatePDF(this)"  class="form-control valid" name="cv" id="cv" required>
             <button class="btn btn-danger" type="submit">Submit</button>
         </form>
     </div>
@@ -534,37 +532,6 @@
 <script>
     $(document).ready(function () {
         $('.select2').select2();
-
-        $('#cv_form').submit(function(event){
-            event.preventDefault();
-            document.getElementById("myModal").style.display="none";
-            
-            const frmData = new FormData();
-            if($('#cv').prop('files').length > 0) {
-                const file =$('#cv').prop('files')[0];
-                frmData.append("cv", file);
-            } else {
-                console.log('Error:', data);
-            }
-            frmData.append('client_id', $('#client_id-hidden').val());
-            frmData.append('email', $('#email-hidden').val());
-            console.log(frmData)
-
-            $.ajax({
-                type: "POST",
-                url: '/admin_update_cv',
-                processData: false,
-                contentType: false,
-                cache : false,
-                data: frmData,
-                success: function (data) {
-                    console.log(data.file);
-                },
-                error: function (data) { 
-                    console.log('Error:', data);
-                }
-            });
-        });
     });
 
 
@@ -576,7 +543,7 @@
         var ext = file.slice(len - 4, len);
         if (ext.toUpperCase() == ".PDF") {
             formOK = true;
-            // alert(file);
+            alert(file);
         } else {
             formOK = false;
             $("#cv_upload").val('');
@@ -584,7 +551,7 @@
         }
     }
 
-var modal = document.getElementById("myModal");
+    var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
 var btn = document.getElementById("myCvBtn");

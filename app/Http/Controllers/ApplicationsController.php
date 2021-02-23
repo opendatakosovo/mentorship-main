@@ -198,21 +198,18 @@ class ApplicationsController extends Controller
  public function admin_update_cv(Request $request)
  {
   $id = $request->client_id;
+
   if ($request->file('cv')) {
    // $filename = $request->file('cv')->store('cv/' . $id);
    $filename = $request->file('cv')->store('cv/' . $request->email);
    //    foreach ($request->file('files') as $cv) {
-  } else {
-   return response('Bad Request', 400)->json([
-    'message' => 'File not uploaded',
-   ]);
   }
-  //
+  // dd($filename);
 
   // dd($request);
   Client::where('id', $id)
    ->update(['cv' => $filename]);
-  // return redirect('/admin/user/client/');
-  return response()->json(['id' => $id, 'file' => $filename]);
+  return redirect('/admin/user/client/');
+
  }
 }
