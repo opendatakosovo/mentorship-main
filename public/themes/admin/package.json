@@ -23,7 +23,7 @@
         "admin-lte": "^2.4.8",
         "bootstrap-daterangepicker": "^2.1",
         "bootstrap-switch": "^3.3.4",
-        "chart.js": "^2.7.3",
+        "chart.js": "^2.9.4",
         "codemirror": "^5.33",
         "components-jqueryui": "^1.12.1",
         "cropper": "^3.1",
