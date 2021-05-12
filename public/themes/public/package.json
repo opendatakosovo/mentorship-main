@@ -22,7 +22,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.4.1",
         "eonasdan-bootstrap-datetimepicker": "^4.17",
-        "codemirror": "^5.33",
+        "codemirror": "^5.58",
         "dropzone": "^5.3",
         "fullcalendar": "^3.8",
         "jquery-validation": "^1.17",
