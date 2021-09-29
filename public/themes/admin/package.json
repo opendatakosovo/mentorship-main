@@ -27,7 +27,7 @@
         "codemirror": "^5.33",
         "components-jqueryui": "^1.12.1",
         "cropper": "^3.1",
-        "datatables.net": "^1.10",
+        "datatables.net": "^1.11",
         "datatables.net-bs": "^1.10",
         "datatables.net-dt": "^1.10",
         "datatables.net-responsive": "^2.2",
