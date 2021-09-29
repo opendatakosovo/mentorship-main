@@ -23,7 +23,7 @@
         "@fortawesome/fontawesome-free": "^5.4.1",
         "codemirror": "^5.33",
         "cropper": "^3.1",
-        "datatables.net": "^1.10",
+        "datatables.net": "^1.11",
         "dropzone": "^5.3",
         "eonasdan-bootstrap-datetimepicker": "^4.17",
         "fullcalendar": "^3.8",
