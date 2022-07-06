@@ -27,7 +27,7 @@
         "dropzone": "^5.3",
         "eonasdan-bootstrap-datetimepicker": "^4.17",
         "fullcalendar": "^3.8",
-        "jquery-validation": "^1.17",
+        "jquery-validation": "^1.19",
         "summernote": "^0.8",
         "sweetalert": "^2.1.0",
         "timeago": "^1.6",
